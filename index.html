@@ -21,6 +21,8 @@
       <link rel="stylesheet" href="topics.css">
       <link rel="stylesheet" href="footer.css">
 
+	  <script type="text/javascript" src="script.js"></script>
+
       <title>Homepage</title>
 
 
@@ -29,15 +31,30 @@
   <body>
     <header>Header</header>
 
-    <div id="slider">Slider</div>
+	<hr/>
+	
+    <div id="menu">Menu Options
+		<div id="option-home" onClick="showPage('home');">Home</div>
+		<div id="option-books" onClick="showPage('books');">Books</div>
+		<div id="option-articles" onClick="showPage('articles');">Article</div>
+		<div id="option-videos" onClick="showPage('videos');">Videos</div>
+		<div id="option-presentations" onClick="showPage('presentations')";>Presentations</div>
+	</div>
+	
+	<hr/>
+	
+	<div id="home">Home
+		<div id="slider" class="hidden">Slider</div>
+		<div id="about-us" >About us</div>
+		<div id="search" class="hidden">Search</div>
+		<div id="topics" class="hidden">Topics</div>
+	</div>
+	
+	<div id="books">Books</div>
+	<div id="articles">Articles</div>
+	<div id="videos">Videos</div>
+	<div id="presentations">Presentations</div>
 
-    <div id="selector">Selector</div>
-
-    <div id="about-us">About us</div>
-
-    <div id="search">Search</div>
-
-    <div id="topics">Topics</div>
 
     <footer>Footer</footer>
 
