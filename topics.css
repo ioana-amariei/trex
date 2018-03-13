@@ -1,1 +1,139 @@
 /* Acest css gestioneaza doar continutul aferent div-ului topics */
+
+#topics {
+	width: 65%;
+	margin: 0 auto;
+}
+
+#topics-tag-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	margin-bottom: 30px;
+}
+
+#topics-tag-row .tag {
+	cursor: pointer;
+	flex: 1 1 50%;
+	padding: 55px 0;
+	border: 5px solid transparent;
+	transition: all ease 0.3s;
+}
+
+#topics-tag-row .tag:hover {
+	flex: 1 1 70%;
+	border: 5px solid rgba(0, 0, 0, 0.3);
+}
+
+#topics-tag-row .tag:nth-child(1) { background-color: #30a8cb; }
+#topics-tag-row .tag:nth-child(2) { background-color: #5f7db9; }
+#topics-tag-row .tag:nth-child(3) { background-color: #9650a8; }
+#topics-tag-row .tag:nth-child(4) { background-color: #854196; }
+#topics-tag-row .tag:nth-child(5) { background-color: #a92267; }
+#topics-tag-row .tag:nth-child(6) { background-color: #bf2273; }
+#topics-tag-row .tag:nth-child(7) { background-color: #e21e8e; }
+
+#topics-tag-row .tag p {
+	user-select: none;
+	margin: 0;
+	text-align: center;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 150%;
+	color: rgb(238, 238, 238);
+}
+
+#topics-grid-title {
+	margin-bottom: 1.2em;
+	display: inline-flex;
+	width: 100%;
+}
+
+#topics-grid-title h2 {
+	flex-basis: 100%;
+	font-size: 1.5em;
+	margin: 20px 0;
+}
+
+#topics-grid-title button {
+	height: 40px;
+	margin-top: 12px;
+	min-width: 100px;
+	background-color: #854196;
+	border: none;
+	font-size: .8em;
+	font-weight: lighter;
+	color: white;
+	text-transform: uppercase;
+	box-shadow: 0 5px 0 #7b3a8a;
+	transition: all ease 0.3s;
+}
+
+#topics-grid-title button:active,
+#topics-grid-title button:focus {
+	outline: 0;
+}
+
+#topics-grid-title button:hover {
+	cursor: pointer;
+	background-color: #5e286a;
+	box-shadow: 0 5px 0 #511e5c;
+}
+
+#topics-grid > #topics-grid-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#topics-grid #topics-grid-container .col {
+	cursor: pointer;
+	margin-left: 5%;
+	margin-bottom: 1rem;
+	flex-grow: 1;
+	width: 30%;
+	height: 300px;
+	overflow: hidden;
+}
+
+#topics-grid #topics-grid-container .col:hover img {
+	opacity: 0.8;
+}
+
+#topics-grid #topics-grid-container .col:nth-child(3n+1) {
+	margin-left: 0;
+}
+
+#topics-grid .col img {
+	opacity: 1;
+	width: 100%;
+	height: 200px;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	transition: all ease 0.5s;
+}
+
+#topics-grid .col p, #topics-grid-title h2 {
+	font-family: sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#topics-grid .col p {
+	font-size: .9em;
+}
+
+#topics-grid .col ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#topics-grid .col li {
+	float: left;
+	padding-right: 15px;
+	font-family: sans-serif;
+	font-size: .7em;
+	font-weight: normal;
+	text-transform: uppercase;
+}
