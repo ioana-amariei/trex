@@ -1,1 +1,57 @@
 /* Acest css gestioneaza doar continutul aferent div-ului slider */
+
+#slider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* centrare */
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+	overflow: hidden;
+  width: 960px;
+  height: 350px;
+  position: relative;
+}
+
+#slider img {
+  width: 100%;
+  height: 100%;
+	float: left;
+  position: relative;
+  border: white;
+  display: block;
+  border-radius: 10px 20px 20px 10px;
+}
+
+#display-left{
+  position: absolute;
+  color: black;
+  opacity: 0.5;
+  border:none;
+  top:40%;
+  left:0;
+  height: 60px;
+  width: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#display-right{
+  position: absolute;
+  color: black;
+  opacity: 0.5;
+  border:none;
+  top:40%;
+  right:0;
+  height: 60px;
+  width: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+#display-left:hover, #display-right:hover {
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+}

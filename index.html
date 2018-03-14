@@ -21,7 +21,8 @@
       <link rel="stylesheet" href="topics.css">
       <link rel="stylesheet" href="footer.css">
 
-	  <script src="script.js"></script>
+	    <script src="script.js"></script>
+      <script src="slider.js"></script>
 
       <title>TReX</title>
 
@@ -29,12 +30,12 @@
   </head>
 
   <body>
-  
+
 	<!-- start Octavian Gensthaler -->
     <header>Header</header>
 	<!-- start Octavian Gensthaler -->
 
-	
+
 	<!-- start Ioana Birsan -->
 	<hr/>
 
@@ -48,21 +49,27 @@
 
 	<hr/>
 	<!-- end Ioana Birsan -->
-	
-	
+
+
 	<div id="home">Home
-		
+
 		<!-- start Ioana Birsan -->
-		<div id="slider">Slider</div>
+		<div id="slider">
+      <button id="display-left" onclick="goToSlide(-1)">&#10094;</button>
+      <img class="slide" src="images/slide_one.jpg">
+      <img class="slide" src="images/slide_two.jpg">
+      <img class="slide" src="images/slide_three.jpg">
+      <button id="display-right" onclick="goToSlide(+1)">&#10095;</button>
+    </div>
 		<!-- end Ioana Birsan -->
-		
-		
+
+
 		<!-- start Octavian Gensthaler  -->
 		<div id="about-us" >About us</div>
 		<div id="search">Search</div>
 		<!-- end Octavian Gensthaler  -->
 
-		
+
 		<!-- start Loghin Alexandru  -->
 		<div id="topics">
 			<div id="topics-tag-row">
@@ -140,26 +147,26 @@
 		</div>
 	</div>
 	<!-- end Loghin Alexandru  -->
-	
-	
+
+
 	<!-- start Ioana Birsan  -->
 	<div id="books">Books</div>
 	<!-- end Ioana Birsan  -->
-	
-	
+
+
 	<!-- to be decided  -->
 	<div id="articles">Articles</div>
-	
-	
+
+
 	<!-- start Luca Alexandru  -->
 	<div id="videos">Videos</div>
 	<!-- end Luca Alexandru  -->
-	
-	
+
+
 	<!-- to be decided  -->
 	<div id="presentations">Presentations</div>
 
-	
+
 	<!-- start Loghin Alexandru -->
   <footer>
     <div>
