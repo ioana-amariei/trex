@@ -15,6 +15,7 @@ footer > div {
 }
 
 footer #logo {
+  cursor: pointer;
   font-family: 'Lato', sans-serif;
   width: 30%;
   float: left;
@@ -26,6 +27,11 @@ footer  h2 {
   font-size: 3.5em;
   padding: 20px 0 0 0;
   margin: 0;
+  transition: all ease-in-out .5s;
+}
+
+footer h2:hover {
+  color: rgb(80, 80, 80);
 }
 
 footer p {
@@ -60,7 +66,7 @@ footer #footer-list ul li:first-child::after {
   border-bottom: 1px solid rgb(50, 50, 50);
   width: 25px;
   margin: 10px 0 30px 0;
-  transition: .2s ease-in-out;
+  transition: all ease-in-out .3s;
 }
 
 footer #footer-list ul:hover li:first-child::after {
