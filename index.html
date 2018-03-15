@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/topics.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/article.css">
 
   <script src="js/script.js"></script>
   <script src="js/slider.js"></script>
@@ -231,7 +232,188 @@
 
 
   <!-- start Loghin Alexandru  -->
-  <div id="articles" class="page">Articles</div>
+  <div id="articles" class="page">Articles
+
+    <article>
+
+      <header class="article-header">
+        <div>
+        <time>March 15, 2018</time>
+        <h1>Animate a Container on Mouse Over Using Perspective and Transform</h1>
+        <p class="author"><span class="fn">CSS-Tricks, Mihai Ionescu</span></p>
+        </div>
+      </header>
+
+      <div id="article-info">
+        <p>WORK IN PROGRESS: Author + Views + Share buttons + @media print for PDF</p>
+      </div>
+
+      <div class="article-content">
+        <p>I’ve been working on a website in which large pictures are displayed to the user. Instead of creating a typical lightbox effect (a zoom-in animation with a black overlay) for these large pictures, I decided to try and make something more interactive and fun. I ended up coding an image container that tilts as the user moves the mouse cursor above it.</p>
+        <p>Here’s the final version:</p>
+
+        <p data-height="265" data-theme-id="0" data-slug-hash="MrLopq" data-default-tab="js,result" data-user="MihaiIonescu" data-embed-version="2" data-pen-title="MrLopq" class="codepen">See the Pen <a href="https://codepen.io/MihaiIonescu/pen/MrLopq/">MrLopq</a> by Mihai (<a href="https://codepen.io/MihaiIonescu">@MihaiIonescu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+        <p>This effect is achieved through CSS and JavaScript. I figured I’d make a little tutorial explaining how each part works so you could easily reproduce it or extend it. </p>
+        <p>I recommend reading up on the almanac entries for <a href="https://css-tricks.com/almanac/properties/p/perspective/">perspective</a> and <a href="https://css-tricks.com/almanac/properties/t/transform/">transform</a> before we get started. We’re going to refer to these properties through the post and it’s a good idea to be familiar with them.</p>
+        <p>Let’s get down to it.</p>
+        <h3>Setup</h3>
+        <p>First, we need a container with another inner element. The container will help with the perspective.</p>
+
+        <figure>
+          <figcaption class="language-markup">HTML</figcaption>
+          <pre>
+            <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>inner<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span></code>
+          </pre>
+        </figure>
+
+        <p>For demonstration purposes, let’s center the card exactly in the middle of the screen: </p>
+
+        <figure>
+            <figcaption class="language-css">CSS</figcaption>
+            <pre>
+              <code><span class="token selector">body </span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">/* Full screen width and height */</span>
+                <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+                <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token scale">vh</span><span class="token punctuation">;</span>
+
+                <span class="token comment" spellcheck="true">/* Centers the container in the middle of the screen */</span>
+                <span class="token property">display</span><span class="token punctuation">:</span><span class="token scale">flex</span><span class="token punctuation">;</span>
+                <span class="token property">justify-content</span><span class="token punctuation">:</span><span class="token scale">center</span><span class="token punctuation">;</span>
+                <span class="token property">align-items</span><span class="token punctuation">:</span><span class="token scale">center</span><span class="token punctuation">;</span>
+
+                <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+                <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function"><span class="token scale">rgb</span></span><span class="token punctuation">(</span><span class="token number">220</span>, <span class="token number">220</span>, <span class="token number">220</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+
+              <span class="token selector"><span class="token id">#container</span> </span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">/* This will come into play later */</span>
+                <span class="token property">perspective</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token scale">px</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+
+              <span class="token selector"><span class="token id">#inner</span> </span><span class="token punctuation">{</span>
+                <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token scale">em</span><span class="token punctuation">;</span>
+                <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">18</span><span class="token scale">em</span><span class="token punctuation">;</span>
+                <span class="token property">background-color</span><span class="token punctuation">:</span><span class="token scale">white</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span></code>
+            </pre>
+        </figure>
+
+        <p>This gives us a white card that is positioned directly in the center of a light gray background. Note that we’ve set the perspective of the <code>#container</code> to <code>40px</code> which does nothing at this point because we have not created any transforms. That will be handled later in the JavaScript.</p>
+
+        <p data-height="336" data-theme-id="0" data-slug-hash="OQQdPb" data-default-tab="css,result" data-user="MihaiIonescu" data-embed-version="2" data-pen-title="3D Image Container - Part 0" class="codepen">See the Pen <a href="https://codepen.io/MihaiIonescu/pen/OQQdPb/">3D Image Container - Part 0</a> by Mihai (<a href="https://codepen.io/MihaiIonescu">@MihaiIonescu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        <br>
+        <h3>Let’s Start Scripting</h3>
+        <p>Here’s the outline for what we’re doing:</p>
+
+        <figure>
+          <figcaption class="language-javascript">JS</figcaption>
+          <pre>
+            <code><span class="token keyword">var</span> container <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'container'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> inner <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'inner'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">var</span> onMouseEnterHandler <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token function">update</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> onMouseLeaveHandler <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              inner<span class="token punctuation">.</span>style <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> onMouseMoveHandler <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isTimeToUpdate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">update</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+            container<span class="token punctuation">.</span>onmouseenter <span class="token operator">=</span> onMouseEnterHandler<span class="token punctuation">;</span>
+            container<span class="token punctuation">.</span>onmouseleave <span class="token operator">=</span> onMouseLeaveHandler<span class="token punctuation">;</span>
+            container<span class="token punctuation">.</span>onmousemove <span class="token operator">=</span> onMouseMoveHandler<span class="token punctuation">;</span></code>
+          </pre>
+        </figure>
+
+        <p>And here is what all those things are (or will) be doing:</p>
+        <ul>
+        <li><strong>Handler Functions:</strong> these functions handle the events as they happen. We want to decide what happens when the cursor enters, moves over, and leaves the container, so each of those has a handler.</li>
+        <li><strong>Update Function:</strong> We haven’t coded this yet but its goal will be to update the 3D rotation of our <code>#inner</code> div.</li>
+        <li><strong>Time to Update Function:</strong> This is another function we haven’t coded yet but it will return <code>true</code> when an update is required. This is a way to reduce the number of calls to the <code>update()</code> function and improve the performance of our script.</li>
+        <li><strong>Event:</strong> This is a JavaScript object that describes the event that occurred.</li>
+        </ul>
+        <p>The code above will:</p>
+        <ul>
+        <li>Update the 3D rotation of the inner div as soon as the mouse enters the container.</li>
+        <li>Update the 3D rotation of the inner div when the appropriate time comes as the mouse moves over the container.</li>
+        <li>Reset the style of the inner div when the mouse leaves the container.</li>
+        </ul>
+        <h3>Is it Time to Update?</h3>
+        <p>Let’s add the function that decides when to update the 3D rotation of the <code>#inner</code> div.</p>
+
+        <figure>
+          <figcaption class="language-javascript">JS</figcaption>
+          <pre>
+            <code><span class="token keyword">var</span> counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> updateRate <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> isTimeToUpdate <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">return</span> counter<span class="token operator">++</span> <span class="token operator">%</span> updateRate <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span></code>
+          </pre>
+        </figure>
+
+        <p>When the <code>counter</code> reaches the <code>updateRate</code>, an update will be made.</p>
+        <p>At this point, you can try replacing the <code>update</code> function by a <code>console.log()</code> and play with the <code>updateRate</code> to see how it all works together.</p>
+        <h3>The Mouse</h3>
+        <p>Next up is the mouse object. This one is a little more complex than the other sections. Still, it’s not that difficult to understand, but the code can seem intimidating, especially if you’re new to JavaScript.</p>
+
+        <figure>
+          <figcaption class="language-javascript">JS</figcaption>
+          <pre>
+            <code><span class="token comment" spellcheck="true">// Init</span>
+            <span class="token keyword">var</span> container <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'container'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">var</span> inner <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'inner'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// Mouse </span>
+            <span class="token keyword">var</span> mouse <span class="token operator">=</span> <span class="token punctuation">{</span>
+              _x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+              _y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+              x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+              y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+              updatePosition<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">var</span> e <span class="token operator">=</span> event <span class="token operator">||</span> window<span class="token punctuation">.</span>event<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_x<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>clientY <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_y<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              setOrigin<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>_x <span class="token operator">=</span> e<span class="token punctuation">.</span>offsetLeft <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>offsetWidth<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>_y <span class="token operator">=</span> e<span class="token punctuation">.</span>offsetTop <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>offsetHeight<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              show<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token string">'('</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">+</span> <span class="token string">', '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">+</span> <span class="token string">')'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// Track the mouse position relative to the center of the container.</span>
+            mouse<span class="token punctuation">.</span><span class="token function">setOrigin</span><span class="token punctuation">(</span>container<span class="token punctuation">)</span><span class="token punctuation">;</span></code>
+          </pre>
+        </figure>
+
+        <p>Again, let’s walk through this together.</p>
+        <ul>
+        <li><code>show()</code>: Displays the current position of the mouse (if you want to do some debugging in the browser’s console).</li>
+        <li><code>setOrigin(e)</code>: Sets the coordinates <code>(0,0)</code> of our <code>mouse</code> object at the center of the element (<code>e</code>).</li>
+        <li><code>updatePosition()</code>: Updates the current position of our <code>mouse</code> object, relative to <code>(0,0)</code>.</li>
+        </ul>
+        <p>The last line of code <code>mouse.setOrigin(container)</code> snaps the coordinates <code>(0,0)</code> of our <code>mouse</code> object to the center of our container. Here's an example that illustrates it. </p>
+
+        <p data-height="265" data-theme-id="0" data-slug-hash="JpVPLQ" data-default-tab="js,result" data-user="MihaiIonescu" data-embed-version="2" data-pen-title="3D Image Container - Part 1" class="codepen">See the Pen <a href="https://codepen.io/MihaiIonescu/pen/JpVPLQ/">3D Image Container - Part 1</a> by Mihai (<a href="https://codepen.io/MihaiIonescu">@MihaiIonescu</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+
+      </div>
+      <footer class="article-content" id="footer-ref">
+        <h2>References</h2>
+          <p>Article taken from: <a href="https://css-tricks.com/animate-a-container-on-mouse-over-using-perspective-and-transform/">www.css-tricks.com</a></p>
+      </footer>
+    </article>
+
+  </div>
   <!-- end Loghin Alexandru  -->
 
   <!-- start Luca Alexandru  -->
@@ -244,7 +426,7 @@
 
 
   <!-- start Loghin Alexandru -->
-  <footer>
+  <footer id="main-footer">
     <div>
       <div id="logo">
         <h2>TReX</h2>
