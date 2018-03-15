@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/slider.css">
   <link rel="stylesheet" href="css/about-us.css">
-  <link rel="stylesheet" href="css/selector.css">
+  <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/search.css">
   <link rel="stylesheet" href="css/topics.css">
   <link rel="stylesheet" href="css/footer.css">
@@ -42,194 +42,205 @@
   <!-- start Ioana Birsan -->
   <hr/>
 
-  <div id="menu">Menu Options
-    <div id="option-home" onClick="showPage('home');">Home</div>
-    <div id="option-books" onClick="showPage('books');">Books</div>
-    <div id="option-articles" onClick="showPage('articles');">Article</div>
-    <div id="option-videos" onClick="showPage('videos');">Videos</div>
-    <div id="option-presentations" onClick="showPage('presentations');">Presentations</div>
-  </div>
+  <nav id="menu">
+    <div id="option-home" class="menu-option" onClick="showPage('home');">
+      Home
+      <img src="https://use.fontawesome.com/releases/v5.0.8/svgs/solid/home.svg">
+    </div>
+    <div id="option-books" class="menu-option" onClick="showPage('books');">
+      Books
+      <img src="https://use.fontawesome.com/releases/v5.0.8/svgs/solid/book.svg">
+    </div>
+    <div id="option-articles" class="menu-option" onClick="showPage('articles');">
+      Articles
+      <img src="https://use.fontawesome.com/releases/v5.0.8/svgs/solid/newspaper.svg">
+    </div>
+    <div id="option-videos" class="menu-option" onClick="showPage('videos');">
+      Videos
+      <img src="https://use.fontawesome.com/releases/v5.0.8/svgs/solid/video.svg">
+    </div>
+    <div id="option-presentations" class="menu-option" onClick="showPage('presentations');">
+      Presentations
+      <img src="https://use.fontawesome.com/releases/v5.0.8/svgs/regular/file-powerpoint.svg">
+    </div>
+  </nav>
 
   <hr/>
   <!-- end Ioana Birsan -->
 
 
-  <div id="home">Home
+  <div id="home" class="page">Home
 
-    <!-- start Ioana Birsan -->
-    <div id="slider">
-      <button id="display-left" onclick="goToSlide(-1)">&#10094;</button>
-        <figure>
-          <img class="slide" src="images/slide_one.jpg" alt>
-          <img class="slide" src="images/slide_two.jpg" alt>
-          <img class="slide" src="images/slide_three.jpg" alt>
-          <img class="slide" src="images/slide_two.jpg" alt>
-          <img class="slide" src="images/slide_three.jpg" alt>
-        </figure>
-      <button id="display-right" onclick="goToSlide(+1)">&#10095;</button>
-    </div>
-    <!-- end Ioana Birsan -->
-
-
-    <!-- start Octavian Gensthaler  -->
-    <div id="about-us">About us</div>
-    <div id="search">Search</div>
-    <!-- end Octavian Gensthaler  -->
-
-
-    <!-- start Loghin Alexandru  -->
-    <div id="topics">
-      <div id="topics-tag-row">
-        <div class="tag">  <p>POO</p>          </div>
-        <div class="tag">  <p>Java</p>         </div>
-        <div class="tag">  <p>Matematica</p>   </div>
-        <div class="tag">  <p>LFAC</p>         </div>
-        <div class="tag">  <p>Retele</p>       </div>
-        <div class="tag">  <p>Logica</p>       </div>
-        <div class="tag">  <p>Web</p>          </div>
+      <!-- start Ioana Birsan -->
+      <div id="slider">
+          <figure>
+            <img class="slide" src="images/slide_one.jpg" alt>
+            <img class="slide" src="images/slide_two.jpg" alt>
+            <img class="slide" src="images/slide_three.jpg" alt>
+            <img class="slide" src="images/slide_four.jpg" alt>
+            <img class="slide" src="images/slide_five.jpg" alt>
+          </figure>
+          <!--<button id="display-left" onclick="goToSlide(-1)">&#10094;</button>-->
+          <!--<button id="display-right" onclick="goToSlide(+1)">&#10095;</button>-->
       </div>
+      <!-- end Ioana Birsan -->
 
-      <div id="topics-grid">
-        <div id="topics-grid-title">
-          <h2>Advanced Programming</h2>
-          <button type="button" onclick="alert('Hi')">View all</button>
+
+      <!-- start Octavian Gensthaler  -->
+      <div id="about-us">About us</div>
+      <div id="search">Search</div>
+      <!-- end Octavian Gensthaler  -->
+
+
+      <!-- start Loghin Alexandru  -->
+      <div id="topics">
+        <div id="topics-tag-row">
+          <div class="tag">  <p>POO</p>          </div>
+          <div class="tag">  <p>Java</p>         </div>
+          <div class="tag">  <p>Matematica</p>   </div>
+          <div class="tag">  <p>LFAC</p>         </div>
+          <div class="tag">  <p>Retele</p>       </div>
+          <div class="tag">  <p>Logica</p>       </div>
+          <div class="tag">  <p>Web</p>          </div>
         </div>
-        <div id="topics-grid-container">
-          <div class="col">
-            <img src="https://source.unsplash.com/random/?yellow" alt="Random unsplash">
-            <p>Java Course 1</p>
-            <ul>
-              <li>
-                <div class="clock-h9m0 icon"></div>
-                <p>1 year</p>
-              </li>
-              <li>
-                <div class="profile icon"></div>
-                <p>Bahar Du</p>
-              </li>
-              <li>
-                <div class="tag icon"></div>
-                <p>License</p>
-              </li>
-            </ul>
+
+        <div id="topics-grid">
+          <div id="topics-grid-title">
+            <h2>Advanced Programming</h2>
+            <button type="button" onclick="alert('Hi')">View all</button>
           </div>
-          <div class="col">
-            <img src="https://source.unsplash.com/random/?orange" alt="Random unsplash">
-            <p>Java Course 2</p>
-            <ul>
-              <li>
-                <div class="clock-h9m0 icon"></div>
-                <p>2 years</p>
-              </li>
-              <li>
-                <div class="profile icon"></div>
-                <p>Anamaria Viorica</p>
-              </li>
-              <li>
-                <div class="tag icon"></div>
-                <p>Master</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col">
-            <img src="https://source.unsplash.com/random/?fun" alt="Random unsplash">
-            <p>Java Course 3</p>
-            <ul>
-              <li>
-                <div class="clock-h9m0 icon"></div>
-                <p>3 months</p>
-              </li>
-              <li>
-                <div class="profile icon"></div>
-                <p>Sanda Iulia</p>
-              </li>
-              <li>
-                <div class="tag icon"></div>
-                <p>License</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col">
-            <img src="https://source.unsplash.com/random/?green" alt="Random unsplash">
-            <p>Java Course 4</p>
-            <ul>
-              <li>
-                <div class="clock-h9m0 icon"></div>
-                <p>1 year</p>
-              </li>
-              <li>
-                <div class="profile icon"></div>
-                <p>Mihai Manuela</p>
-              </li>
-              <li>
-                <div class="tag icon"></div>
-                <p>Master</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col">
-            <img src="https://source.unsplash.com/random/?blue" alt="Random unsplash">
-            <p>Java Course 5</p>
-            <ul>
-              <li>
-                <div class="clock-h9m0 icon"></div>
-                <p>1 years</p>
-              </li>
-              <li>
-                <div class="profile icon"></div>
-                <p>Vasilica Daniela</p>
-              </li>
-              <li>
-                <div class="tag icon"></div>
-                <p>Master</p>
-              </li>
-            </ul>
-          </div>
-          <div class="col">
-            <img src="https://source.unsplash.com/random/?violet" alt="Random unsplash">
-            <p>Java Course 6</p>
-            <ul>
-              <li>
-                <div class="clock-h9m0 icon"></div>
-                <p>1 month</p>
-              </li>
-              <li>
-                <div class="profile icon"></div>
-                <p>Sorin Angelica</p>
-              </li>
-              <li>
-                <div class="tag icon"></div>
-                <p>License</p>
-              </li>
-            </ul>
+          <div id="topics-grid-container">
+            <div class="col">
+              <img src="https://source.unsplash.com/random/?yellow" alt="Random unsplash">
+              <p>Java Course 1</p>
+              <ul>
+                <li>
+                  <div class="clock-h9m0 icon"></div>
+                  <p>1 year</p>
+                </li>
+                <li>
+                  <div class="profile icon"></div>
+                  <p>Bahar Du</p>
+                </li>
+                <li>
+                  <div class="tag icon"></div>
+                  <p>License</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col">
+              <img src="https://source.unsplash.com/random/?orange" alt="Random unsplash">
+              <p>Java Course 2</p>
+              <ul>
+                <li>
+                  <div class="clock-h9m0 icon"></div>
+                  <p>2 years</p>
+                </li>
+                <li>
+                  <div class="profile icon"></div>
+                  <p>Anamaria Viorica</p>
+                </li>
+                <li>
+                  <div class="tag icon"></div>
+                  <p>Master</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col">
+              <img src="https://source.unsplash.com/random/?fun" alt="Random unsplash">
+              <p>Java Course 3</p>
+              <ul>
+                <li>
+                  <div class="clock-h9m0 icon"></div>
+                  <p>3 months</p>
+                </li>
+                <li>
+                  <div class="profile icon"></div>
+                  <p>Sanda Iulia</p>
+                </li>
+                <li>
+                  <div class="tag icon"></div>
+                  <p>License</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col">
+              <img src="https://source.unsplash.com/random/?green" alt="Random unsplash">
+              <p>Java Course 4</p>
+              <ul>
+                <li>
+                  <div class="clock-h9m0 icon"></div>
+                  <p>1 year</p>
+                </li>
+                <li>
+                  <div class="profile icon"></div>
+                  <p>Mihai Manuela</p>
+                </li>
+                <li>
+                  <div class="tag icon"></div>
+                  <p>Master</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col">
+              <img src="https://source.unsplash.com/random/?blue" alt="Random unsplash">
+              <p>Java Course 5</p>
+              <ul>
+                <li>
+                  <div class="clock-h9m0 icon"></div>
+                  <p>1 years</p>
+                </li>
+                <li>
+                  <div class="profile icon"></div>
+                  <p>Vasilica Daniela</p>
+                </li>
+                <li>
+                  <div class="tag icon"></div>
+                  <p>Master</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col">
+              <img src="https://source.unsplash.com/random/?violet" alt="Random unsplash">
+              <p>Java Course 6</p>
+              <ul>
+                <li>
+                  <div class="clock-h9m0 icon"></div>
+                  <p>1 month</p>
+                </li>
+                <li>
+                  <div class="profile icon"></div>
+                  <p>Sorin Angelica</p>
+                </li>
+                <li>
+                  <div class="tag icon"></div>
+                  <p>License</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- end Loghin Alexandru  -->
+      <!-- end Loghin Alexandru  -->
   </div>
 
 
   <!-- start Ioana Birsan  -->
-  <div id="books">Books</div>
+  <div id="books" class="page">Books</div>
   <!-- end Ioana Birsan  -->
 
 
   <!-- start Loghin Alexandru  -->
-  <div id="articles">Articles
-
-  
-
-  </div>
+  <div id="articles" class="page">Articles</div>
   <!-- end Loghin Alexandru  -->
 
   <!-- start Luca Alexandru  -->
-  <div id="videos">Videos</div>
+  <div id="videos" class="page">Videos</div>
   <!-- end Luca Alexandru  -->
 
 
   <!-- to be decided  -->
-  <div id="presentations">Presentations</div>
+  <div id="presentations" class="page">Presentations</div>
 
 
   <!-- start Loghin Alexandru -->
