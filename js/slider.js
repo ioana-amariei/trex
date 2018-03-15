@@ -1,32 +1,32 @@
 /* display first image */
 var slideIndex = 1;
-showSlides(slideIndex);
+showSlide(slideIndex);
 
 /* adds or substracts one to the slideIndex */
-function goToSlide(plusMinusOne) {
-    slideIndex += plusMinusOne;
-    showSlides(slideIndex);
+function goToSlide(number) {
+    slideIndex += number;
+    showSlide(slideIndex);
 }
 
 /* hides (display="none") all elements with the class name "slide",
    and displays (display="block") the element with the given slideIndex.*/
-function showSlides(n) {
-    var index;
-    var element = document.getElementsByClassName("slide");
+function showSlide(n) {
+    var images = document.getElementsByClassName("slide");
 
     /* if the slideIndex is higher than the number of elements, it is set to 1 */
-    if (n > element.length) {
+    if (n > images.length) {
       slideIndex = 1;
     }
 
     /* if the slideIndex is less than 1 it is set to number of elements */
     if (n < 1) {
-      slideIndex = element.length;
+      slideIndex = images.length;
     }
 
-    for (index = 0; index < element.length; index++) {
-        element[index].style.display = "none";
+    var index;
+    for (index = 0; index < images.length; index++) {
+        images[index].style.display = "none";
     }
 
-    element[slideIndex-1].style.display = "block";
+    images[slideIndex-1].style.display = "block";
 }
