@@ -73,24 +73,9 @@
     color: rgb(100, 100, 100);
     background-color: rgb(204, 204, 204);
   }
-  .menu-option {
-    width: 20%;
-    height: 100%;
-    position: relative;
-    float: left;
-  }
 
   .menu-option p {
     display: none;
-  }
-
-
-  .menu-option img {
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    left: 24%;
-    bottom: 21%;
   }
 }
 
@@ -109,23 +94,9 @@
     color: rgb(100, 100, 100);
     background-color: rgb(204, 204, 204);
   }
-  .menu-option {
-    width: 20%;
-    height: 100%;
-    position: relative;
-    float: left;
-  }
 
   .menu-option p {
     display: none;
-  }
-
-  .menu-option img {
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    left: 24%;
-    bottom: 21%;
   }
 }
 
@@ -144,24 +115,10 @@
     color: rgb(100, 100, 100);
     background-color: rgb(204, 204, 204);
   }
-  .menu-option {
-    width: 20%;
-    height: 100%;
-    position: relative;
-    float: left;
-  }
 
   .menu-option p {
     font-size: 3px;
     text-align: center;
-  }
-
-  .menu-option img {
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    left: 24%;
-    bottom: 21%;
   }
 }
 
@@ -182,24 +139,10 @@
     color: rgb(100, 100, 100);
     background-color: rgb(204, 204, 204);
   }
-  .menu-option {
-    width: 20%;
-    height: 100%;
-    position: relative;
-    float: left;
-  }
 
   .menu-option p {
     font-size: 3px;
     text-align: center;
-  }
-
-  .menu-option img {
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    left: 24%;
-    bottom: 21%;
   }
 }
 
@@ -218,22 +161,8 @@
     color: rgb(100, 100, 100);
     background-color: rgb(204, 204, 204);
   }
-  .menu-option {
-    width: 20%;
-    height: 100%;
-    position: relative;
-    float: left;
-  }
 
   .menu-option p {
     display: none;
-  }
-
-  .menu-option img {
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    left: 24%;
-    bottom: 21%;
   }
 }

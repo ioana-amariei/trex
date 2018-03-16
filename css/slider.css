@@ -87,30 +87,84 @@
   background-color: rgba(0,0,0,0.8);
 }
 
-@media screen and (min-device-aspect-ratio: 4/3) {
-    #slider::after {
-        content: '4/3';
-        margin-top: 10px;
-        margin-bottom: 10px;
-        /* centrare */
-        margin-left: auto !important;
-        margin-right: auto !important;
+/* orientation: portrait */
+@media only screen and (max-width:550px) {
+  #slider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* centrare */
+    margin-left: auto !important;
+    margin-right: auto !important;
 
-      	overflow: hidden;
-        width: 500px;
-        height: 150px;
-        position: relative;
-    }
+  	overflow: hidden;
+    width: 300px;
+    height: 100px;
+    position: relative;
+  }
 }
 
-@media screen and (min-device-aspect-ratio: 16/10) {
-    #slider::after {
-        content: '16/10';
-    }
+/* mobile devices */
+@media only screen and (min-width:550px) and (max-width:600px) {
+  #slider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* centrare */
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+  	overflow: hidden;
+    width: 450px;
+    height: 100px;
+    position: relative;
+  }
 }
 
-@media screen and (min-device-aspect-ratio: 16/9) {
-    #slider::after {
-        content: '16/9';
-    }
+/* tablet portrait */
+@media only screen and (min-width:768px) and (max-width:959px) {
+  #slider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* centrare */
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+  	overflow: hidden;
+    width: 350px;
+    height: 100px;
+    position: relative;
+  }
+}
+
+/* orientation: landscape */
+
+/* tablet */
+@media only screen and (max-width:960px) and (min-width:640px){
+  #slider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* centrare */
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    overflow: hidden;
+    width: 700px;
+    height: 200px;
+    position: relative;
+  }
+}
+
+/* mobile devices */
+@media only screen and (max-width:500px) and (min-width:300px) {
+  #slider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* centrare */
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+  	overflow: hidden;
+    width: 250px;
+    height: 100px;
+    position: relative;
+  }
 }
