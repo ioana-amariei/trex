@@ -20,77 +20,10 @@
   float: left;
 }
 
-#books #top-info #title{
-  width: 20%;
-  height: 100%;
-  float: left;
-  position: absolute;
-}
-
-#books #top-info #title p{
-  height: 50%;
-  width: 100%;
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  color: #e67e22;
-  font-size: 150%;
-  text-align: left;
-  margin-left: 0;
-  top: -2%;
-}
-
-#books #top-info #display-type{
-  width: 20%;
-  height: 100%;
-  float: right;
-  position: relative;
-}
-
-#books #top-info #display-type #empty{
-  width: 80%;
-  height: 100%;
-  float: left;
-  position: relative;
-}
-
-#books #top-info #display-type #list{
-  width: 10%;
-  height: 100%;
-  float: left;
-  position: relative;
-}
-
-#books #top-info #display-type #square{
-  width: 10%;
-  height: 100%;
-  float: left;
-  position: relative;
-}
-
-#books #top-info #display-type #list img{
-  width: 155%;
-  height: 16%;
-  float: left;
-  position: absolute;
-  right: 100%;
-  top: -2%;
-  cursor: pointer;
-  }
-
-#books #top-info #display-type #square img{
-  width: 151%;
-  height: 14%;
-  float: left;
-  position: absolute;
-  right: 0;
-  top: -1%;
-  cursor: pointer;
-}
-
 /* search */
 #books #search-filter {
   width: 100%;
-  height: 20%;
+  height: 15%;
   float: left;
   position: relative;
 }
@@ -98,19 +31,23 @@
 #search-filter form {
   /* Just to center the form on the page */
   margin: 0;
-  width: 60%;
+  width: 90%;
   /* centrare */
   margin-left: auto !important;
   margin-right: auto !important;
   /* form outline */
   padding: 1em;
-  border: 1px solid #CCC;
+  border: 1px solid rgb(255, 153, 51);;
   border-radius: 1em;
   }
 
 #search-filter form div + div {
   margin-top: 1em;
   }
+
+#search-filter fieldset {
+  border: 2px solid rgb(255, 153, 51);
+}
 
 #search-filter form fieldset div label {
   display: inline-block;
@@ -122,11 +59,11 @@
   font: 1em sans-serif;
   width: 70%;
   box-sizing: border-box;
-  border: 1px solid #999;
+  border: 1px solid rgb(255, 153, 51);;
   }
 
 #search-filter form fieldset div input:focus{
-  border-color: #000;
+  border-color: rgb(255, 153, 51);
   }
 
 #search-filter form fieldset div .button {
@@ -146,11 +83,16 @@
   position: relative;
 }
 
+
 /* orientation: portrait */
 @media only screen and (max-width:550px) {
   #books{
     width: 300px;
     height: 500px;
+  }
+
+  #search-filter form {
+    width: 95%;
   }
 }
 
@@ -160,6 +102,10 @@
     width: 450px;
     height: 500px;
   }
+
+  #search-filter form {
+    width: 95%;
+  }
 }
 
 /* tablet portrait */
@@ -167,6 +113,10 @@
   #books{
     width: 350px;
     height: 500px;
+  }
+
+  #search-filter form {
+    width: 95%;
   }
 }
 
@@ -185,5 +135,9 @@
   #books{
     width: 250px;
     height: 400px;
+  }
+
+  #search-filter form {
+    width: 95%;
   }
 }
