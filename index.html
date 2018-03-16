@@ -233,43 +233,35 @@
   <div id="books" class="page">
 
     <div id="top-info">
-        <div id="title"><p>Books</p></div>
-        <div id="display-type">
-              <div id="empty"></div>
-              <div id="list"><img src="images/pages/books/list.png"></div>
-              <div id="square"><img src="images/pages/books/square.png"></div>
-        </div>
-    </div>
-
-    <div id="search-filter">
-      <form action="handling-books-search" method="get">
-            <fieldset>
-              <legend>SEARCH</legend>
-              <div>
-                <label for="input-name"></label>
-                <input type="text" id="input-name" name="book-search">
-              </div>
-              <p>
+      <div id="title"><p>Books</p></div>
+      <div id="search-filter">
+        <form action="handling-books-search" method="get">
+              <fieldset>
+                <legend>SEARCH</legend>
+                <div>
+                  <label for="input"></label>
+                  <input type="text" id="input" name="book-search">
+                  <button type="submit" onSubmit="alert('Thank you!');">Go</button>
+                </div>
                 <input type="radio" name="book-filter" id="filter_1" value="all">
                 <label for="filter_1">all</label>
-              </p>
-              <p>
+
                 <input type="radio" name="book-filter" id="filter_2" value="title">
                 <label for="filter_2">title</label>
-              </p>
-              <p>
+
                 <input type="radio" name="book-filter" id="filter_3" value="author">
                 <label for="filter_3">author</label>
-              </p>
-              <p>
+
                 <input type="radio" name="book-filter" id="filter_4" value="domain">
                 <label for="filter_4">domain</label>
-              </p>
-              <div class="submit-book-button">
-                <button type="submit" onSubmit="alert('Thank you!');">Go</button>
-              </div>
-            </fieldset>
-          </form>
+              </fieldset>
+            </form>
+      </div>
+      <div id="display-type">
+            <div id="empty"></div>
+            <div id="list"><img src="images/pages/books/list.png" alt></div>
+            <div id="square"><img src="images/pages/books/square.png" alt></div>
+      </div>
     </div>
 
     <div id="display-results">Results</div>
