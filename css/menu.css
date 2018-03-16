@@ -9,19 +9,17 @@
   margin-left: auto !important;
   margin-right: auto !important;
   position: relative;
-  color: rgb(180, 180, 180);
-  background-color: rgb(250, 250, 250);
   cursor: pointer;
 }
 
-.menu-option {
+.menu-option{
   width: 20%;
   height: 100%;
   position: relative;
   float: left;
 }
 
-#option-home {
+#option-home{
   background-color: rgb(255, 204, 0);
 }
 
@@ -29,7 +27,7 @@
   background-color: rgb(255, 153, 51);
 }
 
-#option-articles {
+#option-articles{
   background-color: rgb(230, 0, 115);
 }
 
@@ -37,19 +35,19 @@
   background-color: rgb(179, 0, 89);
 }
 
-#option-presentations {
+#option-presentations{
   background-color: rgb(134, 45, 89);
 }
 
 .menu-option p {
-  font-size: 5px;
+  font-size: 100%;
   text-align: center;
   font-family: 'Lato', sans-serif;
 	font-weight: 700;
   color: rgb(238, 238, 238);
 }
 
-  .menu-option i {
+  .menu-option img {
     height: 50%;
     width: 50%;
     position: absolute;
@@ -61,17 +59,8 @@
 /* orientation: portrait */
 @media only screen and (max-width:550px) {
   #menu {
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 300px;
     height: 50px;
-    /* centrare */
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    position: relative;
-    color: rgb(100, 100, 100);
-    background-color: rgb(204, 204, 204);
   }
 
   .menu-option p {
@@ -82,17 +71,8 @@
 /* mobile devices */
 @media only screen and (min-width:550px) and (max-width:600px) {
   #menu {
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 450px;
     height: 50px;
-    /* centrare */
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    position: relative;
-    color: rgb(100, 100, 100);
-    background-color: rgb(204, 204, 204);
   }
 
   .menu-option p {
@@ -103,22 +83,8 @@
 /* tablet portrait */
 @media only screen and (min-width:768px) and (max-width:959px) {
   #menu {
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 350px;
     height: 80px;
-    /* centrare */
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    position: relative;
-    color: rgb(100, 100, 100);
-    background-color: rgb(204, 204, 204);
-  }
-
-  .menu-option p {
-    font-size: 3px;
-    text-align: center;
   }
 }
 
@@ -127,39 +93,16 @@
 /* tablet */
 @media only screen and (max-width:960px) and (min-width:640px){
   #menu {
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 700px;
     height: 100px;
-    /* centrare */
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    position: relative;
-    color: rgb(100, 100, 100);
-    background-color: rgb(204, 204, 204);
-  }
-
-  .menu-option p {
-    font-size: 3px;
-    text-align: center;
   }
 }
 
 /* mobile devices */
 @media only screen and (max-width:500px) and (min-width:300px) {
   #menu {
-    margin-top: 10px;
-    margin-bottom: 10px;
     width: 250px;
     height: 50px;
-    /* centrare */
-    margin-left: auto !important;
-    margin-right: auto !important;
-
-    position: relative;
-    color: rgb(100, 100, 100);
-    background-color: rgb(204, 204, 204);
   }
 
   .menu-option p {
