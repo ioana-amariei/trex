@@ -23,14 +23,6 @@
   width: 50%;
   height: 100%;
   float: left;
-  left:0;
-}
-
-#books #top-info #title{
-  width: 50%;
-  height: 100%;
-  float: left;
-  left:0;
   position: absolute;
 }
 
@@ -42,42 +34,22 @@
   color: #e67e22;
   font-size: 150%;
   text-align: left;
+  margin-left: 0;
 }
 
 #books #top-info #display-type{
   width: 50%;
   height: 100%;
-  float: left;
-  position: absolute;
-  right:0;
+  float: right;
+  position: relative;
 }
 
-#books #top-info #display-type #list {
-  width: 50%;
+#books #top-info #display-type img{
   height: 100%;
+  width: 100%;
   float: right;
+  cursor: pointer;
 }
-
-#books #top-info #display-type #square {
-  width: 50%;
-  height: 100%;
-  float: right;
-}
-
-#books #top-info #display-type #list img{
-  height: 45%;
-  width: 20%;
-  float: right;
-  right: 0;
-}
-
-#books #top-info #display-type #square img{
-  height: 40%;
-  width: 20%;
-  float: right;
-  right: 0;
-}
-
 
 #books #search-filter {
   width: 25%;

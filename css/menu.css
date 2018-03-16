@@ -19,6 +19,15 @@
   float: left;
 }
 
+.menu-option:hover {
+  box-shadow: 0 5px 0 0 white inset;
+}
+
+.selected-menu-option {
+  box-shadow: 0 5px 0 0 white inset;
+}
+
+
 #option-home{
   background-color: rgb(255, 204, 0);
 }

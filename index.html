@@ -30,6 +30,7 @@
 
   <script src="js/script.js"></script>
   <script src="js/slider.js"></script>
+  <script src="js/menu.js"></script>
 
   <title>TReX</title>
 
@@ -46,25 +47,25 @@
   <!-- start Ioana Birsan -->
 
   <nav id="menu">
-    <div id="option-home" class="menu-option" onClick="showPage('home');">
+    <div id="option-home" class="menu-option selected-menu-option" onClick="showPage('home'); selectCurrentMenuItem(this);">
       <p>Home</p>
-      <img src="images/home.png">
+      <img src="images/menu/home.png">
     </div>
-    <div id="option-books" class="menu-option" onClick="showPage('books');">
+    <div id="option-books" class="menu-option" onClick="showPage('books'); selectCurrentMenuItem(this);">
       <p>Books</p>
-      <img src="images/book.png">
+      <img src="images/menu/book.png">
     </div>
-    <div id="option-articles" class="menu-option" onClick="showPage('articles');">
+    <div id="option-articles" class="menu-option" onClick="showPage('articles'); selectCurrentMenuItem(this);">
       <p>Articles</p>
-      <img src="images/article.png">
+      <img src="images/menu/article.png">
     </div>
-    <div id="option-videos" class="menu-option" onClick="showPage('videos');">
+    <div id="option-videos" class="menu-option" onClick="showPage('videos'); selectCurrentMenuItem(this);">
       <p>Videos</p>
-      <img src="images/video.png">
+      <img src="images/menu/video.png">
     </div>
-    <div id="option-presentations" class="menu-option" onClick="showPage('presentations');">
+    <div id="option-presentations" class="menu-option" onClick="showPage('presentations'); selectCurrentMenuItem(this);">
       <p>Presentations</p>
-      <img src="images/presentation.png">
+      <img src="images/menu/presentation.png">
     </div>
   </nav>
 
@@ -76,11 +77,11 @@
       <!-- start Ioana Birsan -->
       <div id="slider">
           <figure>
-            <img class="slide" src="images/1.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/2.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/3.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/4.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/5.png" alt="https://pixabay.com/">
+            <img class="slide" src="images/slider/1.png" alt="https://pixabay.com/">
+            <img class="slide" src="images/slider/2.png" alt="https://pixabay.com/">
+            <img class="slide" src="images/slider/3.png" alt="https://pixabay.com/">
+            <img class="slide" src="images/slider/4.png" alt="https://pixabay.com/">
+            <img class="slide" src="images/slider/5.png" alt="https://pixabay.com/">
           </figure>
           <!--<button id="display-left" onclick="goToSlide(-1)">&#10094;</button>-->
           <!--<button id="display-right" onclick="goToSlide(+1)">&#10095;</button>-->
@@ -233,12 +234,9 @@
     <div id="top-info">
         <div id="title"><p>Books</p></div>
         <div id="display-type">
-            <div id="list">
-              <img src="images/list.png">
-            </div>
-            <div id="square">
-              <img src="images/square.png">
-            </div>
+              <div id="empty">Empty</div>
+              <div id="list"><img src="images/pages/books/list.png"></div>
+              <div id="square"><img src="images/pages/books/square.png"></div>
         </div>
     </div>
 
