@@ -50,39 +50,39 @@
   <nav id="menu">
     <div id="option-home" class="menu-option selected-menu-option" onClick="showPage('home'); selectCurrentMenuItem(this);">
       <p>Home</p>
-      <img src="images/menu/home.png">
+      <img src="images/menu/home.png" alt>
     </div>
     <div id="option-books" class="menu-option" onClick="showPage('books'); selectCurrentMenuItem(this);">
       <p>Books</p>
-      <img src="images/menu/book.png">
+      <img src="images/menu/book.png" alt>
     </div>
     <div id="option-articles" class="menu-option" onClick="showPage('articles'); selectCurrentMenuItem(this);">
       <p>Articles</p>
-      <img src="images/menu/article.png">
+      <img src="images/menu/article.png" alt>
     </div>
     <div id="option-videos" class="menu-option" onClick="showPage('videos'); selectCurrentMenuItem(this);">
       <p>Videos</p>
-      <img src="images/menu/video.png">
+      <img src="images/menu/video.png" alt>
     </div>
     <div id="option-presentations" class="menu-option" onClick="showPage('presentations'); selectCurrentMenuItem(this);">
       <p>Presentations</p>
-      <img src="images/menu/presentation.png">
+      <img src="images/menu/presentation.png" alt>
     </div>
   </nav>
 
   <!-- end Ioana Birsan -->
 
 
-  <div id="home" class="page">Home
+  <div id="home" class="page">
 
       <!-- start Ioana Birsan -->
       <div id="slider">
           <figure>
-            <img class="slide" src="images/slider/1.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/slider/2.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/slider/3.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/slider/4.png" alt="https://pixabay.com/">
-            <img class="slide" src="images/slider/5.png" alt="https://pixabay.com/">
+            <img class="slide" src="images/slider/1.png" alt="slider1">
+            <img class="slide" src="images/slider/2.png" alt="slider2">
+            <img class="slide" src="images/slider/3.png" alt="slider3/">
+            <img class="slide" src="images/slider/4.png" alt="slider4">
+            <img class="slide" src="images/slider/5.png" alt="slider5">
           </figure>
           <!--<button id="display-left" onclick="goToSlide(-1)">&#10094;</button>-->
           <!--<button id="display-right" onclick="goToSlide(+1)">&#10095;</button>-->
@@ -235,13 +235,43 @@
     <div id="top-info">
         <div id="title"><p>Books</p></div>
         <div id="display-type">
-              <div id="empty">Empty</div>
+              <div id="empty"></div>
               <div id="list"><img src="images/pages/books/list.png"></div>
               <div id="square"><img src="images/pages/books/square.png"></div>
         </div>
     </div>
 
-    <div id="search-filter">Search</div>
+    <div id="search-filter">
+      <form action="handling-books-search" method="get">
+            <fieldset>
+              <legend>SEARCH</legend>
+              <div>
+                <label for="input-name"></label>
+                <input type="text" id="input-name" name="book-search">
+              </div>
+              <p>
+                <input type="radio" name="book-filter" id="filter_1" value="all">
+                <label for="filter_1">all</label>
+              </p>
+              <p>
+                <input type="radio" name="book-filter" id="filter_2" value="title">
+                <label for="filter_2">title</label>
+              </p>
+              <p>
+                <input type="radio" name="book-filter" id="filter_3" value="author">
+                <label for="filter_3">author</label>
+              </p>
+              <p>
+                <input type="radio" name="book-filter" id="filter_4" value="domain">
+                <label for="filter_4">domain</label>
+              </p>
+              <div class="submit-book-button">
+                <button type="submit" onSubmit="alert('Thank you!');">Go</button>
+              </div>
+            </fieldset>
+          </form>
+    </div>
+
     <div id="display-results">Results</div>
   </div>
   <!-- end Ioana Birsan  -->

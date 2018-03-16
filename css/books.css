@@ -1,5 +1,6 @@
 /* Acest css gestioneaza doar continutul aferent div-ului books */
 
+/* general */
 #books{
   width: 960px;
   height: 700px;
@@ -11,12 +12,12 @@
   margin-bottom: 10px;
 }
 
+/* top */
 #books #top-info {
   width: 100%;
   height: 10%;
   position: relative;
   float: left;
-  background: #fae5d3;
 }
 
 #books #top-info #title{
@@ -44,27 +45,105 @@
   position: relative;
 }
 
-#books #top-info #display-type img{
+#books #top-info #display-type #empty{
+  width: 80%;
   height: 100%;
-  width: 100%;
-  float: right;
+  float: left;
+  position: relative;
+}
+
+#books #top-info #display-type #list{
+  width: 10%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+#books #top-info #display-type #square{
+  width: 10%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+#books #top-info #display-type #list img{
+  width: 75%;
+  height: 38%;
+  float: left;
+  position: absolute;
+  right: 10%;
+  top: 33%;
   cursor: pointer;
 }
 
+#books #top-info #display-type #square img{
+  width: 70%;
+  height: 35%;
+  float: left;
+  position: absolute;
+  right: 0;
+  top: 35%;
+  cursor: pointer;
+}
+
+/* search */
 #books #search-filter {
   width: 25%;
   height: 90%;
   float: left;
   position: relative;
-  background-color:  #d5dbdb;
 }
 
+#search-filter form {
+  /* Just to center the form on the page */
+  margin: 0;
+  width: 85%;
+
+  /* centrare */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  /* form outline */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+  }
+
+#search-filter form div + div {
+  margin-top: 1em;
+  }
+
+#search-filter form fieldset div label {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+  }
+
+#search-filter form fieldset div input {
+  font: 1em sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  }
+
+#search-filter form fieldset div input:focus{
+  border-color: #000;
+  }
+
+#search-filter form fieldset div .button {
+  padding-left: 90px;
+  }
+
+#search-filter form fieldset div button {
+  margin-left: .5em;
+}
+
+
+/* results */
 #books #display-results{
   width: 75%;
   height: 90%;
   float: left;
   position: relative;
-  background-color: #85929e;
 }
 
 /* orientation: portrait */
