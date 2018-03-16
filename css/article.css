@@ -1,12 +1,15 @@
 /* Acest css gestioneaza doar continutul aferent articolelor */
 
+.on-print {
+  display: none;
+}
+
 article a {
   text-decoration: none;
   color: rgb(2, 168, 244);
 }
 
-article a:hover,
-article a:focus {
+article a:hover, article a:focus {
   color: rgb(51, 51, 51);
 }
 
@@ -15,7 +18,7 @@ article a:focus {
   background-color: rgb(247, 247, 247);
 }
 
-.article-header > div {
+.article-header>div {
   width: 65%;
   padding: 60px 0;
   margin: 0 auto;
@@ -28,8 +31,7 @@ article a:focus {
   color: rgb(238, 166, 0);
 }
 
-.article-header time:before,
-.article-header time:after {
+.article-header time:before, .article-header time:after {
   content: ' ';
   display: inline-block;
   height: 5px;
@@ -38,7 +40,7 @@ article a:focus {
   border-top: 3px solid rgb(238, 166, 0);
 }
 
-.article-header > div h1 {
+.article-header>div h1 {
   font-weight: 900;
   font-size: 2.5em;
   color: rgb(50, 50, 50);
@@ -70,8 +72,7 @@ article .article-content {
   margin: 0 auto;
 }
 
-article .article-content p,
-article .article-content li {
+article .article-content p, article .article-content li {
   text-align: justify;
   font-weight: 400;
   font-size: 1.3em;
@@ -79,9 +80,7 @@ article .article-content li {
   color: rgb(75, 75, 75);
 }
 
-article .article-content p,
-article .article-content h3,
-article .article-content ul {
+article .article-content p, article .article-content h3, article .article-content ul {
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -93,8 +92,12 @@ article .article-content h3 {
   font-weight: 900;
 }
 
+article .article-content P:first-child {
+  margin-top: 100px;
+}
+
 article .article-content figure {
-   margin-left: 0px;
+  margin-left: 0px;
 }
 
 article .article-content figcaption {
@@ -118,9 +121,7 @@ article .article-content .language-javascript {
   background-color: rgb(156, 39, 176);
 }
 
-article p>code,
-article li>code,
-article td>code {
+article p>code, article li>code, article td>code {
   background: #eee;
   padding: 0 5px 2px;
   border-radius: 4px;
@@ -141,27 +142,27 @@ article pre code {
 }
 
 .token.punctuation, .token.tag, .token.attr-name {
-    color: #ab875d;
+  color: #ab875d;
 }
 
 .token.selector {
-    color: #dfc48c;
+  color: #dfc48c;
 }
 
 .token.comment, .token.prolog, .token.doctype, .token.cdata {
-    color: #777;
+  color: #777;
 }
 
 .token.scale {
-    color: #CD5F38;
+  color: #CD5F38;
 }
 
 .token.property, .token.boolean, .token.number {
-    color: #9b869c;
+  color: #9b869c;
 }
 
 .language-css .token.punctuation {
-    color: white;
+  color: white;
 }
 
 .token.atrule, .token.attr-value, .token.keyword, .token.string {
@@ -177,4 +178,216 @@ article #footer-ref {
   margin-bottom: 100px;
   border-top: 1px solid rgb(221, 221, 221);
   border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+article #article-info {
+  width: 100%;
+  height: 62px;
+  float: left;
+  margin: 0;
+  padding: 10px 0 8px 0;
+}
+
+article #article-info::after {
+  clear: both;
+}
+
+article #article-info>div {
+  width: 60%;
+  margin: 0 auto;
+}
+
+article #article-author {
+  float: left;
+  padding-left: 5%;
+  padding-right: 40px;
+  border-right: 1px solid rgb(221, 221, 221);
+  margin-right: 40px;
+}
+
+article #article-author p, article #article-views p {
+  float: right;
+}
+
+article #article-author img {
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 10px;
+  border: 1px solid rgb(221, 221, 221);
+}
+
+article #article-author div {
+  float: right;
+}
+
+article #article-author p {
+  clear: both;
+  display: block;
+  padding: 3px 0;
+  margin: 0;
+}
+
+article #article-author p:first-child {
+  padding-top: 13px;
+  text-transform: uppercase;
+  font-size: .8em;
+}
+
+article #article-author p:last-child {
+  font-weight: 900;
+  font-size: 1em;
+}
+
+article #article-views {
+  float: left;
+}
+
+article #article-views p {
+  clear: both;
+  display: block;
+  padding: 3px 0;
+  margin: 0;
+}
+
+article #article-views p:first-child {
+  padding-top: 13px;
+  text-transform: uppercase;
+  font-size: .8em;
+}
+
+article #article-views p:last-child {
+  font-weight: 900;
+  font-size: 1em;
+}
+
+article .article-share {
+  float: right;
+  margin-top: 8px;
+  width: 75px;
+  margin-right: 50px;
+  padding: 10px 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: rgb(66, 103, 179);
+  border: 1px solid rgb(44, 78, 149);
+}
+
+article .article-share iframe {
+  overflow: visible;
+  width: 75px;
+}
+
+article #article-info>div button {
+  margin-top: 2px;
+  cursor: pointer;
+  float: right;
+  margin-right: 5%;
+  color: white;
+  padding: 20px 30px;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius: 10px;
+  background-color: rgb(146, 170, 74);
+  border: 1px solid rgb(118, 140, 52);
+  transition: all ease-in-out .3s;
+}
+
+article #article-info>div button:hover {
+  background-color: rgb(157, 193, 51);
+}
+
+article #article-info>div button:focus, article #article-info>div button:active {
+  outline: none;
+}
+
+/*-------------------------------------------------------*/
+
+/* Media Queries */
+
+/*-------------------------------------------------------*/
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    /* non-standard feature */
+    color-adjust: exact !important;
+    /* non-standard feature */
+  }
+  @page {
+    margin: 1.2cm 0 1.2cm 0;
+  }
+  @page :first {
+    margin: 0;
+  }
+  @page :blank {
+    @top-center {
+      content: "This page is intentionally left blank."
+    }
+  }
+  html, body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.3;
+    overflow: hidden;
+  }
+  header, nav, footer, hr, br, .codepen, .cp_embed_wrapper, .article-share, #article-info div button {
+    display: none;
+  }
+  .article-header, #footer-ref {
+    display: inherit;
+  }
+  article .article-content {
+    width: 80%;
+  }
+  .on-print {
+    display: block;
+    padding: 5px 0 5px 10px;
+    font-weight: 400;
+    font-size: .8em;
+    text-transform: capitalize;
+    text-align: center;
+    background-color: rgb(175, 76, 76);
+    color: white !important;
+  }
+  .article-header>div {
+    width: 85%;
+    padding: 40px 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+  article #article-info {
+    width: 100%;
+    height: 55px;
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+  article #article-author img {
+    display: none;
+  }
+  article #article-author {
+    padding-top: 0;
+    padding-left: 0;
+    height: 55px;
+    width: 102px;
+    margin-left: calc(50% - 120px);
+  }
+  article #article-author div, article #article-views {
+    margin-top: -6px;
+  }
+  article .article-content figure {
+    margin-left: 5%;
+    margin-right: 5%;
+    page-break-inside: avoid;
+  }
+  article .article-content figure, article ul, article img {
+    page-break-inside: avoid;
+  }
+  article h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  article {
+    page-break-before: always;
+  }
 }
