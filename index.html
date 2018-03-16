@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="css/topics.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/article.css">
+  <link rel="stylesheet" href="css/books.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -47,23 +48,23 @@
   <nav id="menu">
     <div id="option-home" class="menu-option" onClick="showPage('home');">
       <p>Home</p>
-      <i class="fas fa-home"></i>
+      <img src="images/home.png">
     </div>
     <div id="option-books" class="menu-option" onClick="showPage('books');">
       <p>Books</p>
-      <i class="fas fa-book"></i>
+      <img src="images/book.png">
     </div>
     <div id="option-articles" class="menu-option" onClick="showPage('articles');">
       <p>Articles</p>
-      <i class="fas fa-newspaper"></i>
+      <img src="images/article.png">
     </div>
     <div id="option-videos" class="menu-option" onClick="showPage('videos');">
       <p>Videos</p>
-      <i class="fas fa-video"></i>
+      <img src="images/video.png">
     </div>
     <div id="option-presentations" class="menu-option" onClick="showPage('presentations');">
       <p>Presentations</p>
-      <i class="fas fa-file-powerpoint"></i>
+      <img src="images/presentation.png">
     </div>
   </nav>
 
@@ -227,7 +228,23 @@
 
 
   <!-- start Ioana Birsan  -->
-  <div id="books" class="page">Books</div>
+  <div id="books" class="page">
+
+    <div id="top-info">
+        <div id="title"><p>Books</p></div>
+        <div id="display-type">
+            <div id="list">
+              <img src="images/list.png">
+            </div>
+            <div id="square">
+              <img src="images/square.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="search-filter">Search</div>
+    <div id="display-results">Results</div>
+  </div>
   <!-- end Ioana Birsan  -->
 
 

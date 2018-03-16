@@ -1,0 +1,138 @@
+/* Acest css gestioneaza doar continutul aferent div-ului books */
+
+#books{
+  width: 960px;
+  height: 700px;
+  /* centrare */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#books #top-info {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  float: left;
+  background: #fae5d3;
+}
+
+#books #top-info #title{
+  width: 50%;
+  height: 100%;
+  float: left;
+  left:0;
+}
+
+#books #top-info #title{
+  width: 50%;
+  height: 100%;
+  float: left;
+  left:0;
+  position: absolute;
+}
+
+#books #top-info #title p{
+  height: 50%;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: #e67e22;
+  font-size: 150%;
+  text-align: left;
+}
+
+#books #top-info #display-type{
+  width: 50%;
+  height: 100%;
+  float: left;
+  position: absolute;
+  right:0;
+}
+
+#books #top-info #display-type #list {
+  width: 50%;
+  height: 100%;
+  float: right;
+}
+
+#books #top-info #display-type #square {
+  width: 50%;
+  height: 100%;
+  float: right;
+}
+
+#books #top-info #display-type #list img{
+  height: 45%;
+  width: 20%;
+  float: right;
+  right: 0;
+}
+
+#books #top-info #display-type #square img{
+  height: 40%;
+  width: 20%;
+  float: right;
+  right: 0;
+}
+
+
+#books #search-filter {
+  width: 25%;
+  height: 90%;
+  float: left;
+  position: relative;
+  background-color:  #d5dbdb;
+}
+
+#books #display-results{
+  width: 75%;
+  height: 90%;
+  float: left;
+  position: relative;
+  background-color: #85929e;
+}
+
+/* orientation: portrait */
+@media only screen and (max-width:550px) {
+  #books{
+    width: 300px;
+    height: 500px;
+  }
+}
+
+/* mobile devices */
+@media only screen and (min-width:550px) and (max-width:600px) {
+  #books{
+    width: 450px;
+    height: 500px;
+  }
+}
+
+/* tablet portrait */
+@media only screen and (min-width:768px) and (max-width:959px) {
+  #books{
+    width: 350px;
+    height: 500px;
+  }
+}
+
+/* orientation: landscape */
+
+/* tablet */
+@media only screen and (max-width:960px) and (min-width:640px){
+  #books{
+    width: 700px;
+    height: 700px;
+  }
+}
+
+/* mobile devices */
+@media only screen and (max-width:500px) and (min-width:300px) {
+  #books{
+    width: 250px;
+    height: 400px;
+  }
+}

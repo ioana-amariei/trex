@@ -47,20 +47,29 @@
   color: rgb(238, 238, 238);
 }
 
-  .menu-option img {
-    height: 50%;
-    width: 50%;
-    position: absolute;
-    left: 24%;
-    bottom: 21%;
-    color: white;
-  }
+.menu-option img {
+  height: 51%;
+  width: 30%;
+  bottom: 10%;
+  position: absolute;
+  left: 35%;
+  bottom: 7%;
+  color: white;
+}
+}
 
 /* orientation: portrait */
 @media only screen and (max-width:550px) {
   #menu {
     width: 300px;
     height: 50px;
+  }
+
+  .menu-option img {
+    height: 40%;
+    width: 30%;
+    left: 35%;
+    bottom: 10%;
   }
 
   .menu-option p {
@@ -73,6 +82,13 @@
   #menu {
     width: 450px;
     height: 50px;
+  }
+
+  .menu-option img {
+    height: 40%;
+    width: 30%;
+    left: 35%;
+    bottom: 10%;
   }
 
   .menu-option p {
@@ -103,6 +119,13 @@
   #menu {
     width: 250px;
     height: 50px;
+  }
+
+  .menu-option img {
+    height: 40%;
+    width: 30%;
+    left: 35%;
+    bottom: 10%;
   }
 
   .menu-option p {
