@@ -30,10 +30,9 @@
   <link rel="stylesheet" href="css/books.css">
   <link rel="stylesheet" href="css/videos.css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <script src="js/script.js"></script>
   <script src="js/menu.js"></script>
+  <script src="js/books.js"></script>
 
   <title>TReX</title>
 
@@ -277,11 +276,10 @@
               <!-- <p>Display type:</p> -->
               <label for='simple'>Display type:</label>
                 <div>
-                  <img src="images/pages/books/list.svg">
-                  <img src="images/pages/books/grid.svg">
+                  <img class="display-type-option selected-display-type" src="images/pages/books/list.svg" onClick="selectCurrentDisplayType(this);">
+                  <img class="display-type-option" src="images/pages/books/grid.svg" onClick="selectCurrentDisplayType(this);">
                 </div>
             </div>
-
         </div>
     </form>
 
