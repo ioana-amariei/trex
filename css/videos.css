@@ -1,18 +1,11 @@
-.video123456{
-    position: relative;
-}
 .video123{
 
     height: 50%;
     width: 100%;
-    position: relative;
-    overflow: hidden;
 }
 .video456{
-    position: relative;
     height: 50%;
     width: 100%;
-   /* overflow: hidden;*/
 }
 #video1{
     width: 33%;
@@ -36,15 +29,15 @@
     right: 0;
     width: 33%;
 }
-iframe,h3video{
-    left: 50%;
-    transform: translatex(50%);
-}
 pvideo{
     word-break: keep-all;
     width: 360px; 
 }
 .video{
-    position:absolute;
-    height: 500px;
+	float: left;
+}
+#videos:after {
+	content: "";
+	clear: both;
+	display: table;
 }
