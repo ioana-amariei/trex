@@ -10,15 +10,16 @@
 }
 
 #main-footer > div {
-    width: 65%;
+    max-width: 960px;
+    display: flex;
+    flex-flow: row wrap;
     margin: 0 auto;
 }
 
-#main-footer .logo {
+ #main-footer .logo {
   cursor: pointer;
   font-family: 'Lato', sans-serif;
-  width: 30%;
-  float: left;
+  flex-basis: 25%;
   margin-top: 50px;
 }
 
@@ -42,9 +43,10 @@
   font-style: italic;
 }
 
-#footer-list {
-  width: 70%;
+#main-footer #footer-list {
+  flex-basis: 75%;
   display: flex;
+  flex-flow: row wrap;
 }
 
 #main-footer #footer-list ul {
@@ -87,8 +89,8 @@
 }
 
 #main-footer #footer-copy {
+  flex-basis: 100%;
   font-style: normal;
-  clear: both;
   margin: 20px 0 0 0;
   padding: 15px 0 15px 0;
   font-family: 'Lato', sans-serif;
@@ -96,4 +98,154 @@
   font-weight: 300;
   text-transform: uppercase;
   border-top: 1px solid rgb(220, 220, 220);
+}
+
+/*--------------------------------------------------------------
+Media Queries
+--------------------------------------------------------------*/
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 650px) and (max-width: 959px) {
+  #main-footer .logo {
+    flex-basis: 100%;
+    margin: 0;
+    text-align: center;
+}
+
+#main-footer #footer-list {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 50px;
+}
+
+#main-footer #footer-list ul {
+    flex: 1 1 33%;
+    text-align: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#main-footer #footer-list ul li:first-child::after {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    width: 20%;
+    margin: 10px 0 30px 40%;
+    transition: all ease-in-out .3s;
+}
+
+#main-footer #footer-list ul:hover li:first-child::after {
+    width: 100%;
+    margin: 10px 0 30px 0;
+}
+
+#main-footer #footer-copy {
+  text-align: center;
+}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 649px) {
+  #main-footer .logo {
+    flex-basis: 100%;
+    margin: 0;
+    margin-top: -20px;
+    text-align: center;
+}
+
+#main-footer #footer-list {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 50px;
+}
+
+#main-footer #footer-list ul {
+    flex: 1 1 33%;
+    text-align: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#main-footer #footer-list ul li:first-child {
+    font-size: 1em;
+}
+
+#main-footer #footer-list ul li:not(:first-child) {
+    font-weight: 400;
+    font-size: .8em;
+}
+
+#main-footer #footer-list ul li:first-child::after {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    width: 20%;
+    margin: 10px 0 10px 40%;
+    transition: all ease-in-out .3s;
+}
+
+#main-footer #footer-list ul:hover li:first-child::after {
+    width: 100%;
+    margin: 10px 0 30px 0;
+}
+
+#main-footer #footer-copy {
+  text-align: center;
+}
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+  #main-footer .logo {
+    flex-basis: 100%;
+    margin: -30px 0 -30px 0;
+    text-align: center;
+}
+
+#main-footer #footer-list {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 50px;
+}
+
+#main-footer #footer-list ul {
+    flex: 1 1 100%;
+    text-align: center;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#main-footer #footer-list ul li:first-child {
+  padding-top: 20px;
+}
+
+#main-footer #footer-list ul li:first-child::after {
+    content: ' ';
+    display: block;
+    border-bottom: 1px solid rgb(50, 50, 50);
+    width: 70%;
+    margin: 10px 0 10px 15%;
+    transition: all ease-in-out .3s;
+}
+
+#main-footer #footer-list ul:hover li:first-child::after {
+  width: 70%;
+  margin: 10px 0 10px 15%;
+}
+
+#main-footer #footer-copy {
+  text-align: center;
+}
 }
