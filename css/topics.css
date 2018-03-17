@@ -1,7 +1,7 @@
 /* Acest css gestioneaza doar continutul aferent div-ului topics */
 
 #topics {
-	width: 65%;
+	max-width: 960px;
 	margin: 0 auto;
 }
 
@@ -16,7 +16,7 @@
 #topics-tag-row .tag {
 	cursor: pointer;
 	flex: 1 1 50%;
-	padding: 55px 0;
+	padding: 40px 0;
 	border: 5px solid transparent;
 	transition: all ease-in-out 0.3s;
 }
@@ -247,6 +247,7 @@
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
 	font-size: 1.2em;
+	text-align: center;
 	margin: 10px 0;
 }
 
@@ -254,11 +255,13 @@
 	list-style-type: none;
 	display: inline-block;
 	padding: 0;
+	margin: 0 auto;
+	width: 100%;
 }
 
 #topics-grid .col li {
-	float: left;
-	padding-right: 15px;
+	display: inline-flex;
+	padding-right: 5%;
 	font-family: 'Lato', sans-serif;
 	font-size: .55em;
 	font-weight: 300;
@@ -268,4 +271,179 @@
 #topics-grid .col ul li p {
 	margin-left: 25px;
 	margin-top: 4px;
+}
+
+/*--------------------------------------------------------------
+Media Queries
+--------------------------------------------------------------*/
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	#topics {
+		width: 90%;
+		margin: 0 auto;
+	}
+	#topics-tag-row .tag {
+    cursor: pointer;
+    flex: 1 1 50%;
+    padding: 20px 0;
+    border: 5px solid transparent;
+    transition: all ease-in-out 0.3s;
+	}
+	#topics-grid #topics-grid-container .col {
+	    cursor: pointer;
+	    margin-left: 0;
+	    margin-bottom: 1rem;
+	    flex-grow: 1;
+	    width: 45%;
+	    height: 300px;
+	    overflow: hidden;
+	}
+	#topics-grid #topics-grid-container .col:nth-child(2n) {
+		margin-left: 5%;
+	}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#topics {
+		width: 90%;
+		margin: 0 auto;
+	}
+
+  #topics-tag-row {
+		flex-flow: row wrap;
+	}
+
+	#topics-tag-row .tag:hover {
+		flex: 1 1 20%;
+		border: 5px solid rgba(0, 0, 0, 0.3);
+	}
+
+	#topics-grid-title {
+		flex-flow: row wrap;
+	}
+
+	#topics-grid-title h2 {
+		flex-basis: 100%;
+		text-align: center;
+	}
+
+	#topics-grid-title button {
+    height: 40px;
+    width: 100%;
+    background-color: #854196;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: .8em;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+    box-shadow: 0 5px 0 #7b3a8a;
+    transition: all ease 0.3s;
+}
+
+	#topics-tag-row .tag {
+		cursor: pointer;
+		flex-basis: 40%;
+		width: 100px;
+		padding: 20px 0;
+		border: 5px solid transparent;
+		transition: all ease-in-out 0.3s;
+	}
+	#topics-grid #topics-grid-container .col {
+			cursor: pointer;
+			margin-left: 0;
+			margin-bottom: 1rem;
+			flex-grow: 1;
+			width: 35%;
+			height: 300px;
+			overflow: hidden;
+	}
+	#topics-grid #topics-grid-container .col img {
+		max-height: 200px;
+	}
+	#topics-grid #topics-grid-container .col:nth-child(2n) {
+		margin-left: 5%;
+	}
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	#topics {
+		width: 100%;
+	}
+
+	#topics-tag-row {
+		flex-flow: row wrap;
+		margin-bottom: 0;
+	}
+
+	#topics-tag-row .tag:hover {
+		flex: 1 1 20%;
+		border: 5px solid rgba(0, 0, 0, 0.3);
+	}
+
+	#topics-grid-title {
+		flex-flow: row wrap;
+		margin-bottom: 0;
+	}
+
+	#topics-grid-title h2 {
+		flex-basis: 100%;
+		padding: 15px 0;
+		text-align: center;
+	}
+
+	#topics-grid-title button {
+		height: 40px;
+		width: 100%;
+		margin-top: 0;
+		background-color: #854196;
+		border: none;
+		font-family: 'Lato', sans-serif;
+		font-size: .8em;
+		font-weight: 400;
+		color: white;
+		text-transform: uppercase;
+		box-shadow: 0 5px 0 #7b3a8a;
+		transition: all ease 0.3s;
+}
+
+	#topics-tag-row .tag {
+		cursor: pointer;
+		flex-basis: 50%;
+		width: 100px;
+		padding: 20px 0;
+		border: 5px solid transparent;
+		transition: all ease-in-out 0.3s;
+	}
+	#topics-grid #topics-grid-container .col {
+			cursor: pointer;
+			margin-left: 0;
+			margin-bottom: 0;
+			flex-grow: 1;
+			width: 100%;
+			height: 300px;
+			overflow: hidden;
+	}
+	#topics-grid #topics-grid-container .col img {
+		max-height: 200px;
+	}
+	#topics-grid #topics-grid-container .col:nth-child(2n) {
+		margin-left: 0;
+	}
+	#topics-grid #topics-grid-container .col ul {
+		display: flex;
+		flex-flow: row wrap;
+	}
+	#topics-grid #topics-grid-container .col ul li {
+		clear: both;
+		flex: 1;
+		flex-basis: auto;
+	}
+	#topics-grid #topics-grid-container .col ul li p {
+			margin-top: 2px;
+			font-size: 1.5em;
+	}
 }
