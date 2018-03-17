@@ -276,14 +276,24 @@
               <!-- <p>Display type:</p> -->
               <label for='simple'>Display type:</label>
                 <div>
-                  <img class="display-type-option selected-display-type" src="images/pages/books/list.svg" onClick="selectCurrentDisplayType(this);">
-                  <img class="display-type-option" src="images/pages/books/grid.svg" onClick="selectCurrentDisplayType(this);">
+                  <img class="display-type-option selected-display-type" src="images/pages/books/list.svg" onClick="selectCurrentDisplayType(this, 'list-view' , 'grid-view');">
+                  <img class="display-type-option" src="images/pages/books/grid.svg" onClick="selectCurrentDisplayType(this, 'grid-view', 'list-view');">
                 </div>
             </div>
         </div>
     </form>
 
-    <div id="display-results"></div>
+    <div id="display-results">
+        <div class="resource list-view">
+            <div class="book-image">Image</div>
+            <div class="book-info">
+              <div class="book-title">Title</div>
+              <div class="book-author">Author</div>
+              <div class="book-rating">Rating</div>
+            </div>
+            <div class="book-description">Description</div>
+        </div>
+    </div>
 
   </div>
   <!-- end Ioana Birsan  -->
