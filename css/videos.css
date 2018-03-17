@@ -1,9 +1,50 @@
-/* Acest css gestioneaza doar continutul aferent div-ului Videos */
-#videos{
-    background-color:grey;
+.div1{
+    position: relative;
 }
-#PozacuVideo{
-};
+.div2{
 
-#First_Video{
-};
+    height: 50%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.div3{
+    position: relative;
+    height: 50%;
+    width: 100%;
+   /* overflow: hidden;*/
+}
+#video1{
+    width: 33%;
+}
+#video2{
+    left: 33%;
+    width: 34%;
+}
+#video3{
+    right: 0;
+    width: 33%;
+}
+#video4{
+    width: 33%;
+}
+#video5{
+    left: 33%;
+    width: 34%;
+}
+#video6{
+    right: 0;
+    width: 33%;
+}
+iframe,h3{
+    left: 50%;
+    transform: translatex(50%);
+}
+p{
+    word-break: keep-all;
+    width: 360px; 
+}
+.video{
+    position:absolute;
+    height: 500px;
+}
