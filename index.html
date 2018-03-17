@@ -242,13 +242,19 @@
 
         <div id="search-fields">
             <div id="year" class="search-field">
-              <p>Year</p>
-              <input type="number" id="from" name="from">
-              <input type="number" id="to" name="to">
+              <!-- <p>Year</p> -->
+                <label for='simple'>Year:</label>
+                <div>
+                    <input type="number" id="from" name="from" placeholder="From">
+                    <input type="number" id="to" name="to" placeholder="To">
+                </div>
             </div>
-            <div id="rating" class="search-field"><p>Minimum rating</p>
-              <select id="simple" name="simple">
-                      <option selected>any</option>
+
+            <div id="rating" class="search-field">
+              <!-- <p>Minimum rating</p> -->
+                <label for='simple'>Minimum rating:</label>
+                <select id="simple" name="simple">
+                      <option selected>Any</option>
                       <option>1 star</option>
                       <option>2 stars</option>
                       <option>3 stars</option>
@@ -257,15 +263,19 @@
                 </select>
             </div>
 
-            <div id="language" class="search-field"><p>Language</p>
+            <div id="language" class="search-field">
+              <!-- <p>Language</p> -->
+              <label for='simple'>Language:</label>
                 <select id="simple" name="simple">
-                    <option selected>any</option>
+                    <option selected>Any</option>
                     <option>en</option>
                     <option>fr</option>
                 </select>
             </div>
 
-            <div id="display-format" class="search-field"><p>Display type:</p>
+            <div id="display-format" class="search-field">
+              <!-- <p>Display type:</p> -->
+              <label for='simple'>Display type:</label>
                 <div>
                   <img src="images/pages/books/list.svg">
                   <img src="images/pages/books/grid.svg">
