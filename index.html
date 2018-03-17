@@ -30,7 +30,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <script src="js/script.js"></script>
-  <script src="js/slider.js"></script>
   <script src="js/menu.js"></script>
 
   <title>TReX</title>
@@ -232,31 +231,49 @@
   <!-- start Ioana Birsan  -->
   <div id="books" class="page">
 
-    <div id="search-filter">
-      <form action="handling-books-search" method="get">
-            <fieldset>
-              <legend>SEARCH BOOK</legend>
-              <div>
-                <label for="input"></label>
-                <input type="text" id="input" name="book-search">
-                <button type="submit" onSubmit="alert('Thank you!');">Search book</button>
-              </div>
-              <input type="radio" name="book-filter" id="filter_1" value="all">
-              <label for="filter_1">all</label>
+    <form id="search-filter">
+        <div id="search-bar">
+            <input type="search" id="search-books" name="search-books">
+            <div id="search-button" onclick="alert('Thank you!');" onKeydown="alert('Thank you!');"><img src="images/pages/books/search.svg" alt></div>
+        </div>
 
-              <input type="radio" name="book-filter" id="filter_2" value="title">
-              <label for="filter_2">title</label>
+        <div id="search-fields">
+            <div id="year" class="search-field">
+              <p>Year</p>
+              <input type="number" id="from" name="from">
+              <input type="number" id="to" name="to">
+            </div>
+            <div id="rating" class="search-field"><p>Minimum rating</p>
+              <select id="simple" name="simple">
+                      <option selected>any</option>
+                      <option>1 star</option>
+                      <option>2 stars</option>
+                      <option>3 stars</option>
+                      <option>4 stars</option>
+                      <option>5 stars</option>
+                </select>
+            </div>
 
-              <input type="radio" name="book-filter" id="filter_3" value="author">
-              <label for="filter_3">author</label>
+            <div id="language" class="search-field"><p>Language</p>
+                <select id="simple" name="simple">
+                    <option selected>any</option>
+                    <option>en</option>
+                    <option>fr</option>
+                </select>
+            </div>
 
-              <input type="radio" name="book-filter" id="filter_4" value="domain">
-              <label for="filter_4">domain</label>
-            </fieldset>
-          </form>
-    </div>
+            <div id="display-format" class="search-field"><p>Display type:</p>
+                <div>
+                  <img src="images/pages/books/list.svg">
+                  <img src="images/pages/books/grid.svg">
+                </div>
+            </div>
+
+        </div>
+    </form>
 
     <div id="display-results"></div>
+
   </div>
   <!-- end Ioana Birsan  -->
 

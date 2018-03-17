@@ -8,17 +8,10 @@
   margin-left: auto !important;
   margin-right: auto !important;
   position: relative;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* top */
-#books #top-info {
-  width: 100%;
-  height: 20%;
-  position: relative;
-  float: left;
-}
 
 /* search */
 #books #search-filter {
@@ -26,73 +19,93 @@
   height: 15%;
   float: left;
   position: relative;
+  background-color: #eaecee;
+  border-radius: 5px;
 }
 
-#search-filter form {
-  /* Just to center the form on the page */
-  margin: 0;
-  width: 90%;
-  /* centrare */
-  margin-left: auto !important;
-  margin-right: auto !important;
-  /* form outline */
-  padding: 1em;
-  border: 1px solid rgb(255, 153, 51);;
-  border-radius: 1em;
-  }
-
-#search-filter form div + div {
-  margin-top: 1em;
-  }
-
-#search-filter fieldset {
-  border: 2px solid rgb(255, 153, 51);
-}
-
-#search-filter form fieldset div label {
-  display: inline-block;
+#books #search-filter #search-bar {
   width: 100%;
-  text-align: right;
-  }
-
-#search-filter form fieldset div input {
-  font: 1em sans-serif;
-  width: 70%;
-  box-sizing: border-box;
-  border: 1px solid rgb(255, 153, 51);;
-  }
-
-#search-filter form fieldset div input:focus{
-  border-color: rgb(255, 153, 51);
-  }
-
-#search-filter form fieldset div .button {
-  padding-left: 90px;
-  }
-
-#search-filter form fieldset div button {
-  margin-left: .5em;
-}
-
-
-/* results */
-#books #display-results{
-  width: 100%;
-  height: 70%;
+  height: 40%;
   float: left;
   position: relative;
 }
 
+#books #search-filter #search-bar input {
+  width: 85%;
+  height: inherit;
+  float: left;
+  margin-top:2%;
+  margin-left: 3%;
+  border: 1px solid white;
+}
+
+#books #search-filter #search-bar #search-button {
+  width: 5%;
+  height: inherit;
+  float: left;
+  margin-top: 2%;
+  margin-left: 3%;
+  border: 1px solid white;
+  cursor: pointer;
+  background-color: white;
+}
+
+#books #search-filter #search-bar #search-button img {
+  width: 100%;
+  height: 100%;
+  cursor:pointer;
+}
+
+#books #search-filter #search-bar #search-button:active {
+  background: #e5e5e5;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+}
+
+#books #search-filter #search-fields {
+  width: 100%;
+  height: 60%;
+  float: left;
+  position: relative;
+}
+
+#books #search-filter #search-fields .search-field {
+  width: 25%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  position: relative;
+  outline: thick solid white;
+}
+
+#books #search-filter #search-fields #display-format div{
+  width: 25%;
+  height: 50%;
+
+  /* centrare */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#books #search-filter #search-fields #display-format img{
+  height: 50%;
+  float: left;
+  cursor: pointer;
+  margin-left: 15%;
+}
+
+/* results */
+#books #display-results{
+  width: 100%;
+  height: 85%;
+  float: left;
+  position: relative;
+}
 
 /* orientation: portrait */
 @media only screen and (max-width:550px) {
   #books{
     width: 300px;
     height: 500px;
-  }
-
-  #search-filter form {
-    width: 95%;
   }
 }
 
@@ -102,10 +115,6 @@
     width: 450px;
     height: 500px;
   }
-
-  #search-filter form {
-    width: 95%;
-  }
 }
 
 /* tablet portrait */
@@ -113,10 +122,6 @@
   #books{
     width: 350px;
     height: 500px;
-  }
-
-  #search-filter form {
-    width: 95%;
   }
 }
 
@@ -135,9 +140,5 @@
   #books{
     width: 250px;
     height: 400px;
-  }
-
-  #search-filter form {
-    width: 95%;
   }
 }
