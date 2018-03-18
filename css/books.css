@@ -3,7 +3,7 @@
 /* general */
 #books{
   width: 960px;
-  height: 1000px;
+  height: 1600px;
   /* centrare */
   margin-left: auto !important;
   margin-right: auto !important;
@@ -30,7 +30,7 @@
 /* search */
 #books #search-filter {
   width: 100%;
-  height: 13%;
+  height: 8%;
   float: left;
   position: relative;
   background-color: #eaecee;
@@ -156,7 +156,7 @@
   height: 100%;
   float: left;
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 #books #display-results .list-view .book-image, .book-info {
@@ -174,9 +174,6 @@
     width: 25%;
     float: left;
     text-align: center;
-    /* centrare */
-    margin-left: auto !important;
-    margin-right: auto !important;
 }
 
 #books #display-results .grid-view  .book-image {
