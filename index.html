@@ -254,10 +254,16 @@
 
             <div id="rating" class="search-field">
               <!-- <p>Minimum rating</p> -->
-                <label for='simple'>Minimum rating:</label>
-                <select id="simple" name="simple">
+                <label for='simple-rating-select'>Minimum rating:</label>
+                <select id="simple-rating-select" name="simple-rating-select">
                       <option selected>Any</option>
-                      <option>1 star</option>
+                      <option>1 star
+                          <!-- <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span>
+                          <span class="fa fa-star"></span> -->
+                      </option>
                       <option>2 stars</option>
                       <option>3 stars</option>
                       <option>4 stars</option>
@@ -267,8 +273,8 @@
 
             <div id="language" class="search-field">
               <!-- <p>Language</p> -->
-              <label for='simple'>Language:</label>
-                <select id="simple" name="simple">
+              <label for='simple-language-select'>Language:</label>
+                <select id="simple-language-select" name="simple-language-select">
                     <option selected>Any</option>
                     <option>en</option>
                     <option>fr</option>
@@ -288,10 +294,15 @@
 
     <div id="display-results">
         <div class="resource list-view">
-            <div class="book-image"><img src="https://books.google.ro/books/content?id=j5RTCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73QnJIRAse5wItUcarKtzJYBYIJvSXkKItiz5XrLL5pVmgTw4w9NBxWywFbSxjHeFNtARjFrOUWKkR-p0F3jqwuU0A-tX3dzs-p89iXPMgQ1_vhIH_EFyuhR9qeckaEpQfcX0mY"></div>
+            <div class="book-image">
+                <a href="https://books.google.ro/books?id=bzp-BAAAQBAJ&dq=java+programming&source=gbs_navlinks_s" target="_blank">
+                    <img src="https://books.google.ro/books/content?id=j5RTCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73QnJIRAse5wItUcarKtzJYBYIJvSXkKItiz5XrLL5pVmgTw4w9NBxWywFbSxjHeFNtARjFrOUWKkR-p0F3jqwuU0A-tX3dzs-p89iXPMgQ1_vhIH_EFyuhR9qeckaEpQfcX0mY">
+                </a>
+            </div>
             <div class="book-info">
               <div class="book-title">Java Programming</div>
               <div class="book-author">Joyce Farrell</div>
+              <div class="book-year">Jan 20, 2015</div>
               <div class="book-rating">
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
@@ -300,30 +311,36 @@
                   <span class="fa fa-star"></span>
               </div>
             </div>
-            <div class="book-description">Introduce your beginning programmers to the power of Java for developing applications with the engaging, hands-on approach in Farrell's JAVA PROGRAMMING, 8E. With this text, even first-time programmers can quickly develop useful programs while learning the basic principles of structured and object-oriented programming. The text incorporates the latest version of Java with a reader-friendly presentation and meaningful real-world exercises that highlight new Java strengths. Updated Programming Exercises and a wealth of case problems help students build skills critical for ongoing programming success.</div>
+            <div class="book-description">Introduce your beginning programmers to the power of Java for developing applications with the engaging, hands-on approach in Farrell's JAVA PROGRAMMING, 8E. With this text, even first-time programmers can quickly develop useful programs while learning the basic principles of structured and object-oriented programming.</div>
         </div>
 
         <div class="resource list-view">
-            <div class="book-image"><img src="https://books.google.ro/books/content?id=j5RTCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73QnJIRAse5wItUcarKtzJYBYIJvSXkKItiz5XrLL5pVmgTw4w9NBxWywFbSxjHeFNtARjFrOUWKkR-p0F3jqwuU0A-tX3dzs-p89iXPMgQ1_vhIH_EFyuhR9qeckaEpQfcX0mY"></div>
+            <div class="book-image">
+                <a href="https://books.google.ro/books?id=JJ7SHIRDfOcC&dq=ruby+on+rails&source=gbs_navlinks_s" target="_blank">
+                    <img src="https://books.google.ro/books/content?id=JJ7SHIRDfOcC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72M_oYZyM4v9ExDoEr3Kz0fVEIsk0WgFrodhdanveiVt4scDpsxRU97ndBzSDDBJkc5UfKpAd5AJMLnxDbXC-kW_lpWZcX2xd4hvHqk8GYh62UUhC3P8ugEbuhsWwWG-Ee4SILo">
+                </a>
+            </div>
             <div class="book-info">
-              <div class="book-title">Java Programming</div>
-              <div class="book-author">Joyce Farrell</div>
+              <div class="book-title">Ruby on Rails: Up and Running</div>
+              <div class="book-author">Bruce Tate, Curt Hibbs</div>
+              <div class="book-year">Aug 22, 2006</div>
               <div class="book-rating">
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star checked"></span>
                   <span class="fa fa-star"></span>
               </div>
             </div>
-            <div class="book-description">Introduce your beginning programmers to the power of Java for developing applications with the engaging, hands-on approach in Farrell's JAVA PROGRAMMING, 8E. With this text, even first-time programmers can quickly develop useful programs while learning the basic principles of structured and object-oriented programming. The text incorporates the latest version of Java with a reader-friendly presentation and meaningful real-world exercises that highlight new Java strengths. Updated Programming Exercises and a wealth of case problems help students build skills critical for ongoing programming success.</div>
+            <div class="book-description">This compact guide teaches you the basics of installing and using boththe Ruby scripting language and the Rails framework for the quickdevelopment of web applications. Ruby on Rails: Up andRunning covers just about everything youneed - from making a simple database-backed application toadding elaborate Ajaxian features and all the juicy bits in between.</div>
         </div>
 
         <div class="resource list-view">
-            <div class="book-image"><img src="https://books.google.ro/books/content?id=j5RTCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73QnJIRAse5wItUcarKtzJYBYIJvSXkKItiz5XrLL5pVmgTw4w9NBxWywFbSxjHeFNtARjFrOUWKkR-p0F3jqwuU0A-tX3dzs-p89iXPMgQ1_vhIH_EFyuhR9qeckaEpQfcX0mY"></div>
+            <div class="book-image"><a href="https://books.google.ro/books?id=lNxfh4vyWl4C&dq=ajax+design&source=gbs_navlinks_s" target="_blank"><img src="https://books.google.ro/books/content?id=lNxfh4vyWl4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72QXIoh-SmTYOK-ZkzxmfpMLwnAZSYquDZjXM7qll45_c0ZLTq9YbKIT99QST9rUu2WerlJQzLe4ip9HL0cFExD8CSwqPhACpylO7hghW7Aa_Xlj4OIwTS3aP5QM2uszh0y9rVf"></a></div>
             <div class="book-info">
-              <div class="book-title">Java Programming</div>
-              <div class="book-author">Joyce Farrell</div>
+              <div class="book-title">Ajax: The Definitive Guide</div>
+              <div class="book-author">Anthony T. Holdener III</div>
+              <div class="book-year">Jan 25, 2008</div>
               <div class="book-rating">
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
@@ -332,23 +349,28 @@
                   <span class="fa fa-star"></span>
               </div>
             </div>
-            <div class="book-description">Introduce your beginning programmers to the power of Java for developing applications with the engaging, hands-on approach in Farrell's JAVA PROGRAMMING, 8E. With this text, even first-time programmers can quickly develop useful programs while learning the basic principles of structured and object-oriented programming. The text incorporates the latest version of Java with a reader-friendly presentation and meaningful real-world exercises that highlight new Java strengths. Updated Programming Exercises and a wealth of case problems help students build skills critical for ongoing programming success.</div>
+            <div class="book-description">Ajax: The Definitive Guide explains how to use standards like JavaScript, XML, CSS, and XHTML, along with the XMLHttpRequest object, to build browser-based web applications that function like desktop programs. You get a complete background on what goes into today's web sites and applications, and learn to leverage these tools along with Ajax for advanced browser searching, web services, mashups, and more.</div>
         </div>
 
         <div class="resource list-view">
-            <div class="book-image"><img src="https://books.google.ro/books/content?id=j5RTCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73QnJIRAse5wItUcarKtzJYBYIJvSXkKItiz5XrLL5pVmgTw4w9NBxWywFbSxjHeFNtARjFrOUWKkR-p0F3jqwuU0A-tX3dzs-p89iXPMgQ1_vhIH_EFyuhR9qeckaEpQfcX0mY"></div>
+            <div class="book-image">
+                <a href="https://books.google.ro/books?id=6oHuKQe3TjQC&dq=design+patterns&source=gbs_navlinks_s" target="_blank">
+                    <img src="https://books.google.ro/books/content?id=6oHuKQe3TjQC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73FeOCQRjw-HUvyL4tw0RHLIuDdLQipi38jGVdIN0r5XqtzxkdaNHG3oabVjUNrcawD3gZ4KvYGyGtBOnBMNRz_X-JhsF2whVmun4Pnf2D6MA4jfWZWULiHxPc0tBux1YlCYgDK">
+                </a>
+            </div>
             <div class="book-info">
-              <div class="book-title">Java Programming</div>
-              <div class="book-author">Joyce Farrell</div>
+              <div class="book-title">Design Patterns: Elements of Reusable Object-Oriented Software</div>
+              <div class="book-author">Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</div>
+              <div class="book-year">Oct 31, 1994</div>
               <div class="book-rating">
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
               </div>
             </div>
-            <div class="book-description">Introduce your beginning programmers to the power of Java for developing applications with the engaging, hands-on approach in Farrell's JAVA PROGRAMMING, 8E. With this text, even first-time programmers can quickly develop useful programs while learning the basic principles of structured and object-oriented programming. The text incorporates the latest version of Java with a reader-friendly presentation and meaningful real-world exercises that highlight new Java strengths. Updated Programming Exercises and a wealth of case problems help students build skills critical for ongoing programming success.</div>
+            <div class="book-description">Capturing a wealth of experience about the design of object-oriented software, four top-notch designers present a catalog of simple and succinct solutions to commonly occurring design problems. Previously undocumented, these 23 patterns allow designers to create more flexible, elegant, and ultimately reusable designs without having to rediscover the design solutions themselves.</div>
         </div>
 
     </div>

@@ -3,7 +3,7 @@
 /* general */
 #books{
   width: 960px;
-  height: 960px;
+  height: 1000px;
   /* centrare */
   margin-left: auto !important;
   margin-right: auto !important;
@@ -12,6 +12,20 @@
   margin-bottom: 10px;
 }
 
+#books input {
+    border-radius: 2px;
+    border: 1px solid white;
+}
+
+#books select {
+    border-radius: 2px;
+    border: 1px solid white;
+}
+
+#books select option {
+    border-radius: 2px;
+    border: 1px solid white;
+}
 
 /* search */
 #books #search-filter {
@@ -118,10 +132,11 @@
 
 /* results */
 #books #display-results {
-  width: 100%;
-  height: 85%;
-  float: left;
-  position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 85%;
+    float: left;
+    position: relative;
 }
 
 #books #display-results .resource {
@@ -149,7 +164,10 @@
 }
 
 #books #display-results .list-view .book-description {
-  width: 40%;
+    width: 40%;
+    text-align: -moz-left;
+    size: 4em;
+    font-size: 10px;
 }
 
 #books #display-results .grid-view {
@@ -177,6 +195,20 @@
   /* centrare */
   margin-left: auto !important;
   margin-right: auto !important;
+}
+
+#books #display-results .grid-view, .book-info .book-title {
+    font-weight: bold;
+}
+
+#books #display-results .list-view, .book-info .book-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+#books #display-results .list-view, .book-info .book-year {
+    font-weight:lighter;
+    text-align: center;
 }
 
 #books #display-results .grid-view .book-description {
@@ -228,17 +260,17 @@
     width: 100%;
     height: 100%;
   }
+
   #books #search-filter {
     height: 65%;
-
   }
+
   #books #search-filter #search-fields .search-field {
     width: 100%;
     height: 25%;
     vertical-align: middle;
     margin-top: 10px;
     margin-bottom: 10px;
-
     outline: none;
   }
 
@@ -248,14 +280,35 @@
     margin-left: 10px;
 }
 
-#books #search-filter #search-fields .search-field div > *{
-  float: left;
-  margin-left: 10px;
+    #books #search-filter #search-fields .search-field div > *{
+    float: left;
+    margin-left: 10px;
 }
 
   #books #search-filter #search-fields #display-format img{
     height: 20px;
   }
+
+  #books #display-results .grid-view {
+      width: 50%;
+  }
+
+  #books #display-results .list-view {
+      width: 100%;
+  }
+
+  #books #display-results .list-view .book-image, .book-info {
+        width: 100%;
+        height: 100%;
+    }
+
+    #books #display-results .list-view .book-description{
+        width: 90%;
+        margin-left: 15px;
+        height: 100%;
+        position: relative;
+        text-align: justify;
+    }
 }
 
 /* tablet */
