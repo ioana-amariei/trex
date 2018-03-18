@@ -3,7 +3,7 @@
 /* general */
 #books{
   width: 960px;
-  height: 1600px;
+  height: 1800px;
   /* centrare */
   margin-left: auto !important;
   margin-right: auto !important;
@@ -30,7 +30,7 @@
 /* search */
 #books #search-filter {
   width: 100%;
-  height: 8%;
+  height: 7%;
   float: left;
   position: relative;
   background-color: #eaecee;
@@ -112,6 +112,10 @@
   margin-right: auto !important;
 }
 
+#books #search-filter #search-fields .search-field #rating option[value="1"]   {
+    background-image:url(images/pages/books/star.png);
+ }
+
 #books #search-filter #search-fields #display-format img{
   height: 50%;
   float: left;
@@ -143,8 +147,7 @@
     display: inline-block;
 }
 
-
-.checked {
+#books .checked {
     color: orange;
 }
 
@@ -213,6 +216,7 @@
 }
 
 
+
 /* orientation: portrait */
 @media only screen and (max-width:550px) {
   #books{
@@ -250,7 +254,7 @@
   }
 }
 
-/* orientation PORTRAIT */
+
 /* mobile devices */
 @media only screen and (min-width:300px) and (max-width:550px) {
   #books{
@@ -306,6 +310,17 @@
         position: relative;
         text-align: justify;
     }
+
+    #books #display-results .grid-view .book-info .book-title, .book-author{
+        font-weight: lighter;
+        text-align: center;
+        margin: auto;
+    }
+
+    #books #display-results .list-view, .book-info .book-title {
+        font-weight: 200px;
+        text-align: center;
+    }
 }
 
 /* tablet */
@@ -356,6 +371,25 @@
       border-radius: 3px;
       border: 1px solid black;
       padding: 5px;
+    }
+
+    #books #display-results .grid-view .book-info .book-title, .book-author{
+        font-weight: lighter;
+        text-align: center;
+        margin: auto;
+    }
+
+    #books #display-results .list-view, .book-info .book-title {
+        font-weight: 200px;
+        text-align: center;
+    }
+
+    #books #display-results .grid-view {
+        width: 50%;
+    }
+
+    #books #display-results .list-view {
+        width: 100%;
     }
 }
 
