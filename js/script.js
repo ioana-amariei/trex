@@ -9,4 +9,9 @@ function showPage(selectedPage){
 
 	var pageToShow = document.getElementById(selectedPage);
 	pageToShow.style.display = 'block';
+
+    if(selectedPage == 'home')
+        document.getElementsByClassName("header")[0].style.position = "absolute";
+    else
+        document.getElementsByClassName("header")[0].style.position = "relative";
 }
