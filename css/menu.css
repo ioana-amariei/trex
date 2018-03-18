@@ -1,30 +1,35 @@
 /* Acest css gestioneaza doar continutul aferent div-ului menu */
 
 #menu{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 960px;
-  height: 100px;
-  /* centrare */
-  margin-left: auto !important;
-  margin-right: auto !important;
-  position: relative;
-  cursor: pointer;
+    position: fixed;
+    left: -186px;
+    top: 250px;
 }
 
 .menu-option{
-  width: 20%;
-  height: 100%;
+  width: 250px;
   position: relative;
-  float: left;
+  display: block;
+  height: 56px;
+  cursor: pointer;
+  transition: ease all 0.3s;
 }
 
 .menu-option:hover {
-  box-shadow: 0 5px 0 0 white inset;
+    margin-left: 170px;
 }
 
 .selected-menu-option {
-  box-shadow: 0 5px 0 0 white inset;
+    margin-left: 170px;
+}
+
+.menu-option > .fa {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 32px;
 }
 
 
@@ -49,11 +54,15 @@
 }
 
 .menu-option p {
-  font-size: 100%;
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-  font-weight: 900;
-  color: rgb(238, 238, 238);
+    font-size: 100%;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    color: rgb(238, 238, 238);
+    margin-top: 0;
+    position: absolute;
+    top: 50%;
+    right: 65px;
+    transform: translateY(-50%);
 }
 
 .menu-option img {
@@ -65,61 +74,46 @@
   bottom: 7%;
   color: white;
 }
-}
 
 /* orientation: portrait */
 /* mobile devices */
-@media only screen and (min-width:550px) and (max-width:600px) {
-  #menu {
-    width: 100%;
-    height: 50px;
-  }
+@media only screen and (max-width: 600px) {
+    #menu {
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
 
-  .menu-option img {
-    height: 40%;
-    width: 30%;
-    left: 35%;
-    bottom: 10%;
-  }
+    .menu-option {
+        display: inline-block;
+        float: left;
+        width: 20%;
+    }
 
-  .menu-option p {
-    display: none;
-  }
+    .menu-option > p {
+        visibility: hidden;
+        font-size: 14px;
+    }
+
+    .menu-option:hover {
+        margin-left: 0;
+        height: 70px;
+    }
+
+    .selected-menu-option {
+        margin-left: 0px;
+        height: 70px;
+    }
+
+    .selected-menu-option > p, .menu-option:hover > p {
+        top: initial;
+        left: 20%;
+        visibility: visible;
+        bottom: -18px;
+    }
+
+    .selected-menu-option > .fa, .menu-option:hover > .fa {
+        top: 26px;
+    }
 }
 
-/* tablet portrait */
-@media only screen and (min-width:768px) and (max-width:959px) {
-  #menu {
-    width: 100%;
-    height: 80px;
-  }
-}
-
-/* orientation: landscape */
-
-/* tablet */
-@media only screen and (max-width:960px) and (min-width:600px){
-  #menu {
-    width: 100%;
-    height: 75px;
-  }
-}
-
-/* mobile devices */
-@media only screen and (max-width:540px) and (min-width:300px) {
-  #menu {
-    width: 100%;
-    height: 45px;
-  }
-
-  .menu-option img {
-    height: 40%;
-    width: 30%;
-    left: 35%;
-    bottom: 10%;
-  }
-
-  .menu-option p {
-    display: none;
-  }
-}

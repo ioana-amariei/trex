@@ -1,1 +1,69 @@
 /* Acest css gestioneaza doar continutul aferent header-ului */
+
+.header {
+    max-width: 960px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 100%;
+    transform: translatex(-50%);
+}
+
+.header > .logo > h2 {
+    color: rgb(180, 180, 180);
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    font-size: 3.5em;
+}
+
+.header > .logo {
+    position: relative;
+}
+
+.header > .logo > p {
+    color: rgb(180, 180, 180);
+    font-family: 'Lato', sans-serif;
+    position: absolute;
+    bottom: -25px;
+}
+
+
+.header > .nav-menu {
+    position: absolute;
+    right: 0;
+    bottom: 52px;
+}
+
+.header > .nav-menu > .menu-item {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.header > .nav-menu > .menu-item > a {
+    color: rgb(180, 180, 180);
+    text-decoration: none;
+    transition: ease all 0.3s;
+    text-transform: uppercase;
+}
+
+.header > .nav-menu > .menu-item > a:hover {
+    color: red;
+}
+
+.header > .user-menu {
+    position: absolute;
+    top: 52px;
+    right: 0;
+}
+
+.header > .user-menu > .menu-item {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.header > .user-menu > .menu-item > a {
+    color: rgb(180, 180, 180);
+    text-decoration: none;
+    transition: ease all 0.3s;
+    text-transform: uppercase;
+}
