@@ -4,7 +4,7 @@
     max-width: 960px;
     position: absolute;
     left: 50%;
-    top: 0;
+    top: 32px;
     width: 100%;
     transform: translatex(-50%);
 }
@@ -66,4 +66,23 @@
     text-decoration: none;
     transition: ease all 0.3s;
     text-transform: uppercase;
+}
+
+
+.header-relative {
+    position: relative;
+}
+
+.header-relative > .nav-menu {
+    bottom: -7px;
+}
+
+.header-relative > .user-menu {
+    top: 0px;
+}
+
+
+@media only screen and (max-width: 740px) {
+    .header > .user-menu { display: none; }
+    .header > .nav-menu { display: none; }
 }

@@ -11,7 +11,7 @@ function showPage(selectedPage){
 	pageToShow.style.display = 'block';
 
     if(selectedPage == 'home')
-        document.getElementsByClassName("header")[0].style.position = "absolute";
+        document.getElementsByClassName("header")[0].classList.remove("header-relative");
     else
-        document.getElementsByClassName("header")[0].style.position = "relative";
+        document.getElementsByClassName("header")[0].classList.add("header-relative");
 }
