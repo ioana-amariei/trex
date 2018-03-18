@@ -35,6 +35,7 @@ pvideo{
 }
 .video{
 	float: left;
+	background-color: lightgray;
 }
 #videos:after {
 	content: "";
