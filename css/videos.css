@@ -38,8 +38,9 @@ pvideo{
 }
 #videos{
     width: 960px;
-    transform: translatex(44%);
     background-color: lightgray;
+	margin-left: auto !important;
+    margin-right: auto !important;
 }
 .h3video{
     text-align: center;
