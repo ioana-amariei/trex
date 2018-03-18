@@ -12,11 +12,28 @@
   <meta name="author" content="Luca Alexandru Gean">
   <meta name="description" content="...">
 
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<!--  Favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="images/fav-icon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="images/fav-icon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="images/fav-icon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="images/fav-icon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/fav-icon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="images/fav-icon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="images/fav-icon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="images/fav-icon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/fav-icon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="images/fav-icon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/fav-icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="images/fav-icon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/fav-icon/favicon-16x16.png">
+<link rel="manifest" href="images/fav-icon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="images/fav-icon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/header.css">
@@ -29,12 +46,11 @@
   <link rel="stylesheet" href="css/article.css">
   <link rel="stylesheet" href="css/books.css">
   <link rel="stylesheet" href="css/videos.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <script src="js/script.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/books.js"></script>
-
 
 
   <title>TReX</title>
@@ -239,7 +255,9 @@
     <form id="search-filter">
         <div id="search-bar">
             <input type="search" id="search-books" name="search-books">
-            <div id="search-button" onclick="alert('Thank you!');" onKeydown="alert('Thank you!');"><img src="images/pages/books/search.svg" alt></div>
+            <div id="search-button" onclick="alert('Thank you!');" onKeydown="alert('Thank you!');">
+                <img src="images/pages/books/search.svg" alt="Search button">
+            </div>
         </div>
 
         <div id="search-fields">
@@ -279,8 +297,8 @@
               <!-- <p>Display type:</p> -->
               <label for='simple'>Display type:</label>
                 <div>
-                  <img class="display-type-option selected-display-type" src="images/pages/books/list.svg" onClick="selectCurrentDisplayType(this, 'list-view' , 'grid-view');">
-                  <img class="display-type-option" src="images/pages/books/grid.svg" onClick="selectCurrentDisplayType(this, 'grid-view', 'list-view');">
+                  <img class="display-type-option selected-display-type" src="images/pages/books/list.svg" onClick="selectCurrentDisplayType(this, 'list-view' , 'grid-view');" alt="List view">
+                  <img class="display-type-option" src="images/pages/books/grid.svg" onClick="selectCurrentDisplayType(this, 'grid-view', 'list-view');" alt="Grid view">
                 </div>
             </div>
         </div>
@@ -290,7 +308,7 @@
         <div class="resource list-view">
             <div class="book-image">
                 <a href="https://books.google.ro/books?id=bzp-BAAAQBAJ&dq=java+programming&source=gbs_navlinks_s" target="_blank">
-                    <img src="https://books.google.ro/books/content?id=j5RTCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73QnJIRAse5wItUcarKtzJYBYIJvSXkKItiz5XrLL5pVmgTw4w9NBxWywFbSxjHeFNtARjFrOUWKkR-p0F3jqwuU0A-tX3dzs-p89iXPMgQ1_vhIH_EFyuhR9qeckaEpQfcX0mY">
+                    <img src="https://books.google.ro/books/content?id=j5RTCwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73QnJIRAse5wItUcarKtzJYBYIJvSXkKItiz5XrLL5pVmgTw4w9NBxWywFbSxjHeFNtARjFrOUWKkR-p0F3jqwuU0A-tX3dzs-p89iXPMgQ1_vhIH_EFyuhR9qeckaEpQfcX0mY" alt="Book cover image">
                 </a>
             </div>
             <div class="book-info">
@@ -310,8 +328,29 @@
 
         <div class="resource list-view">
             <div class="book-image">
+                <a href="https://books.google.ro/books?id=6oHuKQe3TjQC&dq=design+patterns&source=gbs_navlinks_s" target="_blank">
+                    <img src="https://books.google.ro/books/content?id=6oHuKQe3TjQC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73FeOCQRjw-HUvyL4tw0RHLIuDdLQipi38jGVdIN0r5XqtzxkdaNHG3oabVjUNrcawD3gZ4KvYGyGtBOnBMNRz_X-JhsF2whVmun4Pnf2D6MA4jfWZWULiHxPc0tBux1YlCYgDK" alt="Book cover image">
+                </a>
+            </div>
+            <div class="book-info">
+              <div class="book-title">Design Patterns: Elements of Reusable Object-Oriented Software</div>
+              <div class="book-author">Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</div>
+              <div class="book-year">Oct 31, 1994</div>
+              <div class="book-rating">
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+              </div>
+            </div>
+            <div class="book-description">Capturing a wealth of experience about the design of object-oriented software, four top-notch designers present a catalog of simple and succinct solutions to commonly occurring design problems. Previously undocumented, these 23 patterns allow designers to create more flexible, elegant, and ultimately reusable designs without having to rediscover the design solutions themselves.</div>
+        </div>
+
+        <div class="resource list-view">
+            <div class="book-image">
                 <a href="https://books.google.ro/books?id=JJ7SHIRDfOcC&dq=ruby+on+rails&source=gbs_navlinks_s" target="_blank">
-                    <img src="https://books.google.ro/books/content?id=JJ7SHIRDfOcC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72M_oYZyM4v9ExDoEr3Kz0fVEIsk0WgFrodhdanveiVt4scDpsxRU97ndBzSDDBJkc5UfKpAd5AJMLnxDbXC-kW_lpWZcX2xd4hvHqk8GYh62UUhC3P8ugEbuhsWwWG-Ee4SILo">
+                    <img src="https://books.google.ro/books/content?id=JJ7SHIRDfOcC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72M_oYZyM4v9ExDoEr3Kz0fVEIsk0WgFrodhdanveiVt4scDpsxRU97ndBzSDDBJkc5UfKpAd5AJMLnxDbXC-kW_lpWZcX2xd4hvHqk8GYh62UUhC3P8ugEbuhsWwWG-Ee4SILo" alt="Book cover image">
                 </a>
             </div>
             <div class="book-info">
@@ -330,7 +369,10 @@
         </div>
 
         <div class="resource list-view">
-            <div class="book-image"><a href="https://books.google.ro/books?id=lNxfh4vyWl4C&dq=ajax+design&source=gbs_navlinks_s" target="_blank"><img src="https://books.google.ro/books/content?id=lNxfh4vyWl4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72QXIoh-SmTYOK-ZkzxmfpMLwnAZSYquDZjXM7qll45_c0ZLTq9YbKIT99QST9rUu2WerlJQzLe4ip9HL0cFExD8CSwqPhACpylO7hghW7Aa_Xlj4OIwTS3aP5QM2uszh0y9rVf"></a></div>
+            <div class="book-image"><a href="https://books.google.ro/books?id=lNxfh4vyWl4C&dq=ajax+design&source=gbs_navlinks_s" target="_blank">
+                <img src="https://books.google.ro/books/content?id=lNxfh4vyWl4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72QXIoh-SmTYOK-ZkzxmfpMLwnAZSYquDZjXM7qll45_c0ZLTq9YbKIT99QST9rUu2WerlJQzLe4ip9HL0cFExD8CSwqPhACpylO7hghW7Aa_Xlj4OIwTS3aP5QM2uszh0y9rVf" alt="Book cover image">
+                </a>
+            </div>
             <div class="book-info">
               <div class="book-title">Ajax: The Definitive Guide</div>
               <div class="book-author">Anthony T. Holdener III</div>
@@ -344,27 +386,6 @@
               </div>
             </div>
             <div class="book-description">Ajax: The Definitive Guide explains how to use standards like JavaScript, XML, CSS, and XHTML, along with the XMLHttpRequest object, to build browser-based web applications that function like desktop programs. You get a complete background on what goes into today's web sites and applications, and learn to leverage these tools along with Ajax for advanced browser searching, web services, mashups, and more.</div>
-        </div>
-
-        <div class="resource list-view">
-            <div class="book-image">
-                <a href="https://books.google.ro/books?id=6oHuKQe3TjQC&dq=design+patterns&source=gbs_navlinks_s" target="_blank">
-                    <img src="https://books.google.ro/books/content?id=6oHuKQe3TjQC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73FeOCQRjw-HUvyL4tw0RHLIuDdLQipi38jGVdIN0r5XqtzxkdaNHG3oabVjUNrcawD3gZ4KvYGyGtBOnBMNRz_X-JhsF2whVmun4Pnf2D6MA4jfWZWULiHxPc0tBux1YlCYgDK">
-                </a>
-            </div>
-            <div class="book-info">
-              <div class="book-title">Design Patterns: Elements of Reusable Object-Oriented Software</div>
-              <div class="book-author">Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</div>
-              <div class="book-year">Oct 31, 1994</div>
-              <div class="book-rating">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-              </div>
-            </div>
-            <div class="book-description">Capturing a wealth of experience about the design of object-oriented software, four top-notch designers present a catalog of simple and succinct solutions to commonly occurring design problems. Previously undocumented, these 23 patterns allow designers to create more flexible, elegant, and ultimately reusable designs without having to rediscover the design solutions themselves.</div>
         </div>
 
     </div>
