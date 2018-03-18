@@ -165,9 +165,9 @@
 
 #books #display-results .list-view .book-description {
     width: 40%;
-    text-align: -moz-left;
-    size: 4em;
-    font-size: 10px;
+    text-align: left;
+    size: 5em;
+    font-size: 13px;
 }
 
 #books #display-results .grid-view {
@@ -359,5 +359,11 @@
       border-radius: 3px;
       border: 1px solid black;
       padding: 5px;
+    }
+}
+
+@media print {
+    img {
+        display: none;
     }
 }
