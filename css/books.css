@@ -112,10 +112,6 @@
   margin-right: auto !important;
 }
 
-#books #search-filter #search-fields .search-field #rating option[value="1"]   {
-    background-image:url(images/pages/books/star.png);
- }
-
 #books #search-filter #search-fields #display-format img{
   height: 50%;
   float: left;
