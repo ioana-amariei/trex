@@ -4,6 +4,7 @@
     position: fixed;
     left: -186px;
     top: 250px;
+    z-index: 10;
 }
 
 .menu-option{
@@ -82,7 +83,6 @@
         left: 0;
         top: 0;
         width: 100%;
-        z-index: 10;
     }
 
     .menu-option {
@@ -91,9 +91,20 @@
         width: 20%;
     }
 
+    .menu-option > .fa {
+        right: initial;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .menu-option > p {
         visibility: hidden;
         font-size: 14px;
+        top: initial;
+        width: 100%;
+        text-align: center;
+        bottom: -18px;
+        left: 0;
     }
 
     .menu-option:hover {
@@ -108,9 +119,14 @@
 
     .selected-menu-option > p, .menu-option:hover > p {
         top: initial;
-        left: 20%;
+        visibility: visible;
+        font-size: 14px;
+        top: initial;
+        width: 100%;
+        text-align: center;
         visibility: visible;
         bottom: -18px;
+        left: 0;
     }
 
     .selected-menu-option > .fa, .menu-option:hover > .fa {
