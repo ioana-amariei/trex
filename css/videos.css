@@ -38,7 +38,7 @@ pvideo{
 }
 #videos{
     width: 960px;
-    background-color: lightgray;
+    background-color: #f5f5ef;
 	margin-left: auto !important;
     margin-right: auto !important;
 }
