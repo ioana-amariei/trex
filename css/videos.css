@@ -31,14 +31,26 @@
 }
 pvideo{
     word-break: keep-all;
-    width: 360px; 
+    width: 250px; 
 }
 .video{
-	float: left;
-	background-color: lightgray;
+    float: left;
+}
+#videos{
+    width: 960px;
+    transform: translatex(44%);
+    background-color: lightgray;
+}
+.h3video{
+    text-align: center;
 }
 #videos:after {
 	content: "";
 	clear: both;
 	display: table;
+}
+.videogif{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
