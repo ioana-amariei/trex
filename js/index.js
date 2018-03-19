@@ -15,3 +15,16 @@ function showPage(selectedPage){
     else
         document.getElementsByClassName("header")[0].classList.add("header-relative");
 }
+
+
+function transferCompleted(e) {
+    alert(this.responseText);
+}
+
+
+function makeTestRequest() {
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", transferCompleted, true);
+//	oReq.open("GET", "http://localhost/TReX/tmp-test/books.php");
+	//oReq.send();
+}
