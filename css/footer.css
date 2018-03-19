@@ -46,13 +46,13 @@
 #main-footer #footer-list {
   flex-basis: 75%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
 }
 
 #main-footer #footer-list ul {
   list-style: none;
   cursor: pointer;
-  margin-right: 5%;
+  margin-right: 2%;
 }
 
 #main-footer #footer-list ul li:first-child {
