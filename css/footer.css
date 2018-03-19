@@ -1,5 +1,11 @@
 /* Acest css gestioneaza doar continutul aferent #main-footer-ului */
 
+#main-footer::before {
+    content: " ";
+    clear: both;
+    display: table;
+}
+
 #main-footer {
   padding-top: 50px;
   height: auto;
