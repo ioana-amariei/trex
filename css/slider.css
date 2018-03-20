@@ -54,6 +54,7 @@
   100% { left: 0%; }
 }
 
+/* For arrows */
 #display-left{
   position: absolute;
   color: black;
@@ -67,7 +68,7 @@
   cursor: pointer;
   z-index: 1;
 }
-
+/* For arrows */
 #display-right{
   position: absolute;
   color: black;
