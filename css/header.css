@@ -86,3 +86,8 @@
     .header > .user-menu { display: none; }
     .header > .nav-menu { display: none; }
 }
+
+.header-relative > .nav-menu > .menu-item > a:hover {
+    color: black;
+}
+
