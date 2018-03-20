@@ -147,6 +147,8 @@
     color: orange;
 }
 
+
+/* List view */
 #books #display-results .list-view {
     width: 100%;
 }
@@ -169,6 +171,7 @@
     font-size: 13px;
 }
 
+/* Grid view */
 #books #display-results .grid-view {
     width: 25%;
     float: left;
