@@ -1,6 +1,7 @@
+
 pvideo{
     word-break: keep-all;
-    width: 300px; 
+    width: 300px;
 }
 .video{
     float: left;
@@ -151,11 +152,13 @@ pvideo{
 .h5video{
     text-align: right;
     color: red;
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
-.infovideo{
+.infovideo > *{
     height:50%;
+    text-align: center;
+
 }
 /* MEDIA QUERY */
 
