@@ -17,11 +17,11 @@
 }
 
 .menu-option:hover {
-    margin-left: 105px;
+    margin-left: 100px;
 }
 
 .selected-menu-option {
-    margin-left: 105px;
+    margin-left: 100px;
 }
 
 .menu-option > .fa {
@@ -78,7 +78,7 @@
 
 /* orientation: portrait */
 /* mobile devices */
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 1026px) {
     #menu {
         left: 0;
         top: 0;
