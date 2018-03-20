@@ -1,15 +1,6 @@
-.video123{
-
-    height: 50%;
-    width: 100%;
-}
-.video456{
-    height: 50%;
-    width: 100%;
-}
 pvideo{
     word-break: keep-all;
-    width: 460px; 
+    width: 300px; 
 }
 .video{
     float: left;
@@ -20,19 +11,68 @@ pvideo{
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
+
 .video:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
+.video img{
+    width: 100%;
+    height: 150px;
+}
+.gif.under{
+    position:relative;
+}
+.timer{
+    position:absolute;
+    bottom: 30px;
+    right: 5px;
+    height: 15px;
+}
+.timercolor{
+    opacity: 0.3;
+    background-color:lightgray;
+    color: white;
+}
+.timercolor:hover{
+    opacity: 1;
+    background-color:yellow;
+    color: black;
+}
+
+
+.VideoSearch {
+    color: var(--my-black);
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 12px;
+    height: 12px;
+    border: solid 1px currentColor;
+    border-radius: 100%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.VideoSearch:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    height: 6px;
+    width: 1px;
+    background-color: currentColor;
+}
+
 #videos{
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "form" "section";
 }
-.h5video{
-    text-align: right;
-    color: red;
-    text-decoration: underline;
-    
-}
+
 #videos:after {
 	content: "";
 	clear: both;
@@ -85,13 +125,6 @@ pvideo{
     border-bottom: 2px solid var(--my-black);
 }
 
-#videos {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    grid-template-areas: "form" "section";
-}
-
 #videos section {
     border-top: 2px solid #ebebeb;
     background-color: #f8f8f8;
@@ -109,14 +142,126 @@ pvideo{
     padding: 20px;
     margin-top: -2px;
 }
+
 * {
     font-family: 'Lato', sans-serif;
     font-weight: 400;
 }
-.video img{
-    width: 100%;
-    height: 150px;
+
+.h5video{
+    text-align: right;
+    color: red;
+    text-decoration: underline; 
 }
+
 .infovideo{
     height:50%;
+}
+/* MEDIA QUERY */
+
+@supports (display: grid) {
+
+    /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        #videos {
+            grid-template-columns: auto;
+        }
+        #videos select {
+            margin-left: 20px;
+        }
+        #videos fieldset {
+            padding-right: 20px;
+        }
+        #videos section > div {
+            grid-gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .infovideo {
+            width: 100%;
+        }
+        .infovideo h5 {
+            font-size: 1.5em;
+        }
+        .infovideo p {
+            font-size: 1em;
+        }
+
+    }
+
+    /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+    @media only screen and (max-width: 479px) {
+        #videos section {
+            border-top: 4px solid #ebebeb;
+        }
+        #videos #VideoSearch {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "select fieldset";
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        #videos fieldset {
+            height: 50px;
+        }
+        #videos fieldset > input {
+            padding-left: 50px;
+            font-size: 2.5em;
+            line-height: 40px;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid var(--my-black);
+        }
+        #videos select {
+            max-width: none;
+            font-size: 1.7em;
+            line-height: 40px;
+        }
+        #videos select option {
+            max-width: none;
+            font-size: .5em;
+            line-height: 60px;
+        }
+        #videos {
+            grid-template-columns: auto;
+        }
+        #videos select {
+            margin-left: 0;
+        }
+        #videos fieldset {
+            width: 100%;
+        }
+        #videos section > div {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .infovideo {
+            width: 100%;
+        }
+        .infovideo {
+            font-size: 2em;
+            padding: 25px 20px;
+        }
+        .infovideo p {
+            border-top: solid 2px #eaf1f6;
+            font-size: 1.1em;
+            padding: 20px 0;
+        }
+        #VideoSearch {
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 12px;
+            height: 12px;
+            border: solid 3px currentColor;
+        }
+        #VideoSearch:before {
+            top: 12px;
+            left: 5px;
+            height: 13px;
+            width: 3px;
+        }
+        .h5video{
+            text-align: center;
+            font-size: 20px;
+        }
+    }
 }
