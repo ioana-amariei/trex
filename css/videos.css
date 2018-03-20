@@ -24,21 +24,19 @@ pvideo{
 .gif.under{
     position:relative;
 }
-.timer{
-    position:absolute;
-    bottom: 30px;
-    right: 5px;
-    height: 15px;
-}
 .timercolor{
+    position: absolute;
+    bottom: -38px;
+    right: 0px;
     opacity: 0.3;
+    font-size: 23px;
     background-color:lightgray;
     color: white;
 }
 .timercolor:hover{
     opacity: 1;
-    background-color:yellow;
-    color: black;
+    background-color:red;
+    color: white;
 }
 
 
