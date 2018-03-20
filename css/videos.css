@@ -157,6 +157,8 @@ pvideo{
 .infovideo > *{
     height:50%;
     text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
 
 }
 #videos a{
@@ -164,10 +166,10 @@ pvideo{
     font-weight: bold;
 
 }
-#videos a:visited 
+#videos a:visited
 {
-    text-decoration: none; 
-    decoration: none; 
+    text-decoration: none;
+    decoration: none;
 }
 /* MEDIA QUERY */
 
@@ -293,6 +295,6 @@ pvideo{
             background-color: red;
             color: white;
         }
-        
+
     }
 }
