@@ -1,0 +1,495 @@
+/* Acest css gestioneaza doar continutul aferent articolelor */
+
+:root {
+    --my-black: #373d40;
+    --my-gray: #b2c0c8;
+    --hover-gray: #7e96a4;
+}
+
+#presentations {
+    margin: 0;
+    padding: 0;
+}
+
+/********************************
+*    Search icon
+********************************/
+
+.search.icon {
+    color: var(--my-black);
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 12px;
+    height: 12px;
+    border: solid 1px currentColor;
+    border-radius: 100%;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.search.icon:before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    height: 6px;
+    width: 1px;
+    background-color: currentColor;
+}
+
+/********************************
+*    Bookmark icon
+********************************/
+
+.bookmark.icon {
+    color: var(--my-gray);
+    position: absolute;
+    margin-left: 5px;
+    margin-top: 3px;
+    width: 10px;
+    height: 15px;
+    border-radius: 1px 1px 0 0;
+    border-top: solid 1px currentColor;
+    border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    background-color: currentColor;
+}
+
+.bookmark.icon:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 1px;
+    width: 7px;
+    height: 7px;
+    border-top: solid 1px currentColor;
+    border-left: solid 1px currentColor;
+    background-color: white;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/********************************
+*    Eye icon
+********************************/
+
+.eye.icon {
+    color: var(--my-gray);
+    margin-left: 3px;
+    margin-top: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 70% 15%;
+    background-color: currentColor;
+    border: solid 1px currentColor;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.eye.icon:before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    color: white;
+    border: solid 1px currentColor;
+}
+
+
+
+/********************************
+*    Heart icon
+********************************/
+
+.heart.icon {
+    color: var(--my-gray);
+    margin-top: 6px;
+    margin-left: 5px;
+    width: 9px;
+    height: 9px;
+    border-left: solid 1px currentColor;
+    border-bottom: solid 1px currentColor;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    background-color: currentColor;
+}
+
+.heart.icon:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -1px;
+    width: 8px;
+    height: 5px;
+    border-radius: 5px 5px 0 0;
+    border-top: solid 1px currentColor;
+    border-left: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    background-color: currentColor;
+}
+
+.heart.icon:after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 8px;
+    width: 5px;
+    height: 8px;
+    border-radius: 0 5px 5px 0;
+    border-top: solid 1px currentColor;
+    border-right: solid 1px currentColor;
+    border-bottom: solid 1px currentColor;
+    background-color: currentColor;
+}
+
+/********************************
+*    Search
+********************************/
+
+#presentations #aSearchForm {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px;
+    grid-template-areas: "ddl afs";
+    padding: 20px 0 10px 0;
+}
+
+#presentations select {
+    grid-area: ddl;
+    padding: 5px 35px 5px 35px;
+    font-weight: 400;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(../images/article/dropdownlist.png) 95% / 20px no-repeat #eee;
+}
+
+#presentations fieldset {
+    grid-area: afs;
+    border: none;
+    padding: 0;
+    position: relative;
+}
+
+#presentations fieldset > input {
+    color: var(--my-black);
+    float: left;
+    padding-left: 40px;
+    font-size: .9em;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--my-black);
+}
+
+#presentations {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "form" "section";
+}
+
+#presentations section {
+    border-top: 2px solid #ebebeb;
+    background-color: #f8f8f8;
+}
+
+#presentations section > div {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    border-top: 2px solid #ebebeb;
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin-top: -2px;
+}
+
+.presentationNo {
+    background-color: #2153a7;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.presentationNo:hover {
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.presentationNo img {
+    width: 100%;
+}
+
+.presentationNo a {
+    text-decoration: none;
+    color: var(--my--black);
+}
+
+.presentationPostInfo {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    text-align: center;
+}
+
+.presentationPostInfo::before {
+    content: "";
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 50px;
+    top: -50px;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.presentationNo:hover .articlePostInfo::before {
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    background: linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.presentationPostInfo h3 {
+    margin: 0;
+    font-weight: 400;
+    padding: 20px 15px 10px 15px;
+    font-size: 1em;
+}
+
+.presentationPostInfo h4 {
+    margin: 0;
+    padding: 15px 0;
+    border-top: solid 1px #eaf1f6;
+    color: #b7c3cb;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: .7em;
+}
+
+.presentationPostMeta {
+    border-top: solid 1px #eaf1f6;
+    padding-top: 15px;
+    height: 30px;
+    position: relative;
+}
+
+.presentationPostMeta div {
+    margin: 0 15px;
+}
+
+.presentationPostMeta div:hover {
+    cursor: pointer;
+    color: var(--my-black);
+}
+
+.presentationPostMeta div:nth-child(2) {
+    margin-right: 15px;
+}
+
+.presentationPostMeta div:first-child {
+    float: left;
+    margin-left: 15px;
+}
+
+.presentationPostMeta div:not(:first-child) {
+    float: right;
+}
+
+
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align
+--------------------------------------------------------------*/
+
+@supports not (display: grid) {
+    #articles,
+    #aSearchForm,
+    #articleNo {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+/*--------------------------------------------------------------
+Media Queries
+--------------------------------------------------------------*/
+
+@supports (display: grid) {
+
+    /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+        #articles {
+            grid-template-columns: auto;
+        }
+        #articles select {
+            margin-left: 20px;
+        }
+        #articles fieldset {
+            padding-right: 20px;
+        }
+        #articles section > div {
+            grid-gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .articlePostInfo {
+            width: 100%;
+        }
+        .articlePostInfo h3 {
+            font-size: 1.5em;
+        }
+        .articlePostInfo h4 {
+            font-size: 1em;
+        }
+        .articlePostMeta div:first-child {
+            margin-left: 25px;
+        }
+        .articlePostMeta div:nth-child(2) {
+            margin-right: 25px;
+        }
+    }
+
+    /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+    @media only screen and (max-width: 479px) {
+        #presentations section {
+            border-top: 4px solid #ebebeb;
+        }
+        #presentations #aSearchForm {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "afs" "ddl";
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        #presentations fieldset {
+            height: 50px;
+        }
+        #presentations fieldset > input {
+            padding-left: 50px;
+            font-size: 2.5em;
+            line-height: 40px;
+            width: 100%;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid var(--my-black);
+        }
+        #presentations select {
+            max-width: none;
+            font-size: 1.7em;
+            line-height: 40px;
+        }
+        #presentations select option {
+            max-width: none;
+            font-size: .5em;
+            line-height: 60px;
+        }
+        #presentations {
+            grid-template-columns: auto;
+        }
+        #presentations select {
+            margin-left: 0;
+        }
+        #presentations fieldset {
+            width: 100%;
+        }
+        #presentations section > div {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        .presentationPostInfo {
+            width: 100%;
+        }
+        .presentationPostInfo h3 {
+            font-size: 2em;
+            padding: 25px 20px;
+        }
+        .presentationPostInfo h4 {
+            border-top: solid 2px #eaf1f6;
+            font-size: 1.1em;
+            padding: 20px 0;
+        }
+        .presentationPostMeta div:first-child {
+            margin-left: 25px;
+        }
+        .presentationPostMeta div:nth-child(2) {
+            margin-right: 25px;
+        }
+        .bookmark.icon {
+            width: 20px;
+            height: 30px;
+        }
+        .bookmark.icon:before {
+            top: 22px;
+            left: 2px;
+            width: 15px;
+            height: 15px;
+        }
+        .heart.icon {
+            width: 18px;
+            height: 18px;
+            margin-top: 8px;
+        }
+        .heart.icon:before {
+            top: -8px;
+            left: -1px;
+            width: 17px;
+            height: 10px;
+            border-radius: 20px 20px 0 0;
+        }
+        .heart.icon:after {
+            top: 0px;
+            left: 15px;
+            width: 10px;
+            height: 17px;
+            border-radius: 0px 20px 20px 0;
+        }
+        .eye.icon {
+            color: var(--my-gray);
+            margin-left: 3px;
+            margin-top: 3px;
+            width: 24px;
+            height: 24px;
+            border-radius: 70% 15%;
+        }
+        .eye.icon:before {
+            left: 5px;
+            top: 5px;
+            width: 11px;
+            height: 11px;
+            border: solid 2px currentColor;
+        }
+        .presentationPostMeta div:nth-child(2) {
+            margin-left: 10px;
+        }
+        .presentationPostMeta {
+            border-top: solid 2px #eaf1f6;
+            height: 50px;
+        }
+        .search.icon {
+            margin-top: 15px;
+            margin-left: 10px;
+            width: 12px;
+            height: 12px;
+            border: solid 3px currentColor;
+        }
+        .search.icon:before {
+            top: 12px;
+            left: 5px;
+            height: 13px;
+            width: 3px;
+        }
+    }
+}
