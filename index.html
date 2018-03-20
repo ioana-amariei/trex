@@ -694,7 +694,7 @@
                         <h5 class="timercolor">11:07</h5>
                     </div>
                     <div class="infovideo">
-                        <h5 class="h5video"><a href="" target="_blank"><a href="" target="_blank">FRONT END</a>,
+                        <h5 class="h5video"><a href="https://www.youtube.com/embed/BJsvSh7ZUgc" target="_blank">FRONT END</a>,
                             <a href="https://www.w3schools.com/html/default.asp" target="_blank"> HTML</a>,
                             <a href="https://www.w3schools.com/css/" target="_blank"> CSS</a>,
                             <a href="https://www.w3schools.com/js/default.asp" target="_blank"> JS</a>,
@@ -709,7 +709,7 @@
                         <h5 class="timercolor">5:14</h5>
                     </div>
                     <div class="infovideo">
-                        <h5 class="h5video"><a href="" target="_blank">FRONT END</a>,
+                        <h5 class="h5video"><a href="https://www.youtube.com/embed/BJsvSh7ZUgc" target="_blank">BACK END</a>,
                             <a href="https://teamtreehouse.com/tracks/front-end-web-development" target="_blank"> Ruby</a>,
                             <a href="https://www.w3schools.com/php/default.asp" target="_blank"> PHP</a>,
                             <a href="https://www.w3schools.com/sql/default.asp" target="_blank"> MySQL</a>,
@@ -726,7 +726,7 @@
 
     <!-- start Octavian Gensthaler  -->
     <div id="presentations" class="page">
-        <form id="aSearchForm" method="post">
+        <form id="pSearchForm" method="post">
             <select>
               <option>Java</option>
               <option selected>Design</option>
@@ -734,7 +734,7 @@
               <option>Algorithm</option>
             </select>
             <fieldset>
-                <input type="search" results="5" name="q" onkeypress="if(event.keyCode == 13) alert('Hi')">
+                <input type="search" onkeypress="if(event.keyCode == 13) alert('Hi')">
                 <div class="search icon" onclick="alert('Hi')"></div>
             </fieldset>
         </form>
@@ -864,14 +864,14 @@
     </footer>
     <!-- end Loghin Alexandru  -->
 
+
+    <script>
+        var slides = document.getElementsByClassName("slide");
+
+        for(var i = 0; i < slides.length; i++) {
+            slides.item(i).style.background = "url("+slides.item(i).getAttribute("data-source")+")";
+        }
+    </script>
 </body>
-
-<script>
-    var slides = document.getElementsByClassName("slide");
-
-    for(var i = 0; i < slides.length; i++) {
-        slides.item(i).style.background = "url("+slides.item(i).getAttribute("data-source")+")";
-    }
-</script>
 
 </html>

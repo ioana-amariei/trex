@@ -150,7 +150,7 @@
 *    Search
 ********************************/
 
-#presentations #aSearchForm {
+#presentations #pSearchForm {
     max-width: 960px;
     margin: 0 auto;
     display: grid;
@@ -318,7 +318,7 @@ If no grid support, limit width to 50em and center align
 
 @supports not (display: grid) {
     #articles,
-    #aSearchForm,
+    #pSearchForm,
     #articleNo {
         max-width: 100%;
         margin: 0 auto;
@@ -368,7 +368,7 @@ Media Queries
         #presentations section {
             border-top: 4px solid #ebebeb;
         }
-        #presentations #aSearchForm {
+        #presentations #pSearchForm {
             grid-template-columns: 1fr;
             grid-template-rows: auto;
             grid-template-areas: "afs" "ddl";
