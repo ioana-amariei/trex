@@ -1,0 +1,54 @@
+.user-form 
+{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.user-form > formgroup 
+{
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.user-form > formgroup > label 
+{
+    display: block;    
+    margin-bottom: 5px;
+    color: black;
+    text-transform: uppercase;
+    font: 'Lato';
+
+}
+
+.user-form > formgroup > input 
+{
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid gray;
+}
+
+.user-form > formgroup > input 
+{
+    outline: 0;
+}
+
+.user-form > formgroup > .submit-button 
+{
+    background: #676767;
+    color: white;
+    padding: 10px;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.user-form > formgroup > .submit-button:hover 
+{
+    background: gray;
+    cursor: pointer;
+}
