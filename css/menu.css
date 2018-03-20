@@ -17,11 +17,11 @@
 }
 
 .menu-option:hover {
-    margin-left: 100px;
+    margin-left: 105px;
 }
 
 .selected-menu-option {
-    margin-left: 100px;
+    margin-left: 105px;
 }
 
 .menu-option > .fa {
