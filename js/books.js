@@ -125,9 +125,9 @@ function createBookAuthorsDiv(book){
     var bookAuthors = document.createElement('div');
     bookAuthors.classList.add('book-authors');
 
-    // if(book.authors.length > 2){
-    //     book.authors[2] = 'et al.';
-    // }
+    if(book.authors.length > 2){
+        book.authors[2] = 'et al.';
+    }
 
     var authors = document.createTextNode(book.authors.join(', '));
     bookAuthors.appendChild(authors);

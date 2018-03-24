@@ -1,5 +1,8 @@
 <?php
-// Resources: http://php.net/manual/ro/language.exceptions.php
+/*  Resources:
+1. http://php.net/manual/ro/language.exceptions.php
+2. https://stackoverflow.com/questions/4258557/limit-text-length-in-php-and-provide-read-more-link
+*/
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/repository/ResourceRepository.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/model/Resource.php');
@@ -84,7 +87,17 @@ class BookRepository implements ResourceRepository {
 
     private function getDescription($item){
         if(isset($item['volumeInfo']['description'])){
-            return $item['volumeInfo']['description'];
+            $description = $item['volumeInfo']['description'];
+            if (strlen($description) > 500) {
+                // truncate string
+                $stringCut = substr($description, 0, 500);
+                $endPoint = strrpos($stringCut, ' ');
+
+                //if the string doesn't contain any space then it will cut without word basis.
+                $description = $endPoint? substr($stringCut, 0, $endPoint):substr($stringCut, 0);
+                $description .= '...';
+            }
+            return $description;
         } else {
             return 'The description is not available.';
         }
