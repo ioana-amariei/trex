@@ -4,6 +4,7 @@
 3. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
 4. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
 5. https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+6. https://stackoverflow.com/questions/683366/remove-all-the-children-dom-elements-in-div/684013
 */
 
 var currentDisplayType = 'list-view';
@@ -40,7 +41,16 @@ function searchBooks(){
     request.send();
 }
 
+function clearCurrentlyDisplayedBooks(){
+    var displayResults = document.getElementById('display-results');
+
+    while (displayResults.hasChildNodes()) {
+        displayResults.removeChild(displayResults.lastChild);
+    }
+}
+
 function displayBooks(){
+    clearCurrentlyDisplayedBooks();
     var books = this.response;
 
     var index;
@@ -106,6 +116,10 @@ function createBookTitleDiv(book){
 function createBookAuthorsDiv(book){
     var bookAuthors = document.createElement('div');
     bookAuthors.classList.add('book-authors');
+
+    // if(book.authors.length > 2){
+    //     book.authors[2] = 'et al.';
+    // }
 
     var authors = document.createTextNode(book.authors.join(', '));
     bookAuthors.appendChild(authors);

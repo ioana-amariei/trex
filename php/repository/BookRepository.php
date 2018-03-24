@@ -1,15 +1,47 @@
 <?php
+// Resources: http://php.net/manual/ro/language.exceptions.php
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/repository/ResourceRepository.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/model/Resource.php');
 
 class BookRepository implements ResourceRepository {
+
     public function search($terms){
         $uri = $this->constructUri($terms);
         $data = $this->fetchData($uri);
         $books = $this->constructBooks($data);
 
         return $books;
+    }
+    private function constructUri($terms){
+        return 'https://www.googleapis.com/books/v1/volumes?q=' . urlencode($terms);
+    }
+
+    private function fetchData($uri){
+        // Reference: http://thisinterestsme.com/send-get-request-with-php/
+        //Initialize cURL.
+        $ch = curl_init();
+
+        //Set the URL that you want to GET by using the CURLOPT_URL option.
+        curl_setopt($ch, CURLOPT_URL, $uri);
+
+        //Set CURLOPT_RETURNTRANSFER so that the content is returned as a variable.
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        //Set CURLOPT_FOLLOWLOCATION to true to follow redirects.
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+        try {
+            //Execute the request.
+            $data = curl_exec($ch);
+        } catch (Exception $e) {
+            return [];
+        }
+
+        //Close the cURL handle.
+        curl_close($ch);
+
+        return $data;
     }
 
     private function constructBooks($data){
@@ -24,6 +56,7 @@ class BookRepository implements ResourceRepository {
 
         return $books;
     }
+
 
     private function constructBook($item){
         $book = new Resource();
@@ -113,32 +146,7 @@ class BookRepository implements ResourceRepository {
         }
     }
 
-    private function constructUri($terms){
-        return 'https://www.googleapis.com/books/v1/volumes?q=' . $terms;
-    }
 
-    private function fetchData($uri){
-        // Reference: http://thisinterestsme.com/send-get-request-with-php/
-        //Initialize cURL.
-        $ch = curl_init();
-
-        //Set the URL that you want to GET by using the CURLOPT_URL option.
-        curl_setopt($ch, CURLOPT_URL, $uri);
-
-        //Set CURLOPT_RETURNTRANSFER so that the content is returned as a variable.
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        //Set CURLOPT_FOLLOWLOCATION to true to follow redirects.
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-
-        //Execute the request.
-        $data = curl_exec($ch);
-
-        //Close the cURL handle.
-        curl_close($ch);
-
-        return $data;
-    }
 }
 
 ?>

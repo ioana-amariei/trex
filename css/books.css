@@ -143,6 +143,11 @@
     display: inline-block;
 }
 
+#books #display-results .resource img {
+    width: 128px;
+    height: 164px;
+}
+
 #books .checked {
     color: orange;
 }
@@ -176,10 +181,13 @@
     width: 25%;
     float: left;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
 }
 
 #books #display-results .grid-view  .book-image {
-  height: 50%;
+  height: 40%;
   width: 100%;
   text-align: center;
   /* centrare */
@@ -188,7 +196,7 @@
 }
 
 #books #display-results .grid-view .book-info {
-  height: 50%;
+  height: 60%;
   width: 100%;
   text-align: center;
   /* centrare */
