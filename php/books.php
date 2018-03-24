@@ -1,24 +1,24 @@
 <?php
-require('resource.php');
-
-$book = new Resource();
-$book->setType("book");
-$book->setTitle("The Java Programming Guide");
-
-$books = [$book, $book];
-$response = ["resources" => $books];
 
 // echo json_encode($response);
 //$resp = http_get("https://www.googleapis.com/books/v1/volumes?q=java", array("timeout"=>1), $info);
 //echo $resp;
 
 
-$ch = curl_init("https://www.googleapis.com/books/v1/volumes?q=java");
+// $ch = curl_init("https://www.googleapis.com/books/v1/volumes?q=java");
 
 
-$res = curl_exec($ch);
-curl_close($ch);
+// $res = curl_exec($ch);
+// curl_close($ch);
 
+// echo $res;
 
-echo $res;
+require ('repository/BookRepository.php');
+
+$terms = $_GET['terms'];
+
+$bookRepository = new BookRepository();
+$books = $bookRepository->search($terms);
+
+echo json_encode($books, JSON_PRETTY_PRINT);
  ?>
