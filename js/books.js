@@ -5,6 +5,8 @@
 4. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
 5. https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
 6. https://stackoverflow.com/questions/683366/remove-all-the-children-dom-elements-in-div/684013
+7. https://stackoverflow.com/questions/15653145/using-google-text-to-speech-in-javascript
+8. https://stackoverflow.com/questions/3007336/how-do-you-assign-a-javascript-onclick-attribute-dynamically
 */
 
 var currentDisplayType = 'list-view';
@@ -28,6 +30,12 @@ function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
     resources[index].classList.remove(classToRemove);
     resources[index].classList.add(classToAdd);
   }
+}
+
+function speak(text){
+    var msg = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(msg);
 }
 
 function searchBooks(){
@@ -175,6 +183,8 @@ function createBookDescriptionDiv(book){
 
     var description = document.createTextNode(book.description);
     bookDescription.appendChild(description);
+
+    bookDescription.onclick = function() { speak(book.description) };
 
     return bookDescription;
 }
