@@ -1,4 +1,17 @@
+/* Resources:
+1. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+2. https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+3. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+4. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/open
+5. https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
+*/
+
+var currentDisplayType = 'list-view';
+
+
 function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
+    currentDisplayType = classToAdd;
+
   var displayTypes = document.getElementsByClassName("selected-display-type");
 
   var index;
@@ -14,4 +27,156 @@ function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
     resources[index].classList.remove(classToRemove);
     resources[index].classList.add(classToAdd);
   }
+}
+
+function searchBooks(){
+    var searchTerms = document.getElementById('search-books').value;
+    var uri = "http://localhost/trex2/php/api/books.php?terms=" + searchTerms;
+
+    var request = new XMLHttpRequest();
+    request.open("GET", uri);
+    request.responseType = 'json';
+    request.addEventListener("load", displayBooks);
+    request.send();
+}
+
+function displayBooks(){
+    var books = this.response;
+
+    var index;
+    for(index = 0; index < books.length; index++){
+        var book = JSON.parse(books[index]);
+        appendBookInfoToResultsArea(book);
+    }
+}
+
+function appendBookInfoToResultsArea(book){
+    var displayResults = document.getElementById('display-results');
+    var content =  createBookResourceDiv(book);
+    displayResults.appendChild(content);
+}
+
+
+function createBookResourceDiv(book){
+    var resourceDiv = document.createElement('div');
+    resourceDiv.classList.add('resource', currentDisplayType);
+
+    var bookImage = createBookImageDiv(book);
+    resourceDiv.appendChild(bookImage);
+
+    var bookInfo = createBookInfoDiv(book);
+    resourceDiv.appendChild(bookInfo);
+
+    var bookDescription = createBookDescriptionDiv(book);
+    resourceDiv.appendChild(bookDescription);
+
+    return resourceDiv;
+}
+
+function createBookInfoDiv(book){
+    var bookInfo = document.createElement('div');
+    bookInfo.classList.add('book-info');
+
+    var bookTitle = createBookTitleDiv(book);
+    bookInfo.appendChild(bookTitle);
+
+    var bookAuthors = createBookAuthorsDiv(book);
+    bookInfo.appendChild(bookAuthors);
+
+    var bookYear = createBookYearDiv(book);
+    bookInfo.appendChild(bookYear);
+
+    var bookRating = createBookRatingDiv(book);
+    bookInfo.appendChild(bookRating);
+
+    return bookInfo;
+}
+
+function createBookTitleDiv(book){
+    var bookTitle = document.createElement('div');
+    bookTitle.classList.add('book-title');
+
+    var title = document.createTextNode(book.title);
+    bookTitle.appendChild(title);
+
+    return bookTitle;
+
+}
+
+function createBookAuthorsDiv(book){
+    var bookAuthors = document.createElement('div');
+    bookAuthors.classList.add('book-authors');
+
+    var authors = document.createTextNode(book.authors.join(', '));
+    bookAuthors.appendChild(authors);
+
+    return bookAuthors;
+}
+
+function createBookYearDiv(book){
+    var bookYear = document.createElement('div');
+    bookYear.classList.add('book-year');
+
+    var year = document.createTextNode(book.date);
+    bookYear.appendChild(year);
+
+    return bookYear;
+}
+
+function createBookRatingDiv(book){
+    var bookRating = document.createElement('div');
+    bookRating.classList.add('book-rating');
+
+    book.rating = Math.round(Number(book.rating));
+
+    var index;
+    for(index = 0; index < book.rating; index++){
+        bookRating.appendChild(createCheckedStarSpan());
+    }
+
+    for(index = book.rating; index < 5; index++){
+        bookRating.appendChild(createUncheckedStarSpan());
+    }
+
+    return bookRating;
+}
+
+function createCheckedStarSpan(){
+    var star = document.createElement('span');
+    star.classList.add('fa', 'fa-star', 'checked');
+
+    return star;
+}
+
+function createUncheckedStarSpan(){
+    var star = document.createElement('span');
+    star.classList.add('fa', 'fa-star');
+
+    return star;
+}
+
+function createBookDescriptionDiv(book){
+    var bookDescription = document.createElement('div');
+    bookDescription.classList.add('book-description');
+
+    var description = document.createTextNode(book.description);
+    bookDescription.appendChild(description);
+
+    return bookDescription;
+}
+
+function createBookImageDiv(book){
+    var bookImage = document.createElement('div');
+    bookImage.classList.add('book-image');
+
+    var link = document.createElement('a');
+    link.href = book.url;
+
+    var image = document.createElement('img');
+    image.src = book.image;
+    // add alt and target
+
+    bookImage.appendChild(link).appendChild(image);
+
+    return bookImage;
 }

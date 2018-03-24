@@ -310,7 +310,7 @@
         text-align: justify;
     }
 
-    #books #display-results .grid-view .book-info .book-title, .book-author{
+    #books #display-results .grid-view .book-info .book-title, .book-authors{
         font-weight: lighter;
         text-align: center;
         margin: auto;
@@ -372,7 +372,7 @@
       padding: 5px;
     }
 
-    #books #display-results .grid-view .book-info .book-title, .book-author{
+    #books #display-results .grid-view .book-info .book-title, .book-authors{
         font-weight: lighter;
         text-align: center;
         margin: auto;

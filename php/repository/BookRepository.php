@@ -1,7 +1,7 @@
 <?php
 
-include 'ResourceRepository.php';
-include './model/Resource.php';
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/repository/ResourceRepository.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/model/Resource.php');
 
 class BookRepository implements ResourceRepository {
     public function search($terms){
