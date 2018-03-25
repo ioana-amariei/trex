@@ -9,15 +9,15 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/model/Resource.php');
 
 class BookRepository implements ResourceRepository {
 
-    public function search($terms){
-        $uri = $this->constructUri($terms);
+    public function search($filter){
+        $uri = $this->constructUri($filter);
         $data = $this->fetchData($uri);
-        $books = $this->constructBooks($data);
+        $books = $this->constructBooks($data, $filter);
 
         return $books;
     }
-    private function constructUri($terms){
-        return 'https://www.googleapis.com/books/v1/volumes?q=' . urlencode($terms);
+    private function constructUri($filter){
+        return 'https://www.googleapis.com/books/v1/volumes?q=' . urlencode($filter['terms']);
     }
 
     private function fetchData($uri){
@@ -47,17 +47,27 @@ class BookRepository implements ResourceRepository {
         return $data;
     }
 
-    private function constructBooks($data){
+    private function constructBooks($data, $filter){
         // Takes a JSON encoded string and converts it into a PHP variable.
         $resources = json_decode($data, $assoc = TRUE);
         $books = [];
 
         foreach ($resources['items'] as $item) {
             $book = $this->constructBook($item);
-            array_push($books, $book);
+            if($this->satisfiesFilter($book, $filter)){
+                array_push($books, $book);
+            }
         }
 
         return $books;
+    }
+
+    private function satisfiesFilter($book, $filter){
+        if(round($book->getRating()) < $filter['minimumRating']){
+            return FALSE;
+        }
+
+        return TRUE;
     }
 
 

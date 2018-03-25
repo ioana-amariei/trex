@@ -16,6 +16,9 @@ class Resource implements JsonSerializable {
         $this->type = $type;
     }
 
+    public function getRating(){
+        return $this->rating;
+    }
 
     public function setUrl($url) {
         $this->url = $url;

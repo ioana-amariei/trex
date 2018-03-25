@@ -53,10 +53,25 @@ function handleEnterKeyForSearchBar(event){
     }
 }
 
-function searchBooks(){
-    var searchTerms = document.getElementById('search-books').value;
-    var uri = "http://localhost/trex2/php/api/books.php?terms=" + searchTerms;
+function constructRequestUri(){
+    return "http://localhost/trex2/php/api/books.php?" + constructQueryParamsSection();
+}
 
+function constructQueryParamsSection(){
+    var searchTerms = document.getElementById('search-books').value;
+    var ratingSelect = document.getElementById("simple-rating-select");
+    var minimumRating = ratingSelect.options[ratingSelect.selectedIndex].value;
+
+    var queryParams = "";
+    queryParams = "terms=" + searchTerms;
+    queryParams += "&minimumRating=" + minimumRating;
+
+    return queryParams;
+}
+
+function searchBooks(){
+    var uri = constructRequestUri();
+    
     var request = new XMLHttpRequest();
     request.open("GET", uri);
     request.responseType = 'json';

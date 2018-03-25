@@ -137,6 +137,7 @@
     max-height: 85%;
     float: left;
     position: relative;
+    overflow: auto;
 }
 
 #books #display-results .resource {
