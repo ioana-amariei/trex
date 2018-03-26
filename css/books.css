@@ -160,7 +160,7 @@
 }
 
 #books #display-results .list-view .book-image, .book-info, .book-description {
-  height: 100%;
+  max-height: 100%;
   float: left;
   position: relative;
   margin-bottom: 30px;
@@ -185,7 +185,11 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    position: relative;
+    overflow: auto;
+    max-height: 100%;
+    padding-bottom: 20px;
+    height: 300px;
 }
 
 #books #display-results .grid-view  .book-image {
@@ -211,6 +215,8 @@
 #books #display-results .list-view, .book-info .book-title {
     font-weight: bold;
     text-align: center;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 #books #display-results .list-view, .book-info .book-year {

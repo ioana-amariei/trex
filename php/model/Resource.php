@@ -24,6 +24,10 @@ class Resource implements JsonSerializable {
         $this->url = $url;
     }
 
+    public function getUrl(){
+        return $this->url;
+    }
+
     public function setTitle($title) {
         $this->title = $title;
     }

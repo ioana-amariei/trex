@@ -98,19 +98,24 @@ class BookRepository implements ResourceRepository {
     private function getDescription($item){
         if(isset($item['volumeInfo']['description'])){
             $description = $item['volumeInfo']['description'];
-            if (strlen($description) > 500) {
-                // truncate string
-                $stringCut = substr($description, 0, 500);
-                $endPoint = strrpos($stringCut, ' ');
-
-                //if the string doesn't contain any space then it will cut without word basis.
-                $description = $endPoint? substr($stringCut, 0, $endPoint):substr($stringCut, 0);
-                $description .= '...';
-            }
-            return $description;
+            return $this->truncateDescription($description, 500);
         } else {
             return 'The description is not available.';
         }
+    }
+
+    // de creat clasa Utils -- metode publice
+    private function truncateDescription($description, $length){
+        if (strlen($description) > $length) {
+            // truncate string
+            $stringCut = substr($description, 0, $length);
+            $endPoint = strrpos($stringCut, ' ');
+
+            //if the string doesn't contain any space then it will cut without word basis.
+            $description = $endPoint? substr($stringCut, 0, $endPoint):substr($stringCut, 0);
+            $description .= ' ...';
+        }
+        return $description;
     }
 
     private function getLanguage($item){
@@ -168,7 +173,6 @@ class BookRepository implements ResourceRepository {
             return [];
         }
     }
-
 
 }
 
