@@ -17,7 +17,7 @@ class BookRepository implements ResourceRepository {
         return $books;
     }
     private function constructUri($filter){
-        return 'https://www.googleapis.com/books/v1/volumes?q=' . urlencode($filter['terms']);
+        return 'https://www.googleapis.com/books/v1/volumes?maxResults=40&q=' . urlencode($filter['terms']);
     }
 
     private function fetchData($uri){
