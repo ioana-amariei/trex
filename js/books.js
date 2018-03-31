@@ -12,7 +12,6 @@
 
 var currentDisplayType = 'list-view';
 
-
 function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
     currentDisplayType = classToAdd;
 
@@ -33,12 +32,6 @@ function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
   }
 }
 
-function speak(text){
-    var msg = new SpeechSynthesisUtterance(text);
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(msg);
-}
-
 function registerEventHandlers(){
     var input = document.getElementById('search-books');
 
@@ -47,14 +40,19 @@ function registerEventHandlers(){
     });
 }
 
-function handleEnterKeyForSearchBar(event){
-    if(event.keyCode === 13){
-        searchBooks();
-    }
+function searchBooks(){
+    var uri = constructRequestUri();
+    executeGetRequest(uri, displayBooks);
 }
 
 function constructRequestUri(){
     return "http://localhost/trex2/php/api/books.php?" + constructQueryParamsSection();
+}
+
+function handleEnterKeyForSearchBar(event){
+    if(event.keyCode === 13){
+        searchBooks();
+    }
 }
 
 function constructQueryParamsSection(){
@@ -67,16 +65,6 @@ function constructQueryParamsSection(){
     queryParams += "&minimumRating=" + minimumRating;
 
     return queryParams;
-}
-
-function searchBooks(){
-    var uri = constructRequestUri();
-    
-    var request = new XMLHttpRequest();
-    request.open("GET", uri);
-    request.responseType = 'json';
-    request.addEventListener("load", displayBooks);
-    request.send();
 }
 
 function clearCurrentlyDisplayedBooks(){
