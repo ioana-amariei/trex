@@ -40,6 +40,7 @@ class Utils {
         }
         return $description;
     }
+
 }
 
 ?>

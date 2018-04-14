@@ -64,6 +64,10 @@ class Resource implements JsonSerializable {
         $this->date = $date;
     }
 
+    public function getDate(){
+        return $this->date;
+    }
+
     public function setLanguage($language) {
         $this->language = $language;
     }

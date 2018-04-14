@@ -19,11 +19,14 @@ class Books implements GenericResource {
     }
 
     private function constructUri($filter){
+        $terms = $filter['terms'];
+        $language = $filter['language'];
+
         $uri = 'https://www.googleapis.com/books/v1/volumes?';
         $uri = $uri . 'maxResults=40';
-        $uri = $uri . '&q=' . urlencode($filter['terms']);
-        if($filter['language'] !== 'any'){
-            $uri = $uri . '&langRestrict=' . $filter['language'];
+        $uri = $uri . '&q=' . urlencode($terms);
+        if($language !== 'any'){
+            $uri = $uri . '&langRestrict=' . $language;
         }
 
         return $uri;
@@ -47,6 +50,28 @@ class Books implements GenericResource {
     private function satisfiesFilter($book, $filter){
         if(round($book->getRating()) < $filter['minimumRating']){
             return FALSE;
+        }
+
+        $from = $filter['from'];
+        $to = $filter['to'];
+        $year = $book->getDate();
+
+        if($year !== NULL){
+            if(strlen($year) > 0){
+                $year = intval(substr($year, 0, 4));
+
+                if(is_numeric($from)){
+                    if($year < $from){
+                        return FALSE;
+                    }
+                }
+
+                if(is_numeric($to)){
+                    if($year > $to){
+                        return FALSE;
+                    }
+                }
+            }
         }
 
         return TRUE;

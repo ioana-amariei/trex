@@ -38,7 +38,6 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/slider.css">
-    <link rel="stylesheet" href="css/about-us.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/topics.css">
@@ -60,7 +59,7 @@
 
 </head>
 
-<body onload="showPage('home'); registerEventHandlers();">
+<body onload="showPage('home'); registerEventHandlers(); setSlidesBackground();">
 
 
     <!-- start Ioana Birsan -->
@@ -311,7 +310,7 @@
                 <div id="language" class="search-field">
                     <label>Language:</label>
                     <select id="simple-language-select" name="simple-language-select">
-                    <option value="any"selected>Any</option>
+                    <option value="any" selected>Any</option>
                     <option value="en">English</option>
                     <option value="fr">French</option>
                     <option value="ro">Romanian</option>
@@ -722,15 +721,6 @@
         </div>
     </footer>
     <!-- end Loghin Alexandru  -->
-
-
-    <script>
-        var slides = document.getElementsByClassName("slide");
-
-        for(var i = 0; i < slides.length; i++) {
-            slides.item(i).style.background = "url("+slides.item(i).getAttribute("data-source")+")";
-        }
-    </script>
 </body>
 
 </html>

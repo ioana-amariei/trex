@@ -249,7 +249,7 @@
 .articlePostInfo::before {
     content: "";
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
-    background: linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
     position: absolute;
     display: block;
     width: 100%;
@@ -261,7 +261,7 @@
 
 .articleNo:hover .articlePostInfo::before {
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-    background: linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    background: linear-gradient(to top, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
 }
 
 .articlePostInfo h3 {

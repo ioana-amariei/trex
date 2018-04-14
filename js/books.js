@@ -64,10 +64,15 @@ function constructQueryParamsSection(){
     var languageSelect = document.getElementById("simple-language-select");
     var language = languageSelect.options[languageSelect.selectedIndex].value;
 
+    var fromYear = document.getElementById('from').value;
+    var toYear = document.getElementById('to').value;
+
     var queryParams = "";
     queryParams = "terms=" + searchTerms;
     queryParams += "&minimumRating=" + minimumRating;
     queryParams += "&language=" + language;
+    queryParams += "&from=" + fromYear;
+    queryParams += "&to=" + toYear;
 
     return queryParams;
 }
@@ -81,6 +86,12 @@ function clearCurrentlyDisplayedBooks(){
 }
 
 function displayBooks(){
+    // Handle error cases.
+    if(this.status !== 200) {
+        alert(this.response.message);
+        return;
+    }
+
     clearCurrentlyDisplayedBooks();
     var books = this.response;
 
