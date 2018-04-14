@@ -4,11 +4,10 @@
 2. https://stackoverflow.com/questions/4258557/limit-text-length-in-php-and-provide-read-more-link
 */
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/model/Resources.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/model/Resource.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/util/Utils.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/model/Resource.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/util/Utils.php');
 
-class Books implements Resources {
+class Books {
 
     public function search($filter){
         $uri = $this->constructUri($filter);
