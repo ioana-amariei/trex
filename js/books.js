@@ -218,11 +218,11 @@ function createBookImageDiv(book){
 
     var link = document.createElement('a');
     link.href = book.url;
+    link.target = "_blank";
 
     var image = document.createElement('img');
     image.src = book.image;
-    // add alt and target
-
+    image.alt = book.title;
     bookImage.appendChild(link).appendChild(image);
 
     return bookImage;
