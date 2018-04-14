@@ -46,7 +46,7 @@ function searchBooks(){
 }
 
 function constructRequestUri(){
-    return "http://localhost/trex2/php/api/books.php?" + constructQueryParamsSection();
+    return "http://localhost/Trex-Topic-based-Resource-eXplorer-/php/view/books.php?" + constructQueryParamsSection();
 }
 
 function handleEnterKeyForSearchBar(event){
@@ -57,12 +57,17 @@ function handleEnterKeyForSearchBar(event){
 
 function constructQueryParamsSection(){
     var searchTerms = document.getElementById('search-books').value;
+
     var ratingSelect = document.getElementById("simple-rating-select");
     var minimumRating = ratingSelect.options[ratingSelect.selectedIndex].value;
+
+    var languageSelect = document.getElementById("simple-language-select");
+    var language = languageSelect.options[languageSelect.selectedIndex].value;
 
     var queryParams = "";
     queryParams = "terms=" + searchTerms;
     queryParams += "&minimumRating=" + minimumRating;
+    queryParams += "&language=" + language;
 
     return queryParams;
 }

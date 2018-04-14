@@ -4,10 +4,11 @@
 2. https://stackoverflow.com/questions/4258557/limit-text-length-in-php-and-provide-read-more-link
 */
 
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/controller/GenericResource.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/model/Resource.php');
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/util/Utils.php');
 
-class Books {
+class Books implements GenericResource {
 
     public function search($filter){
         $uri = $this->constructUri($filter);
@@ -18,7 +19,14 @@ class Books {
     }
 
     private function constructUri($filter){
-        return 'https://www.googleapis.com/books/v1/volumes?maxResults=40&q=' . urlencode($filter['terms']);
+        $uri = 'https://www.googleapis.com/books/v1/volumes?';
+        $uri = $uri . 'maxResults=40';
+        $uri = $uri . '&q=' . urlencode($filter['terms']);
+        if($filter['language'] !== 'any'){
+            $uri = $uri . '&langRestrict=' . $filter['language'];
+        }
+
+        return $uri;
     }
 
     private function constructBooks($data, $filter){
