@@ -1,6 +1,6 @@
 <?php
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex2/php/model/Books.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/service/Books.php');
 
 $terms = $_GET['terms'];
 $minimumRating = isset($_GET['minimumRating']) ? $_GET['minimumRating'] : 0;
