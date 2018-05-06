@@ -374,34 +374,18 @@
                 <input id="search-bar-articles" type="search" name="search-bar" onkeypress="if(event.keyCode == 13)">
                 <div class="search icon" alt="Search button" onclick=""></div>
             </fieldset>
+            <div class="article-display-type">
+                <div class="justified icon" onclick="selectArticleDisplayType('list-view')"></div>
+                <div class="more-solid icon" onclick="selectArticleDisplayType('grid-view')"></div>
+            </div>
         </form>
         <section>
-            <div id="display-art-results">
-                    <script type="text/javascript">
-                        window.onload = function () {
-                            getDefaultRSS();
-                        }
-                    </script>
-                    <!--
-                        <div class="articleNo">
-                            <img src="images/article/dn_bg.png" alt="">
-                            <div class="articlePostInfo">
-                                <h3>Discover. Learn. Elevate.</h3>
-                                <h4>PROMOTED</h4>
-                            </div>
-                        </div>
-                        <div class="articleNo">
-                            <img src="images/article/dn_bg.png" alt="">
-                            <div class="articlePostInfo">
-                                <h3>Sketch dynamic colors library</h3>
-                                <div class="articlePostMeta">
-                                    <div class="bookmark icon"></div>
-                                    <div class="eye icon"></div>
-                                    <div class="heart icon"></div>
-                                </div>
-                            </div>
-                        </div> 
-                    -->
+            <div id="display-art-results" onload="selectArticleDisplayType('grid-view')">
+              <script type="text/javascript">
+                  window.onload = function () {
+                      getDefaultRSS();
+                  }
+              </script>
             </div>
         </section>
     </div>

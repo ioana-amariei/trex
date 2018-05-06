@@ -4,7 +4,7 @@ function getDefaultRSS() {
     var searchTermsBar = document.getElementById('search-bar-articles').value;
     var uri;
     if (searchTermsBar.trim() === "") {
-        uri = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdev.to%2Ffeed%2F';
+        uri = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdev.to%2Ffeed&api_key=frsnzjk8uuwmikwogktkshmwqicpqs4sb7lg45m1&count=15';
     }
     else {
         uri = getSearchUri();
@@ -43,10 +43,12 @@ function displayArticles() {
     var articles = this.response;
 
     var index;
-    for (index = 0; index < 9; index++) {
+    for (index = 0; index < articles['items'].length; index++) {
         var article = articles['items'][index];
         appendArticleInfoToResultsArea(article);
     }
+
+    selectArticleDisplayType();
 }
 
 function appendArticleInfoToResultsArea(article) {
@@ -94,6 +96,12 @@ function createArticlePostInfo(article) {
     h3.appendChild(title);
     info.appendChild(h3);
 
+    // add pubDate
+    var p = document.createElement("p");
+    var description = document.createTextNode(article.pubDate);
+    p.appendChild(description);
+    info.appendChild(p);
+
     // add Article author
     var h4 = document.createElement("h4");
     var author = document.createTextNode(article.author);
@@ -101,4 +109,29 @@ function createArticlePostInfo(article) {
     info.appendChild(h4);
 
     return info;
+}
+
+function selectArticleDisplayType(displayType = 'grid-view') {
+
+  var article = document.getElementsByClassName("articleNo");
+  var articleInfo = document.getElementsByClassName("articlePostInfo");
+
+  if(displayType == 'list-view') {
+    document.getElementById("display-art-results").style.gridTemplateColumns = "1fr";
+    for(var index=0; index < article.length; index++) {
+      article[index].querySelector("img").style.width = "370px";
+      article[index].querySelector("img").style.float = "left";
+      article[index].querySelector("p").style.display = "block";
+    }
+  }
+  else {
+    document.getElementById("display-art-results").style.gridTemplateColumns = "repeat(3, 1fr)";
+    for(var index=0; index < article.length; index++) {
+      console.log(article[index]);
+      article[index].querySelector("img").style.width = "100%";
+      article[index].querySelector("img").style.float = "none";
+      article[index].querySelector("p").style.display = "none";
+    }
+  }
+
 }
