@@ -40,6 +40,13 @@ function registerEventHandlers(){
     });
 }
 
+function handleEnterKeyForSearchBar(event){
+    if(event.keyCode === 13){
+        alert('You pressed enter!');
+        searchBooks();
+    }
+}
+
 function searchBooks(){
     var uri = constructRequestUri();
     executeGetRequest(uri, displayBooks);
@@ -47,12 +54,6 @@ function searchBooks(){
 
 function constructRequestUri(){
     return "http://localhost/Trex-Topic-based-Resource-eXplorer-/php/view/books.php?" + constructQueryParamsSection();
-}
-
-function handleEnterKeyForSearchBar(event){
-    if(event.keyCode === 13){
-        searchBooks();
-    }
 }
 
 function constructQueryParamsSection(){
