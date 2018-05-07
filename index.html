@@ -51,6 +51,7 @@
     <script src="js/index.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/books.js"></script>
+    <script src="js/articles.js"></script>
     <script src="js/utils.js"></script>
 
 
@@ -358,102 +359,33 @@
     <!-- start Loghin Alexandru  -->
     <div id="articles" class="page">
         <form id="aSearchForm" method="post">
-            <select>
-              <option>Java</option>
-              <option selected>Design</option>
-              <option>HTML/CSS</option>
-              <option>Algorithm</option>
+            <label>Sort By:</label>
+            <select id="article-sortBy-select" name="article-sortBy-select">
+                <option value="relevance" selected>Most Relevance</option>
+                <option value="lastUpdatedDate">Last Updated</option>
+                <option value="submittedDate">Submitted Date</option>
+            </select>
+            <label>Sort Order:</label>
+            <select id="article-sortOrder-select" name="article-sortOrder-select">
+                <option value="ascending" selected>Ascending</option>
+                <option value="descending">Descending</option>
             </select>
             <fieldset>
-                <input type="search" name="q" onkeypress="if(event.keyCode == 13) alert('Hi')">
-                <div class="search icon" onclick="alert('Hi')"></div>
+                <input id="search-bar-articles" type="search" name="search-bar" onkeypress="if(event.keyCode == 13)">
+                <div class="search icon" alt="Search button" onclick=""></div>
             </fieldset>
+            <div class="article-display-type">
+                <div class="justified icon" onclick="selectArticleDisplayType('list-view')"></div>
+                <div class="more-solid icon" onclick="selectArticleDisplayType('grid-view')"></div>
+            </div>
         </form>
         <section>
-            <div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Discover. Learn. Elevate.</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Sketch dynamic colors library</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Variable fonts: useful tool or trendy gimmick?</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Timeline for Sketch Is Now Available</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Design Systems Handbook</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Decoding The Design History</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Monitor UI / UX changes in production</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Lisk Relaunch</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="articleNo">
-                    <img src="images/article/dn_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Public library</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
+            <div id="display-art-results" onload="selectArticleDisplayType('grid-view')">
+              <script type="text/javascript">
+                  window.onload = function () {
+                      getDefaultRSS();
+                  }
+              </script>
             </div>
         </section>
     </div>
