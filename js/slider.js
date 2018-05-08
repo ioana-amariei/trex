@@ -22,4 +22,11 @@ function showSlide(n) {
     if (n < 1) {
       slideIndex = images.length;
     }
+
+    var index;
+    for (index = 0; index < images.length; index++) {
+        images[index].style.display = "none";
+    }
+
+    images[slideIndex-1].style.display = "block";
 }

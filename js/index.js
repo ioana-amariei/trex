@@ -15,11 +15,11 @@ function showPage(selectedPage){
     else
         document.getElementsByClassName("header")[0].classList.add("header-relative");
 }
-
-function setSlidesBackground() {
-	var slides = document.getElementsByClassName("slide");
-
-	for(var i = 0; i < slides.length; i++) {
-		slides.item(i).style.background = "url("+slides.item(i).getAttribute("data-source")+")";
-	}
-}
+//
+// function setSlidesBackground() {
+// 	var slides = document.getElementsByClassName("slide");
+//
+// 	for(var i = 0; i < slides.length; i++) {
+// 		slides.item(i).style.background = "url("+slides.item(i).getAttribute("data-source")+")";
+// 	}
+// }
