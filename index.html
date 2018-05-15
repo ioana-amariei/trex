@@ -360,20 +360,24 @@
     <!-- start Loghin Alexandru  -->
     <div id="articles" class="page">
         <form id="aSearchForm" method="post">
-            <label>Sort By:</label>
-            <select id="article-sortBy-select" name="article-sortBy-select">
-                <option value="relevance" selected>Most Relevance</option>
-                <option value="lastUpdatedDate">Last Updated</option>
-                <option value="submittedDate">Submitted Date</option>
-            </select>
-            <label>Sort Order:</label>
-            <select id="article-sortOrder-select" name="article-sortOrder-select">
-                <option value="ascending" selected>Ascending</option>
-                <option value="descending">Descending</option>
-            </select>
+            <div>
+                <label>Sort By:</label>
+                <select id="article-sortBy-select" name="article-sortBy-select">
+                    <option value="relevance" selected>Most Relevance</option>
+                    <option value="lastUpdatedDate">Last Updated</option>
+                    <option value="submittedDate">Submitted Date</option>
+                </select>
+            </div>
+            <div>
+                <label>Sort Order:</label>
+                <select id="article-sortOrder-select" name="article-sortOrder-select">
+                    <option value="ascending" selected>Ascending</option>
+                    <option value="descending">Descending</option>
+                </select>
+            </div>
             <fieldset>
-                <input id="search-bar-articles" type="search" name="search-bar" onkeypress="if(event.keyCode == 13)">
-                <div class="search icon" alt="Search button" onclick=""></div>
+                <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article..." onclick="inputSearchTrigger(); ">
+                <div class="search icon" alt="Search button" onclick="getDefaultRSS();"></div>
             </fieldset>
             <div class="article-display-type">
                 <div class="justified icon" onclick="selectArticleDisplayType('list-view')"></div>
@@ -382,11 +386,11 @@
         </form>
         <section>
             <div id="display-art-results" onload="selectArticleDisplayType('grid-view')">
-              <script type="text/javascript">
-                  window.onload = function () {
-                      getDefaultRSS();
-                  }
-              </script>
+                <script type="text/javascript">
+                    window.onload = function () {
+                        getDefaultRSS();
+                    }
+                </script>
             </div>
         </section>
     </div>

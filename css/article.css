@@ -15,10 +15,10 @@
 *    Search icon
 ********************************/
 
-.search.icon {
+#articles .search.icon {
     color: var(--my-black);
     position: absolute;
-    margin-top: 10px;
+    margin-top: 0;
     margin-left: 10px;
     width: 12px;
     height: 12px;
@@ -28,7 +28,7 @@
     transform: rotate(-45deg);
 }
 
-.search.icon:before {
+#articles .search.icon:before {
     content: '';
     position: absolute;
     top: 12px;
@@ -43,25 +43,25 @@
 ********************************/
 
 .justified.icon {
-  color: #000;
-  position: absolute;
-  margin-left: 2px;
-  margin-top: 6px;
-  width: 17px;
-  height: 5px;
-  border-top: solid 2px currentColor;
-  border-bottom: solid 2px currentColor;
+    color: #000;
+    position: absolute;
+    margin-left: 2px;
+    margin-top: 6px;
+    width: 17px;
+    height: 5px;
+    border-top: solid 2px currentColor;
+    border-bottom: solid 2px currentColor;
 }
 
 .justified.icon:before {
-  content: '';
-  position: absolute;
-  top: 5px;
-  left: 0;
-  width: 17px;
-  height: 5px;
-  border-top: solid 2px currentColor;
-  border-bottom: solid 2px currentColor;
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 17px;
+    height: 5px;
+    border-top: solid 2px currentColor;
+    border-bottom: solid 2px currentColor;
 }
 
 /********************************
@@ -69,45 +69,44 @@
 ********************************/
 
 .icon {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .more-solid.icon {
-  color: #000;
-  position: absolute;
-  margin-left: 53px;
-  margin-top: 9px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  border: solid 1px currentColor;
-  background-color: currentColor;
+    color: #000;
+    position: absolute;
+    margin-left: 53px;
+    margin-top: 9px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+    background-color: currentColor;
 }
 
 .more-solid.icon:before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: -10px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  border: solid 1px currentColor;
-  background-color: currentColor;
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -10px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+    background-color: currentColor;
 }
 
 .more-solid.icon:after {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 8px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  border: solid 1px currentColor;
-  background-color: currentColor;
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: solid 1px currentColor;
+    background-color: currentColor;
 }
-
 
 /********************************
 *    Search
@@ -120,7 +119,24 @@
     grid-gap: 30px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    padding: 20px 0 10px 0;
+    padding: 40px 0 10px 0;
+}
+
+#aSearchForm>div:nth-child(1) {
+    grid-area: 2/1/2/3;
+}
+
+#aSearchForm>div:nth-child(2) {
+    grid-area: 2/3/2/5;
+}
+
+#aSearchForm>div>label {
+    padding-right: 10px;
+}
+
+#aSearchForm>div>select {
+    padding-left: 5px;
+    font-size: .9em;
 }
 
 #articles select {
@@ -135,16 +151,17 @@
 }
 
 #articles fieldset {
-    grid-area: 2/1/2/4;
+    grid-area: 1/1/2/4;
     border: none;
     padding: 0;
     position: relative;
 }
 
-#articles fieldset > input {
+#articles fieldset>input {
     color: var(--my-black);
     float: left;
     padding-left: 40px;
+    margin-top: -5px;
     font-size: .9em;
     width: 100%;
     height: 100%;
@@ -165,7 +182,7 @@
     background-color: #f8f8f8;
 }
 
-#articles section > div {
+#articles section>div {
     max-width: 960px;
     margin: 0 auto;
     display: grid;
@@ -272,7 +289,6 @@
     float: right;
 }
 
-
 /*--------------------------------------------------------------
 If no grid support, limit width to 50em and center align
 --------------------------------------------------------------*/
@@ -291,7 +307,6 @@ Media Queries
 --------------------------------------------------------------*/
 
 @supports (display: grid) {
-
     /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
     @media only screen and (min-width: 480px) and (max-width: 767px) {
         #articles {
@@ -303,7 +318,7 @@ Media Queries
         #articles fieldset {
             padding-right: 20px;
         }
-        #articles section > div {
+        #articles section>div {
             grid-gap: 30px;
             grid-template-columns: repeat(2, 1fr);
         }
@@ -323,7 +338,6 @@ Media Queries
             margin-right: 25px;
         }
     }
-
     /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
     @media only screen and (max-width: 479px) {
         #articles section {
@@ -339,7 +353,7 @@ Media Queries
         #articles fieldset {
             height: 50px;
         }
-        #articles fieldset > input {
+        #articles fieldset>input {
             padding-left: 50px;
             font-size: 2.5em;
             line-height: 40px;
@@ -367,7 +381,7 @@ Media Queries
         #articles fieldset {
             width: 100%;
         }
-        #articles section > div {
+        #articles section>div {
             grid-template-columns: repeat(1, 1fr);
         }
         .articlePostInfo {

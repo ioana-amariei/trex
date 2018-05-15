@@ -11,3 +11,26 @@ function executeGetRequest(uri, callbackMethod){
     request.addEventListener("load", callbackMethod);
     request.send();
 }
+
+function getRequest(uri, refreshCallback) {
+    var req = new XMLHttpRequest();
+    req.open("GET", uri, true);
+
+    if (typeof (req) === "object") {
+        req.responseType = 'json';
+    } else {
+        req.responseType = '';
+    }
+
+    req.onload = function () {
+        if (req.readyState === req.DONE) {
+            if (req.status === 200) {
+                refreshCallback(this);
+            } else
+                alert(req.response.message);
+        }
+    };
+
+    req.send(null);
+}
+
