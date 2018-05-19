@@ -21,5 +21,9 @@
             $result = Utils::fetchDataWithToken($categoriesUrl, $authorizationToken);
             echo $result;
         }
+
+        public function test() {
+            echo 2+2;
+        }
     }
 ?>
