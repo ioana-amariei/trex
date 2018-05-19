@@ -1,7 +1,7 @@
 <?php
 
 require_once ('GenericResource.php');
-require_once ('../model/Resource.php');
+require_once ('../model/ArticleJSON.php');
 require_once ('../util/Utils.php');
 
 class Articles implements GenericResource {
@@ -30,14 +30,14 @@ class Articles implements GenericResource {
     private function constructArticles($data, $filter){
         // Takes a XML encoded string and converts it into JSON then into a PHP variable.
 
-        $xml = simplexml_load_string($data);
+        $xml = simplexml_load_string($data,'SimpleXMLElement',LIBXML_NOCDATA);
         $json = json_encode($xml);
         $array = json_decode($json, TRUE);
 
         $articles = [];
 
         foreach ($array['entry'] as $item) {
-            $article = $this->constructBook($item);
+            $article = $this->constructArticle($item);
             array_push($articles, $article);
         }
 
@@ -45,8 +45,8 @@ class Articles implements GenericResource {
     }
 
 
-    private function constructBook($item){
-        $article = new Resource();
+    private function constructArticle($item){
+        $article = new ArticleJSON();
         $article->setTitle($this->getTitle($item));
         $article->setDescription($this->getDescription($item));
         $article->setAuthors($this->getAuthors($item));
@@ -67,7 +67,7 @@ class Articles implements GenericResource {
     private function getDescription($item){
         if(isset($item['summary'])){
             $description = $item['summary'];
-            return Utils::truncateDescription($description, 500);
+            return Utils::truncateDescription($description, 100);
         } else {
             return 'The description is not available.';
         }
@@ -89,18 +89,13 @@ class Articles implements GenericResource {
         }
     }
 
-    private function getImage($item){
-        if(isset($item['volumeInfo']['imageLinks']['smallThumbnail'])){
-            return $item['volumeInfo']['imageLinks']['smallThumbnail'];
-        } else {
-            // return default no cover image
-            return 'images/article/dn_bg.png';
-        }
-    }
-
     private function getAuthors($item){
-        if(isset($item['author']['name'])){
-            return $item['author']['name'];
+        // echo '<pre>' , var_dump($item) , '</pre>';
+        if(isset($item['author'])){
+            if(isset($item['author']['name']))
+                return $item['author']['name'];
+            if(isset($item['author'][0]['name']))
+                return $item['author'][0]['name'];
         } else {
             return ['No authors available.'];
         }
