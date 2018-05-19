@@ -24,7 +24,6 @@ function getDefaultRSS() {
     } else {
         uri = getSearchUri();
     }
-    console.log(uri);
     getRequest(uri, displayArticles);
 }
 
@@ -43,7 +42,7 @@ function getAllParams() {
 
     var Params = "";
 
-    Params = "ti=" + searchTerms;
+    Params = 'ti="' + searchTerms + '"';
     Params += "&sortBy=" + orderBySelect;
     Params += "&sortOrder=" + orderSortSelect;
 
@@ -72,6 +71,7 @@ function displayArticles(reqRes) {
     } else {
         for (index = 0; index < articles.length; index++) {
             var article = JSON.parse(articles[index]);
+            // console.log(article);
             appendArticleInfoToResultsArea(article);
         }
     }
@@ -86,7 +86,7 @@ function appendArticleInfoToResultsArea(article) {
 }
 
 function createArticlesDiv(article) {
-    var resourceDiv = document.createElement('div');
+    var resourceDiv = document.createElement('li');
     resourceDiv.classList.add('articleNo');
 
     createArticleImageDiv(article, resourceDiv);
@@ -100,11 +100,14 @@ function createArticlesDiv(article) {
 function createArticleImageDiv(article, resourceDiv) {
 
     var link = document.createElement('a');
-    link.href = article.link;
+    if (article.link !== undefined)
+        link.href = article.link;
+    else
+        link.href = article.url[1]["@attributes"]['href'];
     link.target = "_blank";
 
     var image = document.createElement('img');
-    if (article.thumbnail == "") {
+    if ( (article.thumbnail == "") || (article.thumbnail === undefined) ) {
         image.src = "images/article/dn_bg.png";
     } else {
         image.src = article.thumbnail;
@@ -125,7 +128,10 @@ function createArticlePostInfo(article) {
 
     // add pubDate
     var p = document.createElement("p");
-    var description = document.createTextNode(article.pubDate);
+    if (article.pubDate !== undefined)
+        var description = document.createTextNode(article.pubDate);
+    else
+        var description = document.createTextNode(article.description);
     p.appendChild(description);
     info.appendChild(p);
 
