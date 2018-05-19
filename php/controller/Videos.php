@@ -6,20 +6,28 @@
     const TOKEN = "72936020ebb9949ae0e1d253cb7f87df";
     const URL = "https://api.vimeo.com/";
 
-    class Video implements GenericResource {
+    class Videos implements GenericResource {
+        private $authToken = "Authorization: Bearer ".TOKEN;
+
         public function search($terms) {
 
         }
 
-        public function getAllVideos(){
-            $videoUrl = URL."videos";
+        public function getInitialVideos(){
+            $videoUrl = URL."tags/programing/videos";
+            $authorizationToken = $this->authToken;
+
+            $result = Utils::fetchDataWithToken($videoUrl,$authorizationToken);
+            return $result;
+
         }
+
         public function getAllCategories(){
             $categoriesUrl = URL."categories";
-            $authorizationToken = "Authorization: Bearer ".TOKEN;
+            $authorizationToken = $this->authToken;
 
             $result = Utils::fetchDataWithToken($categoriesUrl, $authorizationToken);
-            echo $result;
+            return $result;
         }
     }
 ?>
