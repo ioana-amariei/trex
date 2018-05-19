@@ -42,6 +42,7 @@ function registerEventHandlers(){
 }
 
 function handleEnterKeyForSearchBar(event){
+
     if(event.keyCode === 13){
         searchBooks();
     }
@@ -94,12 +95,10 @@ function displayBooks(){
     }
 
     clearCurrentlyDisplayedBooks();
-    var books = this.response;
+    var books = this.response.books;
 
-    var index;
-    for(index = 0; index < books.length; index++){
-        var book = JSON.parse(books[index]);
-        appendBookInfoToResultsArea(book);
+    for(var index = 0; index < books.length; index++){
+        appendBookInfoToResultsArea(books[index]);
     }
 }
 

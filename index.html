@@ -56,15 +56,11 @@
     <script src="js/videos.js"></script>
     <script src="js/utils.js"></script>
 
-
     <title>TReX</title>
-
 
 </head>
 
-<body onload="showPage('home'); registerEventHandlers();">
-
-
+<body>
     <!-- start Ioana Birsan -->
 
     <nav id="menu">
@@ -89,6 +85,7 @@
             <i class="fa fa-file-powerpoint-o"></i>
         </div>
     </nav>
+    <!-- end Ioana Birsan -->
 
     <!-- start Octavian Gensthaler -->
     <div class="header">
@@ -110,10 +107,7 @@
             <div class="menu-item"><a href="#"><i class="fa fa-search"></i></a></div>
         </div>
     </div>
-    <!-- start Octavian Gensthaler -->
-
-    <!-- end Ioana Birsan -->
-
+    <!-- end Octavian Gensthaler -->
 
     <div id="home" class="page">
 
@@ -281,7 +275,7 @@
 
         <form id="search-filter">
             <div id="search-bar">
-                <input type="search" id="search-books" name="search-books" onkeydown="searchBooks();">
+                <input type="search" id="search-books" name="search-books">
                 <div id="search-button" onclick="searchBooks();">
                     <img id="search-button-image" src="images/pages/books/search.svg" alt="Search button">
                 </div>
@@ -585,6 +579,14 @@
         </div>
     </footer>
     <!-- end Loghin Alexandru  -->
+
+    // https://stackoverflow.com/questions/3880307/trigger-event-on-body-load-complete-js-jquery
+    <script type='text/javascript'>
+     	showPage('home');
+    	setSlidesBackground();
+    	registerEventHandlers();
+    </script>
+
 </body>
 
 </html>

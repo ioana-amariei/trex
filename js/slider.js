@@ -1,6 +1,5 @@
 /* display first image */
 var slideIndex = 1;
-showSlide(slideIndex);
 
 /* adds or substracts one to the slideIndex */
 function goToSlide(number) {
@@ -13,18 +12,17 @@ function goToSlide(number) {
 function showSlide(n) {
     var images = document.getElementsByClassName("slide");
 
-    /* if the slideIndex is higher than the number of elements, it is set to 1 */
+    /* if the slideIndex is higher than the number of elements, set it to 1 */
     if (n > images.length) {
       slideIndex = 1;
-    }
-
-    /* if the slideIndex is less than 1 it is set to number of elements */
-    if (n < 1) {
+    } else if (n < 1) {
+      /* if the slideIndex is less than 1 it is set to number of elements */
       slideIndex = images.length;
-    }
+    } else {
+      slideIndex = n;
+   }
 
-    var index;
-    for (index = 0; index < images.length; index++) {
+    for (var index = 0; index < images.length; index++) {
         images[index].style.display = "none";
     }
 

@@ -28,8 +28,9 @@ $filter = [
 
 $bookData = new Books();
 $books = $bookData->search($filter);
+$result = ["books" => $books];
 
 header('Content-Type: application/json');
 http_response_code(200);
-echo json_encode($books);
+echo json_encode($result);
  ?>

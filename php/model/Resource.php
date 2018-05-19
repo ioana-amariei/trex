@@ -72,13 +72,9 @@ class Resource implements JsonSerializable {
         $this->language = $language;
     }
 
+    // https://stackoverflow.com/questions/9896254/php-class-instance-to-json
     public function jsonSerialize() {
-        $json = [];
-        foreach($this as $key => $value) {
-            $json[$key] = $value;
-        }
-
-        return json_encode($json);
+        return get_object_vars($this);
     }
 }
 ?>
