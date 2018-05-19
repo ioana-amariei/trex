@@ -62,7 +62,7 @@
 
 </head>
 
-<body onload="showPage('home'); registerEventHandlers(); setSlidesBackground();">
+<body onload="showPage('home'); registerEventHandlers();">
 
 
     <!-- start Ioana Birsan -->
@@ -281,7 +281,7 @@
 
         <form id="search-filter">
             <div id="search-bar">
-                <input type="search" id="search-books" name="search-books">
+                <input type="search" id="search-books" name="search-books" onkeydown="searchBooks();">
                 <div id="search-button" onclick="searchBooks();">
                     <img id="search-button-image" src="images/pages/books/search.svg" alt="Search button">
                 </div>

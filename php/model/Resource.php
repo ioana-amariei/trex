@@ -81,6 +81,4 @@ class Resource implements JsonSerializable {
         return json_encode($json);
     }
 }
-
-
- ?>
+?>

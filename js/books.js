@@ -8,6 +8,7 @@
 7. https://stackoverflow.com/questions/15653145/using-google-text-to-speech-in-javascript
 8. https://stackoverflow.com/questions/3007336/how-do-you-assign-a-javascript-onclick-attribute-dynamically
 9. https://www.w3schools.com/howto/howto_js_trigger_button_enter.asp
+10. https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeydown
 */
 
 var currentDisplayType = 'list-view';
@@ -42,7 +43,6 @@ function registerEventHandlers(){
 
 function handleEnterKeyForSearchBar(event){
     if(event.keyCode === 13){
-        alert('You pressed enter!');
         searchBooks();
     }
 }
