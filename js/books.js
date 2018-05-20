@@ -141,6 +141,11 @@ function createBookInfoDiv(book){
     var bookRating = createBookRatingDiv(book);
     bookInfo.appendChild(bookRating);
 
+    if(book.tags.length > 0){
+        var bookTags = createBookTagsDiv(book);
+        bookInfo.appendChild(bookTags);
+    }
+
     return bookInfo;
 }
 
@@ -209,6 +214,16 @@ function createUncheckedStarSpan(){
     star.classList.add('fa', 'fa-star');
 
     return star;
+}
+
+function createBookTagsDiv(book){
+    var bookTags = document.createElement('div');
+    bookTags.classList.add('book-tags');
+
+    var tags = document.createTextNode(book.tags.join('\n'));
+    bookTags.appendChild(tags);
+
+    return bookTags;
 }
 
 function createBookDescriptionDiv(book){
