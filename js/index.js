@@ -22,11 +22,3 @@ function setSlidesBackground() {
 		slides.item(i).style.background = "url("+slides.item(i).getAttribute("data-source")+")";
 	}
 }
-
-
-window.onload = function() {
-	alert(1);
- 	showPage('home');
-	setSlidesBackground();
-	registerEventHandlers();
-}
