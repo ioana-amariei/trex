@@ -175,7 +175,7 @@
 #books #display-results .list-view .book-tags {
     display: inline-block;
     margin: 10px;
-    padding: 8px 15px;
+    padding: 4px 10px;
     background-color: rgb( 234, 236, 238);
     border: 1px rgba(0,0,0,0.15);
     border-radius: 4px;
