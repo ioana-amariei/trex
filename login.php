@@ -110,27 +110,18 @@
 
 
     <div id="home" class="page">
-    <div class="login-form user-form">
+    
+    <form class="login-form user-form" action="php/form_actions/login_submit.php" method="post">
         <formgroup>
-            <input type="text" placeholder="First name" />
+            <input type="text" name="email" placeholder="E-mail address" />
         </formgroup>
         <formgroup>
-            <input type="text" placeholder="Last name" />
+            <input type="password" name="password" placeholder="Password" />
         </formgroup>
         <formgroup>
-            <input type="password" placeholder="Password" />
+            <input type="submit" class="submit-button"></input>
         </formgroup>
-        <formgroup>
-            <input type="password" placeholder="Repeat password" />
-        </formgroup>
-        <formgroup>
-            <input type="text" placeholder="E-Mail" />
-        </formgroup>
-        <formgroup>
-            <div class="submit-button">Submit</div>
-        </formgroup>
-        
-    </div>
+    </form>
 
     <!-- start Loghin Alexandru -->
     <footer id="main-footer">
