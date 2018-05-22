@@ -95,8 +95,8 @@
         </div>
 
         <div class="user-menu">
-            <div class="menu-item"><a href="register.html"><i class="fa fa-edit"></i> Register</a></div>
-            <div class="menu-item"><a href="login.html"><i class="fa fa-key"></i>Login</a></div>
+            <div class="menu-item"><a href="register.php"><i class="fa fa-edit"></i> Register</a></div>
+            <div class="menu-item"><a href="login.php"><i class="fa fa-key"></i>Login</a></div>
         </div>
 
         <div class="nav-menu">
