@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include_once('../dbDriver.php');
 
     $firstName = $_REQUEST['firstName'];
@@ -17,8 +18,13 @@
 
     if($existingUserRow === null) {
         DbDriver::insertInto('users', $row);
+        $_SESSION['notification'] = "Contul dvs. a fost creat cu succes";
+        $_SESSION['notification_type'] = "success"; 
+        $_SESSION['logged_in'] = true;
         header("Location: ../../index.php");
     } else {
+        $_SESSION['notification'] = "Aceasta adresa de e-mail este deja inregistrata in baza noastra de date.";
+        $_SESSION['notification_type'] = "error"; 
         header("Location: ../../register.php");
     }
 

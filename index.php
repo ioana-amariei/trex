@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="en-US">
@@ -46,6 +47,7 @@
     <link rel="stylesheet" href="css/books.css">
     <link rel="stylesheet" href="css/videos.css">
     <link rel="stylesheet" href="css/presentations.css">
+    <link rel="stylesheet" href="css/notification.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="js/index.js"></script>
@@ -61,8 +63,15 @@
 </head>
 
 <body>
-    <!-- start Ioana Birsan -->
+    <?php
+        if(isset($_SESSION['notification']) && isset($_SESSION['notification_type'])) {
+            echo "<div onClick='this.remove()' class='notification notification-".$_SESSION['notification_type']."'>".$_SESSION['notification']."</div>";
+            unset($_SESSION['notification']);
+            unset($_SESSION['notification_type']);
+        }
+    ?>
 
+    <!-- start Ioana Birsan -->
     <nav id="menu">
         <div id="option-home" class="menu-option selected-menu-option" onClick="showPage('home'); selectCurrentMenuItem(this);">
             <p>Home</p>
@@ -95,8 +104,12 @@
         </div>
 
         <div class="user-menu">
-            <div class="menu-item"><a href="register.php"><i class="fa fa-edit"></i> Register</a></div>
-            <div class="menu-item"><a href="login.php"><i class="fa fa-key"></i>Login</a></div>
+            <?php if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false): ?>
+                <div class="menu-item"><a href="register.php"><i class="fa fa-edit"></i> Register</a></div>
+                <div class="menu-item"><a href="login.php"><i class="fa fa-key"></i>Login</a></div>
+            <?php else: ?>
+                <div class="menu-item"><a href="php/logout.php"><i class="fa fa-door"></i> Log-out</a></div>
+            <?php endif; ?>
         </div>
 
         <div class="nav-menu">

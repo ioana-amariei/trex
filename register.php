@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 
 <html lang="en-US">
@@ -46,6 +47,7 @@
     <link rel="stylesheet" href="css/books.css">
     <link rel="stylesheet" href="css/videos.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/notification.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="js/script.js"></script>
@@ -57,6 +59,13 @@
 </head>
 
 <body onload="showPage('home');">
+    <?php
+        if(isset($_SESSION['notification']) && isset($_SESSION['notification_type'])) {
+            echo "<div onClick='this.remove()' class='notification notification-".$_SESSION['notification_type']."'>".$_SESSION['notification']."</div>";
+            unset($_SESSION['notification']);
+            unset($_SESSION['notification_type']);
+        }
+    ?>
 
 
     <!-- start Ioana Birsan -->
