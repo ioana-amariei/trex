@@ -58,7 +58,7 @@ function displayVideos(){
         p.classList.add("pvideo");
 
         if(description !== null)
-            p.appendChild(document.createTextNode(description.substr(0,50)));
+            p.appendChild(document.createTextNode(description.substr(0,250)));
 
         infoDiv.appendChild(p);
         videoDiv.appendChild(infoDiv);
