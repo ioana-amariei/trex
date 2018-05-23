@@ -581,10 +581,10 @@
                 </ul>
                 <ul>
                     <li>Team members</li>
-                    <li>Birsan Ioana</li>
-                    <li>Gensthaler Octavian</li>
-                    <li>Loghin L Alexandru</li>
-                    <li>Luca Alexandru Gean</li>
+                    <li><a href="https://github.com/ioanabirsan">Birsan Ioana</a></li>
+                    <li><a href="https://github.com/G-Octav">Gensthaler Octavian</a></li>
+                    <li><a href="https://github.com/logalex96">Loghin L Alexandru</a></li>
+                    <li><a href="https://github.com/alexluca97">Luca Alexandru Gean</a></li>
                 </ul>
             </div>
 

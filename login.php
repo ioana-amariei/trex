@@ -61,7 +61,7 @@
 <body onload="showPage('home');">
     <?php
         if(isset($_SESSION['notification']) && isset($_SESSION['notification_type'])) {
-            echo "<div onClick='removeElement(this)' class='notification notification-".$_SESSION['notification_type']."'>".$_SESSION['notification']."</div>";
+            echo "<div onClick='this.remove()' class='notification notification-".$_SESSION['notification_type']."'>".$_SESSION['notification']."</div>";
             unset($_SESSION['notification']);
             unset($_SESSION['notification_type']);
         }
