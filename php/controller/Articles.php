@@ -1,7 +1,7 @@
 <?php
 
 require_once ('GenericResource.php');
-require_once ('../model/ArticleJSON.php');
+require_once ('../model/Resource.php');
 require_once ('../util/Utils.php');
 
 class Articles implements GenericResource {
@@ -23,6 +23,7 @@ class Articles implements GenericResource {
         $uri = $uri . 'search_query=ti:"' . urlencode($terms) . '"';
         $uri = $uri . urlencode($sortBy);
         $uri = $uri . urlencode($sortOrder);
+        $uri = $uri . '&start=0&max_results=50';
 
         return $uri;
     }
@@ -46,7 +47,7 @@ class Articles implements GenericResource {
 
 
     private function constructArticle($item){
-        $article = new ArticleJSON();
+        $article = new Resource();
         $article->setTitle($this->getTitle($item));
         $article->setDescription($this->getDescription($item));
         $article->setAuthors($this->getAuthors($item));
@@ -67,7 +68,7 @@ class Articles implements GenericResource {
     private function getDescription($item){
         if(isset($item['summary'])){
             $description = $item['summary'];
-            return Utils::truncateDescription($description, 100);
+            return Utils::truncateDescription($description, 450);
         } else {
             return 'The description is not available.';
         }

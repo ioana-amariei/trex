@@ -384,7 +384,7 @@
                 </select>
             </div>
             <fieldset>
-                <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article..." onclick="inputSearchTrigger(); ">
+                <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article...">
                 <div class="search icon" alt="Search button" onclick="getDefaultRSS();"></div>
             </fieldset>
             <div class="article-display-type">
@@ -393,13 +393,7 @@
             </div>
         </form>
         <section>
-            <div id="display-art-results" onload="selectArticleDisplayType('grid-view')">
-                <script type="text/javascript">
-                    window.onload = function () {
-                        getDefaultRSS();
-                    }
-                </script>
-            </div>
+            <div id="display-art-results"></div>
         </section>
     </div>
     <!-- end Loghin Alexandru  -->
@@ -598,6 +592,10 @@
      	showPage('home');
     	setSlidesBackground();
     	registerEventHandlers();
+      inputSearchTrigger();
+      window.onload = function () {
+          getDefaultRSS();
+      }
     </script>
 
 </body>

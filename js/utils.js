@@ -33,4 +33,3 @@ function getRequest(uri, refreshCallback) {
 
     req.send(null);
 }
-
