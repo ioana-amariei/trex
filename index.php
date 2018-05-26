@@ -419,8 +419,8 @@
                 <option>XML</option>
             </select>
             <fieldset>
-                <input type="search" name="q" onkeypress="if(event.keyCode == 13) alert('Hi')">
-                <div class="VideoSearch" onclick="alert('Hi')"></div>
+                <input type="search" id="search-videos" name="search-videos">
+                <div class="VideoSearch" onclick="searchVideos();"></div>
             </fieldset>
         </form>
         <section>
@@ -439,11 +439,11 @@
         </section>
     </div>
 
-    <script>
+   <!--<script>
         window.onload = function() {
             displayDefaultVideoGrid();
         }
-    </script>
+    </script>*/ -->
     <!-- end Luca Alexandru  -->
 
 
@@ -595,6 +595,7 @@
       inputSearchTrigger();
       window.onload = function () {
           getDefaultRSS();
+         // displayDefaultVideoGrid();
       }
     </script>
 
