@@ -42,7 +42,7 @@
 
         public function getVideoSearched(){
             $videoTerm =
-            $videoSearchUrl = URL."tags/". ."/videos";
+            $videoSearchUrl = URL . "tags/" . "/videos";
         }
     }
 ?>

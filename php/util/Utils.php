@@ -1,7 +1,7 @@
 <?php
 
 class Utils {
-    public static function fetchData($uri ,$headers = []){
+    public static function fetchData($uri, $headers = []){
         // Reference: http://thisinterestsme.com/send-get-request-with-php/
         //Initialize cURL.
         $ch = curl_init();
@@ -31,6 +31,13 @@ class Utils {
     public static function jsonToDictionary($jsonData) {
         // Takes a JSON encoded string and converts it into a PHP variable.
         return json_decode($jsonData, $assoc = TRUE);
+    }
+
+    public static function xmlToDictionary($xmlData) {
+        // Takes a XML encoded string and converts it into JSON then into a PHP variable.
+        $xml = simplexml_load_string($xmlData,'SimpleXMLElement',LIBXML_NOCDATA);
+        $json = json_encode($xmlData);
+        return json_decode($json, TRUE);
     }
 
     public static function truncateDescription($description, $length){

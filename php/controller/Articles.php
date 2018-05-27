@@ -31,6 +31,8 @@ class Articles implements GenericResource {
     private function constructArticles($data, $filter){
         // Takes a XML encoded string and converts it into JSON then into a PHP variable.
 
+        // This section of code was extracted in Utils::xmlToDictionary(xmlData)
+        // $array = Utils::xmlToDictionary($data);
         $xml = simplexml_load_string($data,'SimpleXMLElement',LIBXML_NOCDATA);
         $json = json_encode($xml);
         $array = json_decode($json, TRUE);
