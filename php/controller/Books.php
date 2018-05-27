@@ -28,7 +28,7 @@ class Books implements GenericResource {
             $filter['startIndex'] = $startIndex;
             $filter['maxResults'] = 40;
             $uri = $this->constructUri($filter);
-            $data = Utils::fetchData($uri);
+            $data = $this->fetchDataAsDictionary($uri);
 
             $books = isset($data['items']) ? $data['items'] : [];
 
@@ -47,11 +47,15 @@ class Books implements GenericResource {
         $filter['maxResults'] = 5;
 
         $uri = $this->constructUri($filter);
-        $data = Utils::fetchData($uri);
+        $data = $this->fetchDataAsDictionary($uri);
 
         return isset($data['totalItems']) ? $data['totalItems'] : 0;
     }
 
+    private function fetchDataAsDictionary($uri) {
+        $jsonData = Utils::fetchData($uri);
+        return Utils::jsonToDictionary($jsonData);
+    }
     private function constructUri($filter){
         $terms = $filter['terms'];
         $language = $filter['language'];
