@@ -35,9 +35,9 @@ class Utils {
 
     public static function xmlToDictionary($xmlData) {
         // Takes a XML encoded string and converts it into JSON then into a PHP variable.
-        $xml = simplexml_load_string($xmlData,'SimpleXMLElement',LIBXML_NOCDATA);
-        $json = json_encode($xmlData);
-        return json_decode($json, TRUE);
+        $xml = simplexml_load_string($xmlData, 'SimpleXMLElement', LIBXML_NOCDATA);
+        $json = json_encode($xml);
+        return json_decode($json, $assoc = TRUE);
     }
 
     public static function truncateDescription($description, $length){

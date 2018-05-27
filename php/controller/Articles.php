@@ -9,9 +9,9 @@ class Articles implements GenericResource {
     public function search($filter){
         $uri = $this->constructUri($filter);
         $data = Utils::fetchData($uri);
-        $books = $this->constructArticles($data, $filter);
+        $articles = $this->constructArticles($data, $filter);
 
-        return $books;
+        return $articles;
     }
 
     private function constructUri($filter){
@@ -29,17 +29,10 @@ class Articles implements GenericResource {
     }
 
     private function constructArticles($data, $filter){
-        // Takes a XML encoded string and converts it into JSON then into a PHP variable.
-
-        // This section of code was extracted in Utils::xmlToDictionary(xmlData)
-        // $array = Utils::xmlToDictionary($data);
-        $xml = simplexml_load_string($data,'SimpleXMLElement',LIBXML_NOCDATA);
-        $json = json_encode($xml);
-        $array = json_decode($json, TRUE);
+        $items = Utils::xmlToDictionary($data);
 
         $articles = [];
-
-        foreach ($array['entry'] as $item) {
+        foreach ($items['entry'] as $item) {
             $article = $this->constructArticle($item);
             array_push($articles, $article);
         }
@@ -50,6 +43,7 @@ class Articles implements GenericResource {
 
     private function constructArticle($item){
         $article = new Resource();
+        $article->setType('article');
         $article->setTitle($this->getTitle($item));
         $article->setDescription($this->getDescription($item));
         $article->setAuthors($this->getAuthors($item));
