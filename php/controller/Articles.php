@@ -23,7 +23,7 @@ class Articles implements GenericResource {
         $uri = $uri . 'search_query=ti:"' . urlencode($terms) . '"';
         $uri = $uri . urlencode($sortBy);
         $uri = $uri . urlencode($sortOrder);
-        $uri = $uri . '&start=0&max_results=50';
+        $uri = $uri . '&start=0&max_results=21';
 
         return $uri;
     }

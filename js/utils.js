@@ -12,7 +12,7 @@ function executeGetRequest(uri, callbackMethod){
     request.send();
 }
 
-function getRequest(uri, refreshCallback) {
+function getRequest(uri, refreshCallback, newReq) {
     var req = new XMLHttpRequest();
     req.open("GET", uri, true);
 
@@ -25,7 +25,7 @@ function getRequest(uri, refreshCallback) {
     req.onload = function () {
         if (req.readyState === req.DONE) {
             if (req.status === 200) {
-                refreshCallback(this);
+                refreshCallback(this, newReq);
             } else
                 alert(req.response.message);
         }

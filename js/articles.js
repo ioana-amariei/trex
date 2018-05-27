@@ -3,21 +3,32 @@
     2. https://www.developer.mozilla.org/en-US/docs/Web/Guide/Parsing_and_serializing_XML
 */
 
+// TODO: Fix input Enter event
+// TODO: Add infinity scroll
+
 var getCurrentURL = window.location.href;
 var displayType = 'grid-view';
+var startItem = 0;
+var nextItem = 21;
 
-function inputSearchTrigger() {
-    var input = document.getElementById("search-bar-articles");
+// function inputSearchTrigger() {
+//     var input = document.getElementById("search-bar-articles");
+//
+//     input.addEventListener('keyup', function (event) {
+//         event.preventDefault();
+//         if (event.keyCode == '13') {
+//             getDefaultRSS();
+//         }
+//     });
+// }
 
-    input.addEventListener('keyup', function (event) {
-        event.preventDefault();
-        if (event.keyCode == '13') {
-            getDefaultRSS();
-        }
-    });
-}
-
-function getDefaultRSS() {
+function getDefaultRSS(event) {
+    var newSearch = false;
+    if(event && (event.type === "click" || event.type === "keyup") ) {
+      clearDisplayedArticles();
+      helpMe("loading");
+      newSearch = true;
+    }
     var searchTermsBar = document.getElementById('search-bar-articles').value;
     var uri;
     if (searchTermsBar.trim() === "") {
@@ -25,7 +36,7 @@ function getDefaultRSS() {
     } else {
         uri = getSearchUri();
     }
-    getRequest(uri, displayArticles);
+    getRequest(uri, displayArticles, newSearch);
 }
 
 function getSearchUri() {
@@ -58,11 +69,16 @@ function clearDisplayedArticles() {
     }
 }
 
-function displayArticles(reqRes) {
-    clearDisplayedArticles();
-    var articles = reqRes.response;
+function displayArticles(reqRes, newReq) {
+    if(newReq) clearDisplayedArticles();
 
+    var articles = reqRes.response;
     var index;
+
+    if(articles === null) {
+      helpMe("404");
+      return;
+    }
 
     if (articles['items'] !== undefined) {
         for (index = 0; index < articles['items'].length; index++) {
@@ -94,7 +110,6 @@ function createArticlesDiv(article) {
 }
 
 function createArticleImageDiv(article, resourceDiv) {
-
     var link = document.createElement('a');
     if (article.link !== undefined)
         link.href = article.link;
@@ -178,17 +193,44 @@ function selectArticleDisplayType(displayType) {
     }
 }
 
+function helpMe(withThis) {
+  var displayNotFound = document.getElementById('display-art-results');
+  var image = document.createElement('img');
+  switch (withThis) {
+    case "404":
+          image.src = "images/pages/404_not_found.gif";
+          image.style.maxWidth = "100%";
+          image.style.margin = "0 auto";
+          break;
+    case "loading":
+          image.src = "images/pages/loading.gif";
+          image.style.maxWidth = "100%";
+          image.style.margin = "0 auto";
+          image.style.padding = "50px 0";
+          break;
+    default:
+          break;
+  }
+  displayNotFound.appendChild(image);
+  var articlePage = document.getElementById("articles").querySelector("section");
+  articlePage.style.backgroundColor = "white";
+  articlePage.querySelector("div").style.backgroundColor = "white";
+  articlePage.querySelector("div").style.gridTemplateColumns = "1fr";
+}
+
 // Infinity scrool - wip
 
-// // Add 20 items.
-// var nextItem = 1;
+// Add 25 items.
 // var loadMore = function() {
-//   for (var i = 0; i < 20; i++) {
-//     var item = document.createElement('li');
-//     item.innerText = 'Item ' + nextItem++;
-//     listElm.appendChild(item);
-//   }
+//
+//   // for (var i = 0; i < 25; i++) {
+//     // var item = document.createElement('li');
+//     // item.innerText = 'Item ' + nextItem++;
+//     // listElm.appendChild(item);
+//   // }
 // }
+//
+// var listElm = document.querySelector('html');
 //
 // // Detect when scrolled to bottom.
 // listElm.addEventListener('scroll', function() {
@@ -196,6 +238,6 @@ function selectArticleDisplayType(displayType) {
 //     loadMore();
 //   }
 // });
-//
+
 // // Initially load some items.
 // loadMore();

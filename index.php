@@ -385,7 +385,7 @@
             </div>
             <fieldset>
                 <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article...">
-                <div class="search icon" alt="Search button" onclick="getDefaultRSS();"></div>
+                <div class="search icon" alt="Search button" onclick="getDefaultRSS(event);"></div>
             </fieldset>
             <div class="article-display-type">
                 <div class="justified icon" onclick="selectArticleDisplayType('list-view')"></div>
@@ -394,6 +394,7 @@
         </form>
         <section>
             <div id="display-art-results"></div>
+            <!-- <button class="feed-button">Get me more</button> -->
         </section>
     </div>
     <!-- end Loghin Alexandru  -->
@@ -592,7 +593,7 @@
      	showPage('home');
     	setSlidesBackground();
     	registerEventHandlers();
-      inputSearchTrigger();
+      // inputSearchTrigger();
       window.onload = function () {
           getDefaultRSS();
          // displayDefaultVideoGrid();
