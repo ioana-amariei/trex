@@ -11,19 +11,57 @@ require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/
 class Books implements GenericResource {
 
     public function search($filter){
-        $uri = $this->constructUri($filter);
-        $data = Utils::fetchData($uri);
+        $data = $this->fetchBooks($filter);
         $books = $this->constructBooks($data, $filter);
 
         return $books;
     }
 
+    private function fetchBooks($filter){
+        $availableBooksNumber = $this->getAvailableBooksNumber($filter);
+        $availableBooksNumber = 200;
+
+        $allBooks = [];
+        $startIndex = 0;
+
+        while($startIndex < $availableBooksNumber){
+            $filter['startIndex'] = $startIndex;
+            $filter['maxResults'] = 40;
+            $uri = $this->constructUri($filter);
+            $data = Utils::fetchData($uri);
+
+            $books = isset($data['items']) ? $data['items'] : [];
+
+            foreach ($books as $book) {
+                array_push($allBooks, $book);
+            }
+
+            $startIndex = $startIndex + 40;
+        }
+
+        return $allBooks;
+    }
+
+    private function getAvailableBooksNumber($filter){
+        $filter['startIndex'] = 0;
+        $filter['maxResults'] = 5;
+
+        $uri = $this->constructUri($filter);
+        $data = Utils::fetchData($uri);
+
+        return isset($data['totalItems']) ? $data['totalItems'] : 0;
+    }
+
     private function constructUri($filter){
         $terms = $filter['terms'];
         $language = $filter['language'];
+        $startIndex = $filter['startIndex'];
+        $maxResults = $filter['maxResults'];
 
         $uri = 'https://www.googleapis.com/books/v1/volumes?';
-        $uri = $uri . 'maxResults=40';
+        $uri = $uri . 'key=' . 'AIzaSyBNmgyg36km1Tj64G97DrkYr8aHcJ7xwOA';
+        $uri = $uri . '&startIndex=' . $startIndex;
+        $uri = $uri . '&maxResults=' . $maxResults;
         $uri = $uri . '&q=' . urlencode($terms);
         if($language !== 'any'){
             $uri = $uri . '&langRestrict=' . $language;
@@ -32,19 +70,17 @@ class Books implements GenericResource {
         return $uri;
     }
 
-    private function constructBooks($data, $filter){
-        // Takes a JSON encoded string and converts it into a PHP variable.
-        $resources = json_decode($data, $assoc = TRUE);
-        $books = [];
+    private function constructBooks($books, $filter){
+        $filteredBooks = [];
 
-        foreach ($resources['items'] as $item) {
-            $book = $this->constructBook($item);
+        foreach ($books as $book) {
+            $book = $this->constructBook($book);
             if($this->satisfiesFilter($book, $filter)){
-                array_push($books, $book);
+                array_push($filteredBooks, $book);
             }
         }
 
-        return $books;
+        return $filteredBooks;
     }
 
     private function satisfiesFilter($book, $filter){
@@ -76,7 +112,6 @@ class Books implements GenericResource {
 
         return TRUE;
     }
-
 
     private function constructBook($item){
         $book = new Resource();
