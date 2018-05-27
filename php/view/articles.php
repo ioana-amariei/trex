@@ -14,9 +14,11 @@ $filter = [
 
 $articleFeed = new Articles();
 $articles = $articleFeed->search($filter);
+$result = ["articles" => $articles];
+
 
 header('Content-Type: application/json');
 http_response_code(200);
-echo json_encode($articles);
+echo json_encode($result);
 
 ?>
