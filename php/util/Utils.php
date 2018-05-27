@@ -22,9 +22,13 @@ class Utils {
 
  +        //Close the cURL handle.
         curl_close($ch);
-        
+
+        return $data;
+    }
+
+    public static function jsonToDictionary($jsonData) {
         // Takes a JSON encoded string and converts it into a PHP variable.
-        return json_decode($data, $assoc = TRUE);
+        return json_decode($jsonData, $assoc = TRUE);
     }
 
     public static function fetchDataWithToken($uri, $tokenAuthorization){
