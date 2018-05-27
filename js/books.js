@@ -97,6 +97,14 @@ function displayBooks(){
     clearCurrentlyDisplayedBooks();
     var books = this.response.books;
 
+    if(books.length === 0){
+        var displayResults = document.getElementById('display-results');
+        var noInfoAvailable = document.createElement('div');
+        var text = document.createTextNode('There are no books that satisfy the search criteria.');
+        noInfoAvailable.appendChild(text);
+        displayResults.appendChild(noInfoAvailable);
+    }
+
     for(var index = 0; index < books.length; index++){
         appendBookInfoToResultsArea(books[index]);
     }

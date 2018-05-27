@@ -338,6 +338,8 @@
         </form>
 
         <div id="display-results">
+    
+            <!-- DO NOT DELETE KEEP IT IN ORDER TO DOCUMENT THE STRUCTURE OF THE DISPLAYED INFORMATION -->
             <!-- <div class="resource list-view">
                 <div class="book-image">
                     <a href="https://books.google.ro/books?id=bzp-BAAAQBAJ&dq=java+programming&source=gbs_navlinks_s" target="_blank">
