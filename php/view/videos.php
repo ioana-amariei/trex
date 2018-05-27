@@ -3,10 +3,10 @@
     
     $v = new Videos();
 
-   // $result = $v -> getAllCategories();
-    $initialPage = $v -> getInitialVideos();
+    //$result = $v -> getAllCategories();
+   // $initialPage = $v -> getInitialVideos();
 
     header('Content-Type: application/json');
     http_response_code(200);
-    echo json_encode($initialPage);
+    //echo json_encode($initialPage);
 ?>

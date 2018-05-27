@@ -66,3 +66,28 @@ function displayVideos(){
         videoListDiv.appendChild(videoDiv);
     }
 }
+
+function SearchBarVideos(event){
+
+    if(event.keyCode === 13){
+        searchVideos();
+    }
+}
+
+function searchVideos(){
+    var uriv = constructVideoRequest();
+    executeGetRequest(uriv, displayVideos);
+}
+
+function constructVideoRequest(){
+    return "http://localhost/Trex-Topic-based-Resource-eXplorer-/php/view/videos.php?" + constructQueryParamVideos();
+}
+
+function constructQueryParamVideos(){
+    var searchTermsVideo = document.getElementById('search-videos').value;
+    return searchTermsVideo;
+}
+
+
+
+

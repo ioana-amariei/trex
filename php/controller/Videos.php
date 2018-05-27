@@ -9,8 +9,17 @@
     class Videos implements GenericResource {
         private $authToken = "Authorization: Bearer ".TOKEN;
 
-        public function search($terms) {
+        public function search($filter){
+            $uri = $this->constructUri($filter);
+        }
 
+        private function constructUri($filter){
+            $terms = $filter['terms'];
+
+            $uri = "https://api.vimeo.com/";
+            $uri = $uri . "tags/" . searchul . "/videos";
+           
+            return $uri;
         }
 
         public function getInitialVideos(){
@@ -28,6 +37,11 @@
 
             $result = Utils::fetchDataWithToken($categoriesUrl, $authorizationToken);
             return $result;
+        }
+
+        public function getVideoSearched(){
+            $videoTerm = 
+            $videoSearchUrl = URL."tags/". ."/videos";
         }
     }
 ?>
