@@ -27,7 +27,7 @@
             $authorizationToken = $this->authToken;
 
             $headers = ['Content-Type: application/json', $authorizationToken];
-            $result = Utils::fetchDataWithToken($videoUrl, $headers);
+            $result = Utils::fetchData($videoUrl, $headers);
             return $result;
 
         }
