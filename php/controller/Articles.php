@@ -9,9 +9,9 @@ class Articles implements GenericResource {
     public function search($filter){
         $uri = $this->constructUri($filter);
         $data = Utils::fetchData($uri);
-        $books = $this->constructArticles($data, $filter);
+        $articles = $this->constructArticles($data, $filter);
 
-        return $books;
+        return $articles;
     }
 
     private function constructUri($filter){
@@ -33,11 +33,11 @@ class Articles implements GenericResource {
 
     private function constructArticles($data, $filter){
         // This section of code was extracted in Utils::xmlToDictionary(xmlData)
-        $array = Utils::xmlToDictionary($data);
+        $items = Utils::xmlToDictionary($data);
         $articles = [];
 
-        if(is_array($array) || is_object($array)) {
-          foreach ($array['entry'] as $item) {
+        if(is_array($items) || is_object($items)) {
+          foreach ($items['entry'] as $item) {
             $article = $this->constructArticle($item);
             array_push($articles, $article);
           }
@@ -49,6 +49,7 @@ class Articles implements GenericResource {
 
     private function constructArticle($item){
         $article = new Resource();
+        $article->setType('article');
         $article->setTitle($this->getTitle($item));
         $article->setDescription($this->getDescription($item));
         $article->setAuthors($this->getAuthors($item));
