@@ -144,13 +144,13 @@
 ********************************/
 
 .feed-button {
-  background: #76B3FA;
+  background-color: #2052A6;
   border-radius: 100px;
   padding: 20px 60px;
+  margin: 10px 0 30px 0;
   color: #fff;
   text-decoration: none;
   font-size: 1.45em;
-  margin: 0 15px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -160,6 +160,7 @@
 .feed-button:hover {
   -webkit-animation: hover 1200ms linear 2 alternate;
   animation: hover 1200ms linear 2 alternate;
+  background-color: #3E72DD;
 }
 
 /* Active state animation applied here */

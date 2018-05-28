@@ -16,7 +16,7 @@ function getRequest(uri, refreshCallback, newReq) {
     var req = new XMLHttpRequest();
     req.open("GET", uri, true);
 
-    if (typeof (req) === "object") {
+    if (typeof(req) === "object") {
         req.responseType = 'json';
     } else {
         req.responseType = '';

@@ -18,30 +18,29 @@ class Articles implements GenericResource {
         $terms = $filter['terms'];
         $sortBy = $filter['sortBy'];
         $sortOrder = $filter['sortOrder'];
+        $start = $filter['start'];
+        $max_results = $filter['max_results'];
 
         $uri = 'http://export.arxiv.org/api/query?';
         $uri = $uri . 'search_query=ti:"' . urlencode($terms) . '"';
-        $uri = $uri . urlencode($sortBy);
-        $uri = $uri . urlencode($sortOrder);
-        $uri = $uri . '&start=0&max_results=21';
+        $uri = $uri . '&sortBy=' . urlencode($sortBy);
+        $uri = $uri . '&sortOrder=' . urlencode($sortOrder);
+        $uri = $uri . '&start=' . urlencode($start);
+        $uri = $uri . '&max_results=' . urlencode($max_results);
 
         return $uri;
     }
 
     private function constructArticles($data, $filter){
-        // Takes a XML encoded string and converts it into JSON then into a PHP variable.
-
         // This section of code was extracted in Utils::xmlToDictionary(xmlData)
-        // $array = Utils::xmlToDictionary($data);
-        $xml = simplexml_load_string($data,'SimpleXMLElement',LIBXML_NOCDATA);
-        $json = json_encode($xml);
-        $array = json_decode($json, TRUE);
-
+        $array = Utils::xmlToDictionary($data);
         $articles = [];
 
-        foreach ($array['entry'] as $item) {
+        if(is_array($array) || is_object($array)) {
+          foreach ($array['entry'] as $item) {
             $article = $this->constructArticle($item);
             array_push($articles, $article);
+          }
         }
 
         return $articles;

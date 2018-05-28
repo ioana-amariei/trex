@@ -338,7 +338,7 @@
         </form>
 
         <div id="display-results">
-    
+
             <!-- DO NOT DELETE KEEP IT IN ORDER TO DOCUMENT THE STRUCTURE OF THE DISPLAYED INFORMATION -->
             <!-- <div class="resource list-view">
                 <div class="book-image">
@@ -387,7 +387,7 @@
             </div>
             <fieldset>
                 <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article...">
-                <div class="search icon" alt="Search button" onclick="getDefaultRSS(event);"></div>
+                <div class="search icon" alt="Search button" onclick="getDefaultRSS('newFeed');"></div>
             </fieldset>
             <div class="article-display-type">
                 <div class="justified icon" onclick="selectArticleDisplayType('list-view')"></div>
@@ -395,8 +395,19 @@
             </div>
         </form>
         <section>
-            <div id="display-art-results"></div>
-            <!-- <button class="feed-button">Get me more</button> -->
+             <div id="display-art-results">
+              <!--<li class="articleNo" style="max-height: 384px;">
+                <a href="https://dev.to/howtocodejs/control-flow-the-beginners-guide-3mp9" target="_blank">
+                  <img src="https://res.cloudinary.com/i/j7bp97fz7u35xzqydjaw.jpg" style="width: 100%; float: none;">
+                  <div class="articlePostInfo">
+                    <h3 style="padding-right: inherit; padding-left: inherit;">Control Flow: The Beginner's Guide</h3>
+                    <p style="display: none; text-align: justify;">2018-05-26 17:22:27</p>
+                    <h4>HowToCodejs</h4>
+                  </div>
+                </a>
+              </li>  -->
+            </div>
+            <button class="feed-button" type="button" onclick="getDefaultRSS();" style="display: none;">Get me more</button>
         </section>
     </div>
     <!-- end Loghin Alexandru  -->
@@ -595,11 +606,12 @@
      	showPage('home');
     	setSlidesBackground();
     	registerEventHandlers();
+      getDefaultRSS();
       // inputSearchTrigger();
-      window.onload = function () {
-          getDefaultRSS();
-         // displayDefaultVideoGrid();
-      }
+      // displayDefaultVideoGrid();
+      var displayType = 'grid-view';
+      var feedStart = 0;
+      var feedNext = 15;
     </script>
 
 </body>
