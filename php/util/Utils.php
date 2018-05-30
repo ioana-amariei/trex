@@ -22,7 +22,7 @@ class Utils {
 
  +        //Close the cURL handle.
         curl_close($ch);
-        
+
         // Takes a JSON encoded string and converts it into a PHP variable.
         return json_decode($data, $assoc = TRUE);
     }

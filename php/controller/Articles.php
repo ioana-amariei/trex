@@ -101,7 +101,5 @@ class Articles implements GenericResource {
             return ['No authors available.'];
         }
     }
-
 }
-
 ?>
