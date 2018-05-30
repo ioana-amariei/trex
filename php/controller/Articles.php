@@ -9,37 +9,38 @@ class Articles implements GenericResource {
     public function search($filter){
         $uri = $this->constructUri($filter);
         $data = Utils::fetchData($uri);
-        $books = $this->constructArticles($data, $filter);
+        $articles = $this->constructArticles($data, $filter);
 
-        return $books;
+        return $articles;
     }
 
     private function constructUri($filter){
         $terms = $filter['terms'];
         $sortBy = $filter['sortBy'];
         $sortOrder = $filter['sortOrder'];
+        $start = $filter['start'];
+        $max_results = $filter['max_results'];
 
         $uri = 'http://export.arxiv.org/api/query?';
         $uri = $uri . 'search_query=ti:"' . urlencode($terms) . '"';
-        $uri = $uri . urlencode($sortBy);
-        $uri = $uri . urlencode($sortOrder);
-        $uri = $uri . '&start=0&max_results=21';
+        $uri = $uri . '&sortBy=' . urlencode($sortBy);
+        $uri = $uri . '&sortOrder=' . urlencode($sortOrder);
+        $uri = $uri . '&start=' . urlencode($start);
+        $uri = $uri . '&max_results=' . urlencode($max_results);
 
         return $uri;
     }
 
     private function constructArticles($data, $filter){
-        // Takes a XML encoded string and converts it into JSON then into a PHP variable.
-
-        $xml = simplexml_load_string($data,'SimpleXMLElement',LIBXML_NOCDATA);
-        $json = json_encode($xml);
-        $array = json_decode($json, TRUE);
-
+        // This section of code was extracted in Utils::xmlToDictionary(xmlData)
+        $items = Utils::xmlToDictionary($data);
         $articles = [];
 
-        foreach ($array['entry'] as $item) {
+        if(is_array($items) || is_object($items)) {
+          foreach ($items['entry'] as $item) {
             $article = $this->constructArticle($item);
             array_push($articles, $article);
+          }
         }
 
         return $articles;
@@ -48,6 +49,7 @@ class Articles implements GenericResource {
 
     private function constructArticle($item){
         $article = new Resource();
+        $article->setType('article');
         $article->setTitle($this->getTitle($item));
         $article->setDescription($this->getDescription($item));
         $article->setAuthors($this->getAuthors($item));

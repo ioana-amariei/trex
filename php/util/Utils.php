@@ -1,13 +1,15 @@
 <?php
 
 class Utils {
-    public static function fetchData($uri){
+    public static function fetchData($uri, $headers = []){
         // Reference: http://thisinterestsme.com/send-get-request-with-php/
         //Initialize cURL.
         $ch = curl_init();
 
         //Set the URL that you want to GET by using the CURLOPT_URL option.
         curl_setopt($ch, CURLOPT_URL, $uri);
+        // Set the headers
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
          //Set CURLOPT_RETURNTRANSFER so that the content is returned as a variable.
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         //Set CURLOPT_FOLLOWLOCATION to true to follow redirects.
@@ -23,27 +25,19 @@ class Utils {
  +        //Close the cURL handle.
         curl_close($ch);
 
-        // Takes a JSON encoded string and converts it into a PHP variable.
-        return json_decode($data, $assoc = TRUE);
+        return $data;
     }
 
-    public static function fetchDataWithToken($uri, $tokenAuthorization){
-        $ch = curl_init();
+    public static function jsonToDictionary($jsonData) {
+        // Takes a JSON encoded string and converts it into a PHP variable.
+        return json_decode($jsonData, $assoc = TRUE);
+    }
 
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json' , $tokenAuthorization ));
-        curl_setopt($ch, CURLOPT_URL, $uri);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-
-        try {
-            $data = curl_exec($ch);
-        } catch (Exception $e) {
-            return [];
-        }
-
-        curl_close($ch);
-
-        return $data;
+    public static function xmlToDictionary($xmlData) {
+        // Takes a XML encoded string and converts it into JSON then into a PHP variable.
+        $xml = simplexml_load_string($xmlData, 'SimpleXMLElement', LIBXML_NOCDATA);
+        $json = json_encode($xml);
+        return json_decode($json, $assoc = TRUE);
     }
 
     public static function truncateDescription($description, $length){

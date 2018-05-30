@@ -3,37 +3,34 @@
     2. https://www.developer.mozilla.org/en-US/docs/Web/Guide/Parsing_and_serializing_XML
 */
 
-// TODO: Fix input Enter event
-// TODO: Add infinity scroll
+// TODO: add infinity scroll button
+// TODO: fix grid view reset
+// TODO: fix enter input problem
 
 var getCurrentURL = window.location.href;
 var displayType = 'grid-view';
-var startItem = 0;
-var nextItem = 21;
+var feedStart = 0;
+var feedNext = 0;
 
-// function inputSearchTrigger() {
-//     var input = document.getElementById("search-bar-articles");
-//
-//     input.addEventListener('keyup', function (event) {
-//         event.preventDefault();
-//         if (event.keyCode == '13') {
-//             getDefaultRSS();
-//         }
-//     });
-// }
-
-function getDefaultRSS(event) {
+function getDefaultRSS(requestedFeed) {
     var newSearch = false;
-    if(event && (event.type === "click" || event.type === "keyup") ) {
+    var searchTermsBar = document.getElementById('search-bar-articles').value;
+    var uri;
+
+    if(requestedFeed && (requestedFeed === "newFeed") ) {
       clearDisplayedArticles();
       helpMe("loading");
       newSearch = true;
+      feedStart = 0;
+      feedNext = 0;
     }
-    var searchTermsBar = document.getElementById('search-bar-articles').value;
-    var uri;
+
     if (searchTermsBar.trim() === "") {
         uri = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdev.to%2Ffeed&api_key=frsnzjk8uuwmikwogktkshmwqicpqs4sb7lg45m1';
+        document.getElementsByClassName('feed-button')[0].style.display = "none";
     } else {
+      feedStart = feedNext;
+      feedNext += 15;
         uri = getSearchUri();
     }
     getRequest(uri, displayArticles, newSearch);
@@ -54,16 +51,17 @@ function getAllParams() {
 
     var Params = "";
 
-    Params = 'ti="' + searchTerms + '"';
+    Params = 'ti=\"' + searchTerms + '\"';
     Params += "&sortBy=" + orderBySelect;
     Params += "&sortOrder=" + orderSortSelect;
+    Params += "&start=" + feedStart;
+    Params += "&max_results=15";
 
     return Params;
 }
 
 function clearDisplayedArticles() {
     var displayResults = document.getElementById('display-art-results');
-
     while (displayResults.hasChildNodes()) {
         displayResults.removeChild(displayResults.lastChild);
     }
@@ -86,12 +84,12 @@ function displayArticles(reqRes, newReq) {
             appendArticleInfoToResultsArea(article);
         }
     } else {
-        for (index = 0; index < articles.length; index++) {
-            var article = articles[index];
+        document.getElementsByClassName('feed-button')[0].style.display = "initial";
+        for (index = 0; index < articles.articles.length; index++) {
+            var article = articles.articles[index];
             appendArticleInfoToResultsArea(article);
         }
     }
-
     selectArticleDisplayType(displayType);
 }
 
@@ -161,8 +159,8 @@ function createArticlePostInfo(article) {
     return info;
 }
 
-function selectArticleDisplayType(displayType) {
-
+function selectArticleDisplayType(displayTemp) {
+    displayType = displayTemp;
     var article = document.getElementsByClassName("articleNo");
     var articleInfo = document.getElementsByClassName("articlePostInfo");
 
@@ -217,27 +215,3 @@ function helpMe(withThis) {
   articlePage.querySelector("div").style.backgroundColor = "white";
   articlePage.querySelector("div").style.gridTemplateColumns = "1fr";
 }
-
-// Infinity scrool - wip
-
-// Add 25 items.
-// var loadMore = function() {
-//
-//   // for (var i = 0; i < 25; i++) {
-//     // var item = document.createElement('li');
-//     // item.innerText = 'Item ' + nextItem++;
-//     // listElm.appendChild(item);
-//   // }
-// }
-//
-// var listElm = document.querySelector('html');
-//
-// // Detect when scrolled to bottom.
-// listElm.addEventListener('scroll', function() {
-//   if (listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
-//     loadMore();
-//   }
-// });
-
-// // Initially load some items.
-// loadMore();
