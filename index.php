@@ -387,11 +387,17 @@
             </div>
             <fieldset>
                 <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article...">
-                <div class="search icon" alt="Search button" onclick="getDefaultRSS('newFeed');"></div>
+                <div class="fix-search-area" onclick="getDefaultRSS('newFeed');">
+                    <img class="search_btn" src="images/article/search_btn.svg" alt="Search button">
+                </div>
             </fieldset>
             <div class="article-display-type">
-                <div class="justified icon" onclick="selectArticleDisplayType('list-view')"></div>
-                <div class="more-solid icon" onclick="selectArticleDisplayType('grid-view')"></div>
+              <div class="fix-search-area absolute-left" onclick="selectArticleDisplayType('list-view')">
+                <img class="view_btn" src="images/article/listview_active.svg" alt="Listview Button">
+              </div>
+              <div class="fix-search-area absolute-right" onclick="selectArticleDisplayType('grid-view')">
+                <img class="view_btn" src="images/article/gridview_inactive.svg" alt="Gridview Button">
+              </div>
             </div>
         </form>
         <section>

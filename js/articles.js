@@ -91,6 +91,20 @@ function displayArticles(reqRes, newReq) {
         }
     }
     selectArticleDisplayType(displayType);
+    fixArticleHeight();
+}
+
+function fixArticleHeight() {
+  var ArtResult = document.getElementsByClassName("articleNo");
+  for(var i=0; i<=ArtResult.length; i++) {
+    if(ArtResult[i] !== undefined) {
+      var img = ArtResult[i].querySelector("img").clientHeight;
+     var desc = ArtResult[i].querySelector("div").clientHeight;
+   }
+    if(img+desc >= 384) {
+      ArtResult[i].removeAttribute("style");
+    }
+  }
 }
 
 function appendArticleInfoToResultsArea(article) {
@@ -166,6 +180,8 @@ function selectArticleDisplayType(displayTemp) {
 
     if (displayType == 'list-view') {
         document.getElementById("display-art-results").style.gridTemplateColumns = "1fr";
+        // document.getElementsByClassName("absolute-left").querySelector("img").src = "images/article/listview_active.svg";
+        // document.getElementsByClassName("absolute-right").querySelector("img").src = "images/article/gridview_inactive.svg";
         for (var index = 0; index < article.length; index++) {
             var itemArticleInfoHeight = article[index].querySelector("div").offsetHeight;
             article[index].querySelector("img").style.width = "370px";
@@ -178,6 +194,8 @@ function selectArticleDisplayType(displayTemp) {
         }
     } else {
         document.getElementById("display-art-results").style.gridTemplateColumns = "repeat(3, 1fr)";
+        // document.getElementsByClassName("absolute-left").querySelector("img").src = "images/article/listview_inactive.svg";
+        // document.getElementsByClassName("absolute-right").querySelector("img").src = "images/article/gridview_active.svg";
         for (var index = 0; index < article.length; index++) {
             var itemArticleInfoHeight = article[index].querySelector("div").offsetHeight;
             article[index].querySelector("img").style.width = "100%";
