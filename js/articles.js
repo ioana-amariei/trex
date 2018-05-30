@@ -70,8 +70,6 @@ function clearDisplayedArticles() {
 function displayArticles(reqRes, newReq) {
     if(newReq) clearDisplayedArticles();
 
-    console.log('feedStart: ' + feedStart + '; feedNe: ' + feedNext);
-
     var articles = reqRes.response;
     var index;
 
