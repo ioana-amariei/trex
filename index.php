@@ -606,12 +606,9 @@
      	showPage('home');
     	setSlidesBackground();
     	registerEventHandlers();
-      getDefaultRSS();
+      getDefaultRSS('newFeed');
       // inputSearchTrigger();
       // displayDefaultVideoGrid();
-      var displayType = 'grid-view';
-      var feedStart = 0;
-      var feedNext = 15;
     </script>
 
 </body>

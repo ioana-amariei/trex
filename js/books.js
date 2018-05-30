@@ -54,7 +54,7 @@ function searchBooks(){
 }
 
 function constructRequestUri(){
-    return "http://localhost:81/Trex-Topic-based-Resource-eXplorer-/php/view/books.php?" + constructQueryParamsSection();
+    return "http://localhost/Trex-Topic-based-Resource-eXplorer-/php/view/books.php?" + constructQueryParamsSection();
 }
 
 function constructQueryParamsSection(){
