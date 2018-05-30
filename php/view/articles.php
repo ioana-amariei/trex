@@ -16,14 +16,9 @@ $filter = [
     'max_results' => $to,
 ];
 
-// echo $filter['terms'];
-
 $articleFeed = new Articles();
 $articles = $articleFeed->search($filter);
 $result = ["articles" => $articles];
-
-// echo '<pre>' , var_dump($result) , '</pre>';
-
 
 header('Content-Type: application/json');
 http_response_code(200);

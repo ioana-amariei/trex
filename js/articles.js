@@ -8,6 +8,9 @@
 // TODO: fix enter input problem
 
 var getCurrentURL = window.location.href;
+var displayType = 'grid-view';
+var feedStart = 0;
+var feedNext = 0;
 
 function getDefaultRSS(requestedFeed) {
     var newSearch = false;
@@ -18,11 +21,16 @@ function getDefaultRSS(requestedFeed) {
       clearDisplayedArticles();
       helpMe("loading");
       newSearch = true;
+      feedStart = 0;
+      feedNext = 0;
     }
 
     if (searchTermsBar.trim() === "") {
         uri = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdev.to%2Ffeed&api_key=frsnzjk8uuwmikwogktkshmwqicpqs4sb7lg45m1';
+        document.getElementsByClassName('feed-button')[0].style.display = "none";
     } else {
+      feedStart = feedNext;
+      feedNext += 15;
         uri = getSearchUri();
     }
     getRequest(uri, displayArticles, newSearch);
@@ -43,31 +51,24 @@ function getAllParams() {
 
     var Params = "";
 
-    Params = 'ti="' + searchTerms + '"';
+    Params = 'ti=\"' + searchTerms + '\"';
     Params += "&sortBy=" + orderBySelect;
     Params += "&sortOrder=" + orderSortSelect;
     Params += "&start=" + feedStart;
-    Params += "&max_results=" + feedNext;
+    Params += "&max_results=15";
 
     return Params;
 }
 
 function clearDisplayedArticles() {
     var displayResults = document.getElementById('display-art-results');
-    feedStart = 0;
-    feedNext = 15;
     while (displayResults.hasChildNodes()) {
         displayResults.removeChild(displayResults.lastChild);
     }
 }
 
 function displayArticles(reqRes, newReq) {
-    feedStart = feedNext;
-    feedNext += 15;
-    if(newReq) {
-      clearDisplayedArticles();
-      document.getElementsByClassName('feed-button')[0].style.display = "initial";
-    }
+    if(newReq) clearDisplayedArticles();
 
     var articles = reqRes.response;
     var index;
@@ -83,6 +84,7 @@ function displayArticles(reqRes, newReq) {
             appendArticleInfoToResultsArea(article);
         }
     } else {
+        document.getElementsByClassName('feed-button')[0].style.display = "initial";
         for (index = 0; index < articles.articles.length; index++) {
             var article = articles.articles[index];
             appendArticleInfoToResultsArea(article);
@@ -157,8 +159,8 @@ function createArticlePostInfo(article) {
     return info;
 }
 
-function selectArticleDisplayType(displayType) {
-
+function selectArticleDisplayType(displayTemp) {
+    displayType = displayTemp;
     var article = document.getElementsByClassName("articleNo");
     var articleInfo = document.getElementsByClassName("articlePostInfo");
 
