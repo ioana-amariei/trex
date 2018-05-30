@@ -93,7 +93,6 @@ class Articles implements GenericResource {
     }
 
     private function getAuthors($item){
-        // echo '<pre>' , var_dump($item) , '</pre>';
         if(isset($item['author'])){
             if(isset($item['author']['name']))
                 return $item['author']['name'];
