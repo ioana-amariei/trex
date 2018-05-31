@@ -3,14 +3,14 @@
     2. https://www.developer.mozilla.org/en-US/docs/Web/Guide/Parsing_and_serializing_XML
 */
 
-// TODO: add infinity scroll button
-// TODO: fix grid view reset
 // TODO: fix enter input problem
+// TODO: fix responsive grid..
 
 var getCurrentURL = window.location.href;
 var displayType = 'grid-view';
 var feedStart = 0;
 var feedNext = 0;
+var defaultFeed = true;
 
 function getDefaultRSS(requestedFeed) {
     var newSearch = false;
@@ -27,11 +27,13 @@ function getDefaultRSS(requestedFeed) {
 
     if (searchTermsBar.trim() === "") {
         uri = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdev.to%2Ffeed&api_key=frsnzjk8uuwmikwogktkshmwqicpqs4sb7lg45m1';
+        defaultFeed = true;
         document.getElementsByClassName('feed-button')[0].style.display = "none";
     } else {
       feedStart = feedNext;
       feedNext += 15;
-        uri = getSearchUri();
+      defaultFeed = false;
+      uri = getSearchUri();
     }
     getRequest(uri, displayArticles, newSearch);
 }
@@ -131,7 +133,11 @@ function createArticleImageDiv(article, resourceDiv) {
 
     var image = document.createElement('img');
     if ((article.thumbnail == "") || (article.thumbnail === undefined)) {
-        image.src = "images/article/dn_bg.png";
+        if(defaultFeed) {
+          image.src = "images/article/rss_dn_bg.png";
+        } else {
+          image.src = "images/article/dn_bg.png";
+        }
     } else {
         image.src = article.thumbnail;
     }
@@ -177,11 +183,12 @@ function selectArticleDisplayType(displayTemp) {
     displayType = displayTemp;
     var article = document.getElementsByClassName("articleNo");
     var articleInfo = document.getElementsByClassName("articlePostInfo");
-
+    var listView = document.getElementsByClassName("article-display-type")[0].children[0];
+    var gridView = document.getElementsByClassName("article-display-type")[0].children[1];
     if (displayType == 'list-view') {
         document.getElementById("display-art-results").style.gridTemplateColumns = "1fr";
-        // document.getElementsByClassName("absolute-left").querySelector("img").src = "images/article/listview_active.svg";
-        // document.getElementsByClassName("absolute-right").querySelector("img").src = "images/article/gridview_inactive.svg";
+        listView.querySelector("img").src = "images/article/listview_active.svg";
+        gridView.querySelector("img").src = "images/article/gridview_inactive.svg";
         for (var index = 0; index < article.length; index++) {
             var itemArticleInfoHeight = article[index].querySelector("div").offsetHeight;
             article[index].querySelector("img").style.width = "370px";
@@ -194,8 +201,8 @@ function selectArticleDisplayType(displayTemp) {
         }
     } else {
         document.getElementById("display-art-results").style.gridTemplateColumns = "repeat(3, 1fr)";
-        // document.getElementsByClassName("absolute-left").querySelector("img").src = "images/article/listview_inactive.svg";
-        // document.getElementsByClassName("absolute-right").querySelector("img").src = "images/article/gridview_active.svg";
+        listView.querySelector("img").src = "images/article/listview_inactive.svg";
+        gridView.querySelector("img").src = "images/article/gridview_active.svg";
         for (var index = 0; index < article.length; index++) {
             var itemArticleInfoHeight = article[index].querySelector("div").offsetHeight;
             article[index].querySelector("img").style.width = "100%";

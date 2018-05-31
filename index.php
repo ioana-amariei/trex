@@ -81,7 +81,7 @@
             <p>Books</p>
             <i class="fa fa-book"></i>
         </div>
-        <div id="option-articles" class="menu-option" onClick="showPage('articles'); selectCurrentMenuItem(this);">
+        <div id="option-articles" class="menu-option" onClick="showPage('articles'); selectCurrentMenuItem(this); fixArticleHeight();">
             <p>Articles</p>
             <i class="fa fa-newspaper-o"></i>
         </div>
@@ -386,17 +386,17 @@
                 </select>
             </div>
             <fieldset>
-                <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article...">
+                <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article..." onclick="this.select()">
                 <div class="fix-search-area" onclick="getDefaultRSS('newFeed');">
                     <img class="search_btn" src="images/article/search_btn.svg" alt="Search button">
                 </div>
             </fieldset>
             <div class="article-display-type">
               <div class="fix-search-area absolute-left" onclick="selectArticleDisplayType('list-view')">
-                <img class="view_btn" src="images/article/listview_active.svg" alt="Listview Button">
+                <img class="view_btn" src="images/article/listview_inactive.svg" alt="Listview Button">
               </div>
               <div class="fix-search-area absolute-right" onclick="selectArticleDisplayType('grid-view')">
-                <img class="view_btn" src="images/article/gridview_inactive.svg" alt="Gridview Button">
+                <img class="view_btn" src="images/article/gridview_active.svg" alt="Gridview Button">
               </div>
             </div>
         </form>
