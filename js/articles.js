@@ -11,6 +11,9 @@ var displayType = 'grid-view';
 var feedStart = 0;
 var feedNext = 0;
 var defaultFeed = true;
+var FeedButtonDisplay = function(display) {
+    document.getElementsByClassName('feed-button')[0].style.display = display;
+};
 
 function getDefaultRSS(requestedFeed) {
     var newSearch = false;
@@ -28,7 +31,7 @@ function getDefaultRSS(requestedFeed) {
     if (searchTermsBar.trim() === "") {
         uri = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fdev.to%2Ffeed&api_key=frsnzjk8uuwmikwogktkshmwqicpqs4sb7lg45m1';
         defaultFeed = true;
-        document.getElementsByClassName('feed-button')[0].style.display = "none";
+        FeedButtonDisplay("none");
     } else {
       feedStart = feedNext;
       feedNext += 15;
@@ -86,7 +89,7 @@ function displayArticles(reqRes, newReq) {
             appendArticleInfoToResultsArea(article);
         }
     } else {
-        document.getElementsByClassName('feed-button')[0].style.display = "initial";
+        FeedButtonDisplay("initial");
         for (index = 0; index < articles.articles.length; index++) {
             var article = articles.articles[index];
             appendArticleInfoToResultsArea(article);
@@ -133,8 +136,9 @@ function createArticleImageDiv(article, resourceDiv) {
 
     var image = document.createElement('img');
     if ((article.thumbnail == "") || (article.thumbnail === undefined)) {
+      var random_img = Math.floor(Math.random() * 2) + 1;
         if(defaultFeed) {
-          image.src = "images/article/rss_dn_bg.png";
+          image.src = "images/article/rss_dn_bg_" + random_img + ".png";
         } else {
           image.src = "images/article/dn_bg.png";
         }
@@ -219,24 +223,77 @@ function selectArticleDisplayType(displayTemp) {
 function helpMe(withThis) {
   var displayNotFound = document.getElementById('display-art-results');
   var image = document.createElement('img');
+  var mainContainer = document.createElement('div');
   switch (withThis) {
     case "404":
-          image.src = "images/pages/404_not_found.gif";
-          image.style.maxWidth = "100%";
-          image.style.margin = "0 auto";
+          // image.src = "images/pages/404_not_found.gif";
+          // image.style.maxWidth = "100%";
+          // image.style.margin = "0 auto";
+          addGhost(mainContainer);
+          FeedButtonDisplay("none");
+          displayNotFound.appendChild(mainContainer);
           break;
     case "loading":
           image.src = "images/pages/loading.gif";
           image.style.maxWidth = "100%";
           image.style.margin = "0 auto";
           image.style.padding = "50px 0";
+          FeedButtonDisplay("none");
+          displayNotFound.appendChild(image);
           break;
     default:
           break;
   }
-  displayNotFound.appendChild(image);
   var articlePage = document.getElementById("articles").querySelector("section");
   articlePage.style.backgroundColor = "white";
   articlePage.querySelector("div").style.backgroundColor = "white";
   articlePage.querySelector("div").style.gridTemplateColumns = "1fr";
+}
+
+function addGhost(mainContainer) {
+  mainContainer.classList.add('notFound404');
+  var errorRespond = document.createElement('div');
+  var respondeTitle = document.createElement('h1');
+  respondeTitle.innerHTML = "404";
+  var respondeMessage = document.createElement('h3');
+  respondeMessage.innerHTML = "page not found";
+  errorRespond.appendChild(respondeTitle);
+  errorRespond.appendChild(respondeMessage);
+  mainContainer.appendChild(errorRespond);
+  var GContainer1 = document.createElement('div');
+  GContainer1.classList.add('container404');
+  var GhostCopy = document.createElement('div');
+  GhostCopy.classList.add('ghost-copy');
+  var GhostCopy1 = document.createElement('div');
+  GhostCopy1.classList.add('one');
+  var GhostCopy2 = document.createElement('div');
+  GhostCopy2.classList.add('two');
+  var GhostCopy3 = document.createElement('div');
+  GhostCopy3.classList.add('three');
+  var GhostCopy4 = document.createElement('div');
+  GhostCopy4.classList.add('four');
+  GhostCopy.appendChild(GhostCopy1);
+  GhostCopy.appendChild(GhostCopy2);
+  GhostCopy.appendChild(GhostCopy3);
+  GhostCopy.appendChild(GhostCopy4);
+  GContainer1.appendChild(GhostCopy);
+  var GContainer2 = document.createElement('div');
+  GContainer2.classList.add('ghost');
+  var GhostCopy2 = document.createElement('div');
+  GhostCopy2.classList.add('face');
+  var GhostCopy5 = document.createElement('div');
+  GhostCopy5.classList.add('eye');
+  var GhostCopy6 = document.createElement('div');
+  GhostCopy6.classList.add('eye-right');
+  var GhostCopy7 = document.createElement('div');
+  GhostCopy7.classList.add('mouth');
+  GhostCopy2.appendChild(GhostCopy5);
+  GhostCopy2.appendChild(GhostCopy6);
+  GhostCopy2.appendChild(GhostCopy7);
+  GContainer2.appendChild(GhostCopy2);
+  GContainer1.appendChild(GContainer2);
+  var Shadow = document.createElement('div');
+  Shadow.classList.add('shadow');
+  GContainer1.appendChild(Shadow);
+  mainContainer.appendChild(GContainer1);
 }

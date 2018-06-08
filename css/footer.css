@@ -15,6 +15,12 @@
   border-top: 1px solid rgb(220, 220, 220);
 }
 
+#main-footer a {
+  transition: .2s;
+  color: rgb(180, 180, 180);
+  text-decoration: none;
+}
+
 #main-footer > div {
     max-width: 960px;
     display: flex;
@@ -90,7 +96,8 @@
   transition: .2s;
 }
 
-#main-footer #footer-list ul li:not(:first-child):hover {
+#main-footer #footer-list ul li:not(:first-child):hover,
+#main-footer a:hover  {
   color: rgb(50, 50, 50);
 }
 
