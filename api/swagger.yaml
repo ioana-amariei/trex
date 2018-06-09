@@ -32,6 +32,7 @@ paths:
         - in: "query"
           name: "terms"
           type: string
+          required: true
           description: "The keywords to search for"
         - in: "query"
           name: "language"
