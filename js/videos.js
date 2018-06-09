@@ -1,5 +1,5 @@
 function displayDefaultVideoGrid(){
-    executeGetRequest("php/view/videos.php", displayVideos);
+    executeGetRequest("api/videos", displayVideos);
 }
 
 function displayVideos(){
@@ -39,21 +39,21 @@ function displayVideos(){
 
         a.appendChild(img);
         h5Time.appendChild(document.createTextNode(timeInSeconds));
-        
+
         gifDiv.appendChild(a);
         gifDiv.appendChild(h5Time);
 
-        videoDiv.appendChild(gifDiv); 
+        videoDiv.appendChild(gifDiv);
 
         var infoDiv = document.createElement("div");
         infoDiv.classList.add('infovideo');
-        
+
         var h5 = document.createElement("h5");
         h5.appendChild(document.createTextNode(title));
         h5.classList.add("h5video");
 
         infoDiv.appendChild(h5);
-        
+
         var p = document.createElement("p");
         p.classList.add("pvideo");
 
@@ -80,14 +80,10 @@ function searchVideos(){
 }
 
 function constructVideoRequest(){
-    return "http://localhost/Trex-Topic-based-Resource-eXplorer-/php/view/videos.php?" + constructQueryParamVideos();
+    return "http://localhost/trex/api/videos?" + constructQueryParamVideos();
 }
 
 function constructQueryParamVideos(){
     var searchTermsVideo = document.getElementById('search-videos').value;
     return searchTermsVideo;
 }
-
-
-
-

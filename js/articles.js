@@ -42,7 +42,7 @@ function getDefaultRSS(requestedFeed) {
 }
 
 function getSearchUri() {
-    return getCurrentURL + "php/view/articles.php?" + getAllParams();
+    return getCurrentURL + "api/articles?" + getAllParams();
 }
 
 function getAllParams() {

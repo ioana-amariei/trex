@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteRule ^api/books$ php/view/books.php
+RewriteRule ^api/articles$ php/view/articles.php
+RewriteRule ^api/videos$ php/view/videos.php
+RewriteRule ^api/presentations$ php/view/presentations.php
