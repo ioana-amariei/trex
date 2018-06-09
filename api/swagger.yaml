@@ -1,0 +1,42 @@
+swagger: "2.0"
+info:
+  description: "Trex description"
+  version: "1.0.0"
+  title: "Trex"
+host: localhost
+basePath: /trex/api
+tags:
+- name: "books"
+  description: "Search for books"
+- name: "videos"
+  description: "Searh for videos"
+- name: "presentations"
+  description: "Search for presentations"
+- name: "articles"
+  description: "Search for articles"
+schemes:
+- "http"
+paths:
+  /books:
+    get:
+      tags:
+      - "books"
+      summary: "Search for books"
+      description: ""
+      operationId: "getBooks"
+      consumes:
+      - "*/*"
+      produces:
+      - "application/json"
+      parameters:
+        - in: query 
+          name: terms
+          type: string
+          description: The keywords to search for
+        - in: query
+          name: language
+          type: string
+          description: The language of the books
+      responses:
+        405:
+          description: "Invalid input"
