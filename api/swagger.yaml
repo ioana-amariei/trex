@@ -22,21 +22,35 @@ paths:
       tags:
       - "books"
       summary: "Search for books"
-      description: ""
+      description: "Search for books"
       operationId: "getBooks"
       consumes:
       - "*/*"
       produces:
       - "application/json"
       parameters:
-        - in: query 
-          name: terms
+        - in: "query"
+          name: "terms"
           type: string
-          description: The keywords to search for
-        - in: query
-          name: language
+          description: "The keywords to search for"
+        - in: "query"
+          name: "language"
           type: string
-          description: The language of the books
+          description: "The language of the books"
       responses:
         405:
           description: "Invalid input"
+definitions:
+    ApiResponse:
+        type: "object"
+        properties:
+          code:
+            type: "integer"
+            format: "int32"
+          type:
+            type: "string"
+          message:
+            type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
