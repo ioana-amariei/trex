@@ -33,7 +33,7 @@ function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
   }
 }
 
-function registerBooksEventHandlers() {
+function registerEventHandlers(){
     var input = document.getElementById('search-books');
 
     input.addEventListener('keydown', function(event){
