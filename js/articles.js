@@ -18,11 +18,11 @@ function registerArticlesEventHandlers() {
     var input = document.getElementById('search-bar-articles');
 
     input.addEventListener('keydown', function (event) {
-        handleEnterKeyForSearchBar(event);
+        handleEnterKeyForArticlesSearchBar(event);
     });
 }
 
-function handleEnterKeyForSearchBar(event) {
+function handleEnterKeyForArticlesSearchBar(event) {
     if (event.keyCode === 13) {
         getDefaultRSS('newFeed');
     }

@@ -11,14 +11,14 @@
 10. https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeydown
 */
 
-var displayInfo = {
+var bookDisplayInfo = {
     currentDisplayType : 'list-view',
     numberOfDisplayedElements : 0,
     totalItems : 0
 };
 
 function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
-    displayInfo.currentDisplayType = classToAdd;
+    bookDisplayInfo.currentDisplayType = classToAdd;
 
     var displayTypes = document.getElementsByClassName("selected-display-type");
 
@@ -41,11 +41,11 @@ function registerBooksEventHandlers(){
     var input = document.getElementById('search-books');
 
     input.addEventListener('keydown', function(event){
-        handleEnterKeyForSearchBar(event);
+        handleEnterKeyForBooksSearchBar(event);
     });
 }
 
-function handleEnterKeyForSearchBar(event){
+function handleEnterKeyForBooksSearchBar(event){
     if(event.keyCode === 13){
         searchBooks();
     }
@@ -83,7 +83,7 @@ function constructQueryParamsSection(){
     queryParams += "&language=" + language;
     queryParams += "&from=" + fromYear;
     queryParams += "&to=" + toYear;
-    queryParams += "&startIndex=" + displayInfo.numberOfDisplayedElements;
+    queryParams += "&startIndex=" + bookDisplayInfo.numberOfDisplayedElements;
     queryParams += "&maxResults=" + 10;
 
     return queryParams;
@@ -105,7 +105,7 @@ function displayBooks(){
     }
 
     clearCurrentlyDisplayedBooks();
-    displayInfo.numberOfDisplayedElements = 0;
+    bookDisplayInfo.numberOfDisplayedElements = 0;
     var books = this.response.books;
 
     if(books.length === 0){
@@ -120,7 +120,7 @@ function displayBooks(){
         appendBookInfoToResultsArea(books[index]);
     }
 
-    displayInfo.totalItems = this.response.totalItems;
+    bookDisplayInfo.totalItems = this.response.totalItems;
     //TODO CAND NR TOTAL DE CARTI A FOST ATINS BUTONUL SEE MORE TB SA DISPARA
 }
 
@@ -132,13 +132,13 @@ function appendToDisplayedBooks(){
     }
 
     var books = this.response.books;
-    displayInfo.numberOfDisplayedElements += books.length;
+    bookDisplayInfo.numberOfDisplayedElements += books.length;
 
     for(var index = 0; index < books.length; index++){
         appendBookInfoToResultsArea(books[index]);
     }
 
-    displayInfo.totalItems = this.response.totalItems;
+    bookDisplayInfo.totalItems = this.response.totalItems;
     //TODO CAND NR TOTAL DE CARTI A FOST ATINS BUTONUL SEE MORE TB SA DISPARA
 }
 
@@ -151,7 +151,7 @@ function appendBookInfoToResultsArea(book){
 
 function createBookResourceDiv(book){
     var resourceDiv = document.createElement('div');
-    resourceDiv.classList.add('resource', displayInfo.currentDisplayType);
+    resourceDiv.classList.add('resource', bookDisplayInfo.currentDisplayType);
 
     var bookImage = createBookImageDiv(book);
     resourceDiv.appendChild(bookImage);

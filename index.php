@@ -639,7 +639,7 @@
     	setSlidesBackground();
     	registerBooksEventHandlers();
     	registerArticlesEventHandlers();
-        getDefaultRSS();
+        // getDefaultRSS();
       // inputSearchTrigger();
       // displayDefaultVideoGrid();
     </script>
