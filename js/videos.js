@@ -5,13 +5,13 @@ function displayDefaultVideoGrid(){
 function displayVideos(){
     var videoListDiv = document.getElementById('video-list');
 
-    // Handle error cases.
+    videoListDiv.innerHTML = "";
+
     if(this.status !== 200) {
         alert(this.response.message);
         return;
     }
 
-    // clearCurrentlyDisplayedBooks();
     var videos = JSON.parse(this.response);
 
     for(let i = 0; i < videos.data.length; i++) {
@@ -80,7 +80,7 @@ function searchVideos(){
 }
 
 function constructVideoRequest(){
-    return "http://localhost/trex/api/videos?" + constructQueryParamVideos();
+    return "/trex/api/videos?termen=" + constructQueryParamVideos();
 }
 
 function constructQueryParamVideos(){

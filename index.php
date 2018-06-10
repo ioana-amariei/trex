@@ -466,7 +466,7 @@
             </select>
             <fieldset>
                 <input type="search" id="search-videos" name="search-videos">
-                <div class="VideoSearch" onclick="searchVideos();"></div>
+                <div class="VideoSearch" onclick="searchVideos()"></div>
             </fieldset>
         </form>
         <section>
@@ -640,7 +640,7 @@
     	registerEventHandlers();
       getDefaultRSS('newFeed');
       // inputSearchTrigger();
-      // displayDefaultVideoGrid();
+       displayDefaultVideoGrid();
     </script>
 
 </body>
