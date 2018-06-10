@@ -138,12 +138,12 @@
     max-height: 85%;
     float: left;
     position: relative;
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 #books #display-results .resource {
     display: inline-block;
-}
+
 
 #books #display-results .resource img {
     width: 140px;

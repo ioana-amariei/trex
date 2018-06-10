@@ -363,7 +363,7 @@
 
         </div>
 
-        <button id="more-books-button" type="button">See more</button>
+        <button id="more-books-button" type="button" onclick="searchBooksToAppend();">See more</button>
 
     </div>
     <!-- end Ioana Birsan  -->

@@ -2,11 +2,19 @@
 
 require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/controller/Books.php');
 
+if(isset($_GET['terms']) === FALSE) {
+    http_response_code(400);
+    echo 'Error: the terms param is not set';
+    return;
+}
+
 $terms = $_GET['terms'];
 $minimumRating = isset($_GET['minimumRating']) ? $_GET['minimumRating'] : 0;
 $language = isset($_GET['language']) ? $_GET['language'] : 'any';
 $from = isset($_GET['from']) ? $_GET['from'] : 'any';
 $to = isset($_GET['to']) ? $_GET['to'] : 'any';
+$startIndex = isset($_GET['startIndex']) ? $_GET['startIndex'] : 0;
+$maxResults = isset($_GET['maxResults']) ? $_GET['maxResults'] : 10;
 
 if(is_numeric($from) and  is_numeric($to)){
     if($from > $to){
@@ -23,14 +31,16 @@ $filter = [
     'minimumRating' => $minimumRating,
     'language' => $language,
     'from' => $from,
-    'to' => $to
+    'to' => $to,
+    'startIndex' => $startIndex,
+    'maxResults' => $maxResults
 ];
 
-$bookData = new Books();
-$books = $bookData->search($filter);
+$books = new Books();
+$bookResponse = $books->search($filter);
 $result = ["books" => $books];
 
 header('Content-Type: application/json');
 http_response_code(200);
-echo json_encode($result);
+echo json_encode($bookResponse);
  ?>

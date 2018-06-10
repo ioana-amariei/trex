@@ -11,26 +11,30 @@
 10. https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onkeydown
 */
 
-var currentDisplayType = 'list-view';
+var displayInfo = {
+    currentDisplayType : 'list-view',
+    numberOfDisplayedElements : 0,
+    totalItems : 0
+};
 
 function selectCurrentDisplayType(displayType, classToAdd, classToRemove) {
-    currentDisplayType = classToAdd;
+    displayInfo.currentDisplayType = classToAdd;
 
-  var displayTypes = document.getElementsByClassName("selected-display-type");
+    var displayTypes = document.getElementsByClassName("selected-display-type");
 
-  var index;
-  for(index=0; index < displayTypes.length; index++){
-    displayTypes[index].classList.remove("selected-display-type");
-  }
+    var index;
+    for(index=0; index < displayTypes.length; index++){
+        displayTypes[index].classList.remove("selected-display-type");
+    }
 
-  displayType.classList.add("selected-display-type");
+    displayType.classList.add("selected-display-type");
 
-  var resources = document.getElementsByClassName("resource");
+    var resources = document.getElementsByClassName("resource");
 
-  for(index=0; index < resources.length; index++){
-    resources[index].classList.remove(classToRemove);
-    resources[index].classList.add(classToAdd);
-  }
+    for(index=0; index < resources.length; index++){
+        resources[index].classList.remove(classToRemove);
+        resources[index].classList.add(classToAdd);
+    }
 }
 
 function registerEventHandlers(){
@@ -42,7 +46,6 @@ function registerEventHandlers(){
 }
 
 function handleEnterKeyForSearchBar(event){
-
     if(event.keyCode === 13){
         searchBooks();
     }
@@ -51,6 +54,11 @@ function handleEnterKeyForSearchBar(event){
 function searchBooks(){
     var uri = constructRequestUri();
     executeGetRequest(uri, displayBooks);
+}
+
+function searchBooksToAppend(){
+    var uri = constructRequestUri();
+    executeGetRequest(uri, appendToDisplayedBooks);
 }
 
 function constructRequestUri(){
@@ -75,6 +83,8 @@ function constructQueryParamsSection(){
     queryParams += "&language=" + language;
     queryParams += "&from=" + fromYear;
     queryParams += "&to=" + toYear;
+    queryParams += "&startIndex=" + displayInfo.numberOfDisplayedElements;
+    queryParams += "&maxResults=" + 10;
 
     return queryParams;
 }
@@ -95,6 +105,7 @@ function displayBooks(){
     }
 
     clearCurrentlyDisplayedBooks();
+    displayInfo.numberOfDisplayedElements = 0;
     var books = this.response.books;
 
     if(books.length === 0){
@@ -108,6 +119,27 @@ function displayBooks(){
     for(var index = 0; index < books.length; index++){
         appendBookInfoToResultsArea(books[index]);
     }
+
+    displayInfo.totalItems = this.response.totalItems;
+    //TODO CAND NR TOTAL DE CARTI A FOST ATINS BUTONUL SEE MORE TB SA DISPARA
+}
+
+function appendToDisplayedBooks(){
+    // Handle error cases.
+    if(this.status !== 200) {
+        alert(this.response.message);
+        return;
+    }
+
+    var books = this.response.books;
+    displayInfo.numberOfDisplayedElements += books.length;
+
+    for(var index = 0; index < books.length; index++){
+        appendBookInfoToResultsArea(books[index]);
+    }
+
+    displayInfo.totalItems = this.response.totalItems;
+    //TODO CAND NR TOTAL DE CARTI A FOST ATINS BUTONUL SEE MORE TB SA DISPARA
 }
 
 function appendBookInfoToResultsArea(book){
@@ -119,7 +151,7 @@ function appendBookInfoToResultsArea(book){
 
 function createBookResourceDiv(book){
     var resourceDiv = document.createElement('div');
-    resourceDiv.classList.add('resource', currentDisplayType);
+    resourceDiv.classList.add('resource', displayInfo.currentDisplayType);
 
     var bookImage = createBookImageDiv(book);
     resourceDiv.appendChild(bookImage);
