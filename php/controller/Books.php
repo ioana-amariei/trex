@@ -4,9 +4,9 @@
 2. https://stackoverflow.com/questions/4258557/limit-text-length-in-php-and-provide-read-more-link
 */
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/controller/GenericResource.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/model/Resource.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/util/Utils.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/controller/GenericResource.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/model/Resource.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/util/Utils.php');
 
 class Books implements GenericResource {
 

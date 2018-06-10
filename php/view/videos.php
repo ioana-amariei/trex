@@ -1,6 +1,6 @@
 <?php
-    require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/controller/Videos.php');
-    
+    require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/controller/Videos.php');
+
     $v = new Videos();
 
     //$result = $v -> getAllCategories();

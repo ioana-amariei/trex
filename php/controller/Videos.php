@@ -1,7 +1,7 @@
 <?php
-    require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/controller/GenericResource.php');
-    require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/model/Resource.php');
-    require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/util/Utils.php');
+    require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/controller/GenericResource.php');
+    require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/model/Resource.php');
+    require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/util/Utils.php');
 
     const TOKEN = "72936020ebb9949ae0e1d253cb7f87df";
     const URL = "https://api.vimeo.com/";
