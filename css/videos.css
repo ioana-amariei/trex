@@ -84,7 +84,7 @@
 }
 
 #videos #VideoSearch {
-    max-width: 960px;
+    max-width: 900px;
     margin: 0 auto;
     display: grid;
     grid-gap: 30px;
@@ -115,7 +115,7 @@
 #videos fieldset > input {
     color: var(--my-black);
     float: left;
-    padding-left: 40px;
+    padding-left:35px;
     font-size: .9em;
     width: 100%;
     height: 100%;

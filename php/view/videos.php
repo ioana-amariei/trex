@@ -5,9 +5,8 @@
     $results = "";
 
     if(isset($_REQUEST['termen']))
-        $results = $v -> searchMore($_REQUEST['termen'], $_REQUEST['per_page']);
-    else
-     $results = $v -> getInitialVideos();
+        $results = $v -> search($_REQUEST['termen'], $_REQUEST['per_page']);
+  
     
     header('Content-Type: application/json');
     http_response_code(200);
