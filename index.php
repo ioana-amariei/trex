@@ -446,8 +446,8 @@
 
     <!-- start Luca Alexandru  -->
     <div id="videos" class="page">
-        <form id="VideoSearch" method="post">
-            <select>
+        <div id="VideoSearch">
+            <!-- <select>
                 <option selected>Design</option>
                 <option>AJAX</option>
                 <option>Algorithm</option>
@@ -463,12 +463,12 @@
                 <option>Python</option>
                 <option>Ruby</option>
                 <option>XML</option>
-            </select>
+            </select> -->
             <fieldset>
-                <input type="search" id="search-videos" name="search-videos">
+                <input type="text" id="search-videos">
                 <div class="VideoSearch" onclick="searchVideos()"></div>
             </fieldset>
-        </form>
+        </div>
         <section>
             <div id="video-list">
                 <!-- <div class="video">
@@ -482,6 +482,8 @@
                     </div>
                 </div> -->
             </div>
+            
+            <button id="more-videos" class="feed-button" type="button">Get me more</button>
         </section>
     </div>
 
@@ -639,9 +641,9 @@
     	setSlidesBackground();
     	registerBooksEventHandlers();
     	registerArticlesEventHandlers();
+        registerVideoEventHandlers();
         getDefaultRSS();
-      // inputSearchTrigger();
-       displayDefaultVideoGrid();
+        displayDefaultVideoGrid();
     </script>
 
 </body>

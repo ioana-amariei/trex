@@ -8,6 +8,7 @@
 
     class Videos implements GenericResource {
         private $authToken = "Authorization: Bearer ".TOKEN;
+        private $defaultNumberOfItems = 12;
 
         public function getInitialVideos(){
             $videoUrl = URL."tags/programing/videos";
@@ -19,13 +20,17 @@
 
         }
 
-        public function search($term) {
-            $videoSearchUrl = URL . 'tags/' . $term . '/videos';
+        public function searchMore($term, $itemsPerPage) {
+            $videoSearchUrl = URL . 'tags/' . $term . '/videos?per_page='.$itemsPerPage;
             $authorizationToken = $this->authToken;
 
             $headers=['Content-Type: application/json', $authorizationToken];
             $result = Utils::fetchData($videoSearchUrl,$headers);
             return $result;
+        }
+
+        public function search($term) {
+            $this->searchMore($term, $this->defaultNumberOfItems);
         }
     }
 ?>

@@ -4,17 +4,10 @@
     $v = new Videos();
     $results = "";
 
-    //$result = $v -> getAllCategories();
     if(isset($_REQUEST['termen']))
-    {
-        $results = $v -> search($_REQUEST['termen']);
-    }
+        $results = $v -> searchMore($_REQUEST['termen'], $_REQUEST['per_page']);
     else
-    {
      $results = $v -> getInitialVideos();
-    }
-    
-    //var_dump($_REQUEST);
     
     header('Content-Type: application/json');
     http_response_code(200);
