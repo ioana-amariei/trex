@@ -371,7 +371,7 @@
 
     <!-- start Loghin Alexandru  -->
     <div id="articles" class="page">
-        <form id="aSearchForm" method="post">
+        <div id="aSearchForm">
             <div>
                 <label>Sort By:</label>
                 <select id="article-sortBy-select" name="article-sortBy-select">
@@ -401,7 +401,7 @@
                 <img class="view_btn" src="images/article/gridview_active.svg" alt="Gridview Button">
               </div>
             </div>
-        </form>
+        </div>
         <section>
              <div id="display-art-results">
               <!--<li class="articleNo" style="max-height: 384px;">
@@ -637,8 +637,9 @@
     <script type='text/javascript'>
      	showPage('home');
     	setSlidesBackground();
-    	registerEventHandlers();
-      getDefaultRSS('newFeed');
+    	registerBooksEventHandlers();
+    	registerArticlesEventHandlers();
+        getDefaultRSS();
       // inputSearchTrigger();
       // displayDefaultVideoGrid();
     </script>
