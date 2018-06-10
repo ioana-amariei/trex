@@ -4,51 +4,32 @@
 2. https://stackoverflow.com/questions/4258557/limit-text-length-in-php-and-provide-read-more-link
 */
 
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/controller/GenericResource.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/model/Resource.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/Trex-Topic-based-Resource-eXplorer-/php/util/Utils.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/controller/GenericResource.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/model/Resource.php');
+require_once ($_SERVER['DOCUMENT_ROOT'] . '/trex/php/util/Utils.php');
 
 class Books implements GenericResource {
 
     public function search($filter){
         $data = $this->fetchBooks($filter);
-        $books = $this->constructBooks($data, $filter);
 
-        return $books;
+        $bookResponse = [];
+        $bookResponse['totalItems'] = $this->getAvailableBooksNumber($data);
+
+        $books = isset($data['items']) ? $data['items'] : [];
+        $bookResponse['books'] = $this->constructBooks($books, $filter);
+
+        return $bookResponse;
     }
 
     private function fetchBooks($filter){
-        $availableBooksNumber = $this->getAvailableBooksNumber($filter);
-        $availableBooksNumber = 200;
-
-        $allBooks = [];
-        $startIndex = 0;
-
-        while($startIndex < $availableBooksNumber){
-            $filter['startIndex'] = $startIndex;
-            $filter['maxResults'] = 40;
-            $uri = $this->constructUri($filter);
-            $data = $this->fetchDataAsDictionary($uri);
-
-            $books = isset($data['items']) ? $data['items'] : [];
-
-            foreach ($books as $book) {
-                array_push($allBooks, $book);
-            }
-
-            $startIndex = $startIndex + 40;
-        }
-
-        return $allBooks;
-    }
-
-    private function getAvailableBooksNumber($filter){
-        $filter['startIndex'] = 0;
-        $filter['maxResults'] = 5;
-
         $uri = $this->constructUri($filter);
         $data = $this->fetchDataAsDictionary($uri);
 
+        return $data;
+    }
+
+    private function getAvailableBooksNumber($data){
         return isset($data['totalItems']) ? $data['totalItems'] : 0;
     }
 
@@ -56,6 +37,7 @@ class Books implements GenericResource {
         $jsonData = Utils::fetchData($uri);
         return Utils::jsonToDictionary($jsonData);
     }
+
     private function constructUri($filter){
         $terms = $filter['terms'];
         $language = $filter['language'];
@@ -67,6 +49,7 @@ class Books implements GenericResource {
         $uri = $uri . '&startIndex=' . $startIndex;
         $uri = $uri . '&maxResults=' . $maxResults;
         $uri = $uri . '&q=' . urlencode($terms);
+
         if($language !== 'any'){
             $uri = $uri . '&langRestrict=' . $language;
         }
