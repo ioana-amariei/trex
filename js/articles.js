@@ -3,8 +3,8 @@
     2. https://www.developer.mozilla.org/en-US/docs/Web/Guide/Parsing_and_serializing_XML
 */
 
-// TODO: fix enter input problem
-// TODO: fix responsive grid..
+// Test limited view api words: aaaaa || aaaa || aaa
+// TODO: Fix the responsive view
 
 var getCurrentURL = window.location.href;
 var displayType = 'grid-view';
@@ -43,6 +43,7 @@ function getDefaultRSS(requestedFeed) {
     if (searchTermsBar.trim() === "") {
         FeedButtonDisplay("none");
         helpMe("defaultMessage");
+        return;
     } else {
         feedStart = feedNext;
         feedNext += 15;
@@ -83,27 +84,31 @@ function clearDisplayedArticles() {
 }
 
 function displayArticles(reqRes, newReq) {
+    document.getElementsByClassName("article-display-type")[0].style.pointerEvents = "auto";
     if (newReq) clearDisplayedArticles();
 
     var articles = reqRes.response;
     var index;
 
     if (articles === null) {
-        helpMe("404");
+        if(newReq) {
+            helpMe("404");
+        } else {
+            FeedButtonDisplay("none");
+        }
         return;
     }
 
-    if (articles['items'] !== undefined) {
-        for (index = 0; index < articles['items'].length; index++) {
-            var article = articles['items'][index];
-            appendArticleInfoToResultsArea(article);
-        }
+    if (articles.articles.length < (feedNext - feedStart)) {
+        FeedButtonDisplay("none");
     } else {
         FeedButtonDisplay("initial");
-        for (index = 0; index < articles.articles.length; index++) {
-            var article = articles.articles[index];
-            appendArticleInfoToResultsArea(article);
-        }
+    }
+
+    console.log(articles.articles.length + " | " + feedNext + " | " + feedStart + " | " + newReq);
+    for (index = 0; index < articles.articles.length; index++) {
+        var article = articles.articles[index];
+        appendArticleInfoToResultsArea(article);
     }
     selectArticleDisplayType(displayType);
     fixArticleHeight();
@@ -230,9 +235,7 @@ function helpMe(withThis) {
     var mainContainer = document.createElement('div');
     switch (withThis) {
         case "404":
-            // image.src = "images/pages/404_not_found.gif";
-            // image.style.maxWidth = "100%";
-            // image.style.margin = "0 auto";
+            document.getElementsByClassName("article-display-type")[0].style.pointerEvents = "none";
             addGhost(mainContainer);
             FeedButtonDisplay("none");
             displayNotFound.appendChild(mainContainer);
@@ -246,6 +249,7 @@ function helpMe(withThis) {
             displayNotFound.appendChild(image);
             break;
         case "defaultMessage":
+            document.getElementsByClassName("article-display-type")[0].style.pointerEvents = "none";
             image.src = "images/pages/defaultSearch.png";
             image.style.maxWidth = "50%";
             image.style.margin = "0 auto";
