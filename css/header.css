@@ -59,6 +59,11 @@
 .header > .user-menu > .menu-item {
     display: inline-block;
     margin-left: 20px;
+    color: rgb(180, 180, 180);
+    text-decoration: none;
+    transition: ease all 0.3s;
+    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .header > .user-menu > .menu-item > a {

@@ -45,6 +45,8 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="css/books.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/videos.css">
     <link rel="stylesheet" href="css/presentations.css">
     <link rel="stylesheet" href="css/notification.css">
@@ -103,8 +105,8 @@
 
         <div class="user-menu">
             <?php if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false): ?>
-                <div class="menu-item"><a href="register.php"><i class="fa fa-edit"></i> Register</a></div>
-                <div class="menu-item"><a href="login.php"><i class="fa fa-key"></i>Login</a></div>
+                <div class="menu-item" onclick="showPage('register')"><i class="fa fa-edit"></i> Register</div>
+                <div class="menu-item" onclick="showPage('login')"><i class="fa fa-key"></i>Login</div>
             <?php else: ?>
                 <div class="menu-item"><a href="php/logout.php"><i class="fa fa-door"></i> Log-out</a></div>
             <?php endif; ?>
@@ -119,6 +121,43 @@
         </div>
     </div>
     <!-- end Octavian Gensthaler -->
+
+    <div id="login" class="page">
+        <form class="login-form user-form" action="php/form_actions/login_submit.php" method="post">
+            <formgroup>
+                <input type="text" name="email" placeholder="E-mail address" />
+            </formgroup>
+            <formgroup>
+                <input type="password" name="password" placeholder="Password" />
+            </formgroup>
+            <formgroup>
+                <input type="submit" class="submit-button"></input>
+            </formgroup>
+        </form>
+    </div>
+
+    <div id="register" class="page">
+        <form class="login-form user-form" action="php/form_actions/register_submit.php" method="post">
+            <formgroup>
+                <input type="text" name="firstName" placeholder="First name" />
+            </formgroup>
+            <formgroup>
+                <input type="text" name="lastName" placeholder="Last name" />
+            </formgroup>
+            <formgroup>
+                <input type="password" name="password" placeholder="Password" />
+            </formgroup>
+            <formgroup>
+                <input type="password" name="passwordRepeat" placeholder="Repeat password" />
+            </formgroup>
+            <formgroup>
+                <input type="text" name="email" placeholder="E-Mail" />
+            </formgroup>
+            <formgroup>
+                <input type="submit" class="submit-button"></input>
+            </formgroup>
+        </form>
+    </div>
 
     <div id="home" class="page">
 
