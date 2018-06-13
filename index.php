@@ -493,18 +493,14 @@
                         <p class="pvideo">Java is a programming language. There are ...</p>
                     </div>
                 </div> -->
-                <h1>SALUTARE COPIIIIII MEI</h1>
+                
             </div>
-
+            <h1>DOn't FORGET TO DREAM</h1>
+            <img src="images/pages/defaultSearch.png" id="initialImage">
             <button id="more-videos" class="feed-button" type="button">Get me more</button>
         </section>
     </div>
 
-   <!--<script>
-        window.onload = function() {
-            displayDefaultVideoGrid();
-        }
-    </script>*/ -->
     <!-- end Luca Alexandru  -->
 
     <!-- start Loghin Alexandru -->

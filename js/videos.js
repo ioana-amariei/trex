@@ -5,6 +5,9 @@ function displayDefaultVideoGrid(){
     executeGetRequest("api/videos", displayVideos);
 }
 
+
+
+
 function displayVideos(){
     var videoListDiv = document.getElementById('video-list');
 
@@ -21,6 +24,10 @@ function displayVideos(){
         var eroare = document.createElement("h5");
         eroare.innerText = "Eroare la search";
         videoListDiv.appendChild(eroare);
+        var deleteGetMoreButton = document.getElementById('more-videos');
+        deleteGetMoreButton.parentNode.removeChild(deleteGetMoreButton);
+        var deleteInitialImage = document.getElementById('initialImage');
+        deleteInitialImage.parentNode.removeChild(deleteInitialImage);
     }
     else
     {

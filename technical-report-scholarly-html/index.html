@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>TReX (Topic-based Resource eXplorer)</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div class="banner">
+        <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+        <div class="status">Community Draft</div>
+      </div>
+      <h1>TReX (Topic-based Resource eXplorer)</h1>
+    </header>
+
+    <div role="contentinfo">
+      <dl>
+        <dt>Authors</dt>
+        <dd>
+          <i>Birsan Ioana (cas. Amariei), B5</i>
+        </dd>
+        <dd>
+          <i>Loghin Alexandru, B4</i>
+        </dd>
+        <dd>
+          <i>Gensthaler Octavian, B5</i>
+        </dd>
+        <dd>
+          <i>Luca Alexandru Gean, B5</i>
+        </dd>
+
+      </dl>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <section id="introduction" role="doc-introduction">
+      <h2>Introduction</h2>
+      <p>
+          The Web application is a tool for searching, aggregating, and viewing information regarding
+          various media resources: articles, books, and videos. The user is able to retrieve
+          information of interest using various filters. The application also exposes the information
+          through an HTTP API for programmatic access.
+      </p>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section id="details-and-progress">
+      <h2>Project details and progress</h2>
+      <ul>
+          <li>
+              single page application.
+          </li>
+          <li>
+              provides the functionality of collecting and viewing information about scientific resources such as books, articles and videos.
+          </li>
+          <li>
+              the information is structured on various criteria.
+          </li>
+          <li>
+              the system provides access to information through an API respecting the REST paradigm.
+          </li>
+          <li>
+              technologies used: PHP 5, JavaScript, HTML, CSS.
+          </li>
+
+      </ul>
+
+    </section>
+
+    <!-- RESPONSIBILITIES -->
+    <section id="responsibilities">
+        <h2>Responsibilities</h2>
+        <ul>
+
+            <li>
+                <b>Birsan Ioana (cas. Amariei)</b>
+                <ol>
+                    <li>
+                        <b>Frontend</b>:
+                            <ul>
+                                <li>
+                                    the idea and implementation of a full page application, the menu structure, the slider and the favicon.
+                                </li>
+                                <li>
+                                    implemented the functionality for the books section
+                                </li>
+                            </ul>
+                    </li>
+
+                    <li>
+                        <b>Backend</b>:
+                        <ul>
+                            <li>
+                                implemented the books endpoint
+                            </li>
+                            <li>
+                                established and implemented the model for the Resource object type.
+                            </li>
+                            <li>
+                                created helper functions for making generic HTTP requests and others.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Documentation</b>:
+                            <ul>
+                                <li>
+                                    the technical report in Scholarly HTML format.
+                                </li>
+                                <li>
+                                    the application user guide in Scholarly HTML format.
+                                </li>
+                                <li>
+                                    created the API documentation using <a href="https://github.com/OAI/OpenAPI-Specification">the OpenAPI Specification</a>
+                                    and documented the books endpoint.
+                                </li>
+                                <li>
+                                    created the documentation for the architecture according to the specifications of the project, using <a href="https://www.draw.io/">draw.io</a>.
+                                </li>
+                            </ul>
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <b>Gensthaler Octavian</b>
+                <ol>
+                    <li>
+                        <b>Frontend</b>:
+                            <ul>
+                                <li>
+                                    implemented the functionality for the menu and application header
+                                </li>
+                                <li>
+                                    created the user registration and login functionality
+                                </li>
+                                <li>
+                                    improved the UI layout and user experience
+                                </li>
+                            </ul>
+                    </li>
+
+                    <li>
+                        <b>Backend</b>:
+                        <ul>
+                            <li>
+                                created the user registration and login functionality
+                            </li>
+                            <li>
+                                added support for sessions
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <b>Loghin Alexandru</b>
+                <ol>
+                    <li>
+                        <b>Frontend</b>:
+                            <ul>
+                                <li>
+                                    implemented the functionality for the topics and footer sections.
+                                </li>
+                                <li>
+                                    implemented the functionality for the articles section.
+                                </li>
+                            </ul>
+                    </li>
+
+                    <li>
+                        <b>Backend</b>:
+                        <ul>
+                            <li>
+                                implemented the articles endpoint
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <b>Documentation</b>:
+                            <ul>
+                                <li>
+                                    documented the articles endpoint.
+                                </li>
+                            </ul>
+                    </li>
+                </ol>
+            </li>
+
+            <li>
+                <b>Luca Alexandru Gean</b>
+                <ol>
+                    <li>
+                        <b>Frontend</b>:
+                            <ul>
+                                <li>
+                                    implemented the functionality for the videos section.
+                                </li>
+                            </ul>
+                    </li>
+
+                    <li>
+                        <b>Backend</b>:
+                        <ul>
+                            <li>
+                                implemented the videos endpoint
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <b>Documentation</b>:
+                            <ul>
+                                <li>
+                                    documented the videos endpoint.
+                                </li>
+                            </ul>
+                    </li>
+
+                </ol>
+            </li>
+
+        </ul>
+
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="acks">
+
+        <h2>References</h2>
+        <ol>
+            <li>
+                <a href="https://developers.google.com/books/docs/v1/reference/volumes/list">Google Books APIs</a>
+            </li>
+            <li>
+                <a href="https://arxiv.org/help/api/index">arXiv API</a>
+            </li>
+            <li>
+                <a href="https://developer.vimeo.com/api/start">Vimeo API</a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest</a>
+            </li>
+            <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">Web Speech API</a>
+            </li>
+            <li>
+                <a href="https://github.com/OAI/OpenAPI-Specification">OpenAPI Specification</a>
+            </li>
+        </ol>
+
+    </section>
+
+  </body>
+</html>
