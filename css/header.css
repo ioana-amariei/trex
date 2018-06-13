@@ -1,62 +1,71 @@
 /* Acest css gestioneaza doar continutul aferent header-ului */
 
 .header {
-    max-width: 960px;
-    position: absolute;
-    left: 50%;
-    top: 32px;
+    position: relative;
     width: 100%;
-    transform: translatex(-50%);
+    height: 92px;
 }
 
-.header > .logo > h2 {
-    color: rgb(180, 180, 180);
+.header > .header-content  > .logo > h2 {
+    color: rgb(75, 75, 75);
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    font-size: 3.5em;
+    font-size: 2.5em;
+    margin: 0;
 }
 
-.header > .logo {
+.header > .header-content {
+    max-width: 960px;
+    margin: 0 auto;
+    height: 100%;
     position: relative;
 }
 
-.header > .logo > p {
+.header > .header-content  > .logo {
+    position: relative;
+    line-height: 77px;
+}
+
+.header > .header-content  > .logo > p {
     color: rgb(180, 180, 180);
     font-family: 'Lato', sans-serif;
     position: absolute;
-    bottom: -25px;
+    bottom: -39px;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
 
 
-.header > .nav-menu {
+.header > .header-content  > .nav-menu {
     position: absolute;
     right: 0;
     bottom: 52px;
 }
 
-.header > .nav-menu > .menu-item {
+.header > .header-content  > .nav-menu > .menu-item {
     display: inline-block;
     margin-left: 20px;
 }
 
-.header > .nav-menu > .menu-item > a {
+.header > .header-content  > .nav-menu > .menu-item > a {
     color: rgb(180, 180, 180);
     text-decoration: none;
     transition: ease all 0.3s;
     text-transform: uppercase;
 }
 
-.header > .nav-menu > .menu-item > a:hover {
-    color: white;
+.header > .header-content  > .nav-menu > .menu-item > a:hover,
+.header > .header-content  > .nav-menu > .menu-item:hover {
+    color: rgb(75, 75, 75);
 }
 
-.header > .user-menu {
+.header > .header-content  > .user-menu {
     position: absolute;
     top: 52px;
     right: 0;
 }
 
-.header > .user-menu > .menu-item {
+.header > .header-content  > .user-menu > .menu-item {
     display: inline-block;
     margin-left: 20px;
     color: rgb(180, 180, 180);
@@ -66,7 +75,7 @@
     cursor: pointer;
 }
 
-.header > .user-menu > .menu-item > a {
+.header > .header-content  > .user-menu > .menu-item > a {
     color: rgb(180, 180, 180);
     text-decoration: none;
     transition: ease all 0.3s;

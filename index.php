@@ -38,7 +38,6 @@
 
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/topics.css">
@@ -47,6 +46,7 @@
     <link rel="stylesheet" href="css/books.css">
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/videos.css">
     <link rel="stylesheet" href="css/presentations.css">
     <link rel="stylesheet" href="css/notification.css">
@@ -54,7 +54,6 @@
 
     <script src="js/index.js"></script>
     <script src="js/menu.js"></script>
-    <script src="js/slider.js"></script>
     <script src="js/books.js"></script>
     <script src="js/articles.js"></script>
     <script src="js/videos.js"></script>
@@ -98,26 +97,27 @@
 
     <!-- start Octavian Gensthaler -->
     <div class="header">
-        <div class="logo">
-            <h2>TReX</h2>
-            <p>Topic-based Resource eXplorer.</p>
-        </div>
+        <div class="header-content">
+            <div class="logo">
+                <h2>TReX</h2>
+                <p onclick="showPage('home')">Topic-based Resource eXplorer.</p>
+            </div>
 
-        <div class="user-menu">
-            <?php if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false): ?>
-                <div class="menu-item" onclick="showPage('register')"><i class="fa fa-edit"></i> Register</div>
-                <div class="menu-item" onclick="showPage('login')"><i class="fa fa-key"></i>Login</div>
-            <?php else: ?>
-                <div class="menu-item"><a href="php/logout.php"><i class="fa fa-door"></i> Log-out</a></div>
-            <?php endif; ?>
-        </div>
+            <div class="user-menu">
+                <?php if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false): ?>
+                    <div class="menu-item" onclick="showPage('register')"><i class="fa fa-edit"></i> Register</div>
+                    <div class="menu-item" onclick="showPage('login')"><i class="fa fa-key"></i>Login</div>
+                <?php else: ?>
+                    <div class="menu-item"><a href="php/logout.php"><i class="fa fa-door"></i> Log-out</a></div>
+                <?php endif; ?>
+            </div>
 
-        <div class="nav-menu">
-            <div class="menu-item"><a href="#">Home</a></div>
-            <div class="menu-item"><a href="#">Echipa noastra</a></div>
-            <div class="menu-item"><a href="#">Despre proiect</a></div>
-            <div class="menu-item"><a href="#">Contact</a></div>
-            <div class="menu-item"><a href="#"><i class="fa fa-search"></i></a></div>
+            <div class="nav-menu">
+                <div class="menu-item"><a href="#">Home</a></div>
+                <div class="menu-item"><a href="#">Echipa noastra</a></div>
+                <div class="menu-item"><a href="#">Despre proiect</a></div>
+                <div class="menu-item"><a href="#">Contact</a></div>
+            </div>
         </div>
     </div>
     <!-- end Octavian Gensthaler -->
@@ -162,154 +162,129 @@
     <div id="home" class="page">
 
         <!-- start Ioana Birsan -->
-        <div id="slider">
-            <figure>
-                <div class="slide" data-source="images/slider/slide1.jpg"></div>
-                <div class="slide" data-source="images/slider/slide2.jpg"></div>
-                <div class="slide" data-source="images/slider/slide1.jpg"></div>
-                <div class="slide" data-source="images/slider/slide3.jpg"></div>
-                <div class="slide" data-source="images/slider/slide1.jpg"></div>
-            </figure>
+        <div class="big-slide">
+            <img class="slide" src="images/slider/main-slide.png"/>
+
+            <div class="slide-text">
+                <h1>Be capable.</h1>
+                <h3>What do you want to learn? You can get skilled in Javascript, Python, as well as algorithms, machine learning, and many other topics.</h3>
+            </div>
         </div>
         <!-- end Ioana Birsan -->
 
         <!-- start Loghin Alexandru  -->
         <div id="topics">
-            <div id="topics-tag-row">
-                <div class="tag">
-                    <p>POO</p>
-                </div>
-                <div class="tag">
-                    <p>Java</p>
-                </div>
-                <div class="tag">
-                    <p>Matematica</p>
-                </div>
-                <div class="tag">
-                    <p>LFAC</p>
-                </div>
-                <div class="tag">
-                    <p>Retele</p>
-                </div>
-                <div class="tag">
-                    <p>Logica</p>
-                </div>
-                <div class="tag">
-                    <p>Web</p>
-                </div>
-            </div>
-
             <div id="topics-grid">
                 <div id="topics-grid-title">
-                    <h2>Advanced Programming</h2>
-                    <button type="button" onclick="alert('Hi')">View all</button>
+                    <h2>What students are watching right now</h2>
+                    <button type="button" onclick="showPage('videos')">View all</button>
                 </div>
-                <div id="topics-grid-container">
-                    <div class="col">
-                        <img src="images/topics/topic1.jpg" alt="Random unsplash">
-                        <p>Java Course 1</p>
+                <div id="topics-grid-container" id="randomVideos">
+                    <div class="col" id="col1">
+                        <img>
+                        <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>1 year</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>Bahar Du</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>License</p>
+                                <p>Java</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col">
-                        <img src="images/topics/topic2.jpg" alt="Random unsplash">
-                        <p>Java Course 2</p>
+                    <div class="col" id="col2">
+                        <img>
+                        <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>2 years</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>A. Viorica</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>Master</p>
+                                <p>Scrum</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col">
-                        <img src="images/topics/topic3.jpg" alt="Random unsplash">
-                        <p>Java Course 3</p>
+                    <div class="col" id="col3">
+                        <img>
+                        <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>3 months</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>Sanda Iulia</p>
+                                <p>loading</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>License</p>
+                                <p>C++</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col">
-                        <img src="images/topics/topic4.jpg" alt="Random unsplash">
-                        <p>Java Course 4</p>
+                    <div class="col" id="col4">
+                        <img>
+                        <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>1 year</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>M. Manuela</p>
+                                <p>loading</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>Master</p>
+                                <p>Typescript</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col">
-                        <img src="images/topics/topic5.jpg" alt="Random unsplash">
-                        <p>Java Course 5</p>
+                    <div class="col" id="col5">
+                        <img>
+                        <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>1 years</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>C. Daniela</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>Master</p>
+                                <p>Angular</p>
                             </li>
                         </ul>
                     </div>
-                    <div class="col">
-                        <img src="images/topics/topic6.jpg" alt="Random unsplash">
-                        <p>Java Course 6</p>
+                    <div class="col" id="col6">
+                        <img>
+                        <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>1 month</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>S. Angelica</p>
+                                <p>loading...</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>License</p>
+                                <p>.NET</p>
                             </li>
                         </ul>
                     </div>
@@ -570,12 +545,12 @@
     <!-- https://stackoverflow.com/questions/3880307/trigger-event-on-body-load-complete-js-jquery -->
     <script type='text/javascript'>
      	showPage('home');
-    	setSlidesBackground();
     	registerBooksEventHandlers();
     	registerArticlesEventHandlers();
         registerVideoEventHandlers();
         getDefaultRSS();
         displayDefaultVideoGrid();
+        displayDefaultRandomVideos();
     </script>
 
 </body>

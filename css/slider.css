@@ -1,5 +1,32 @@
 /* Acest css gestioneaza doar continutul aferent div-ului slider */
 
+.big-slide {
+  position: relative;
+}
+
+.big-slide > img {
+  width: 100%;
+}
+
+.big-slide > .slide-text {
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  width: 500px;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.big-slide > .slide-text > h1 {
+  color: rgb(75, 75, 75);
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 5.5em;
+}
+
 #slider {
     /* centrare */
     margin-left: auto !important;

@@ -85,12 +85,12 @@
 #topics-grid-title h2 {
   flex-basis: 100%;
   font-size: 1.5em;
-  margin: 20px 0;
+  margin: 40px 0 20px 0;
 }
 
 #topics-grid-title button {
   height: 40px;
-  margin-top: 12px;
+  margin-top: 30px;
   min-width: 100px;
   background-color: #854196;
   border: none;
@@ -109,7 +109,6 @@
 #topics-grid-title button:hover {
   cursor: pointer;
   background-color: #5e286a;
-  box-shadow: 0 5px 0 #511e5c;
 }
 
 #topics-grid>#topics-grid-container {
