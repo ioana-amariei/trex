@@ -80,7 +80,7 @@ function displayVideos(){
             videoDiv.appendChild(infoDiv);
 
             videoListDiv.appendChild(videoDiv);
-        }
+       }
     }
 }
 
