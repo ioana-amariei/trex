@@ -89,10 +89,6 @@
             <p>Videos</p>
             <i class="fa fa-camera"></i>
         </div>
-        <div id="option-presentations" class="menu-option" onClick="showPage('presentations'); selectCurrentMenuItem(this);">
-            <p>Presentations</p>
-            <i class="fa fa-file-powerpoint-o"></i>
-        </div>
     </nav>
     <!-- end Ioana Birsan -->
 
@@ -483,7 +479,7 @@
                 </div> -->
                 <h1>SALUTARE COPIIIIII MEI</h1>
             </div>
-            
+
             <button id="more-videos" class="feed-button" type="button">Get me more</button>
         </section>
     </div>
@@ -494,112 +490,6 @@
         }
     </script>*/ -->
     <!-- end Luca Alexandru  -->
-
-
-    <!-- start Octavian Gensthaler  -->
-    <div id="presentations" class="page">
-        <form id="pSearchForm" method="post">
-            <select>
-              <option>Java</option>
-              <option selected>Design</option>
-              <option>HTML/CSS</option>
-              <option>Algorithm</option>
-            </select>
-            <fieldset>
-                <input type="search" onkeypress="if(event.keyCode == 13) alert('Hi')">
-                <div class="search icon" onclick="alert('Hi')"></div>
-            </fieldset>
-        </form>
-        <section>
-            <div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Discover. Learn. Elevate.</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Sketch dynamic colors library</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Variable fonts: useful tool or trendy gimmick?</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Timeline for Sketch Is Now Available</h3>
-                        <div class="presentationPostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Design Systems Handbook</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="articlePostInfo">
-                        <h3>Decoding The Design History</h3>
-                        <div class="presentationPostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Monitor UI / UX changes in production</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Lisk Relaunch</h3>
-                        <div class="articlePostMeta">
-                            <div class="bookmark icon"></div>
-                            <div class="eye icon"></div>
-                            <div class="heart icon"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="presentationNo">
-                    <img src="images/presentation/pres_bg.png" alt="">
-                    <div class="presentationPostInfo">
-                        <h3>Public library</h3>
-                        <h4>PROMOTED</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-    <!-- end  Octavian Gensthaler  -->
-
 
     <!-- start Loghin Alexandru -->
     <footer id="main-footer">
