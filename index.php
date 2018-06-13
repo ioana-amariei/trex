@@ -72,24 +72,26 @@
     ?>
 
     <!-- start Ioana Birsan -->
-    <nav id="menu">
-        <div id="option-home" class="menu-option selected-menu-option" onClick="showPage('home'); selectCurrentMenuItem(this);">
-            <p>Home</p>
-            <i class="fa fa-home"></i>
-        </div>
-        <div id="option-books" class="menu-option" onClick="showPage('books'); selectCurrentMenuItem(this);">
-            <p>Books</p>
-            <i class="fa fa-book"></i>
-        </div>
-        <div id="option-articles" class="menu-option" onClick="showPage('articles'); selectCurrentMenuItem(this); fixArticleHeight();">
-            <p>Articles</p>
-            <i class="fa fa-newspaper-o"></i>
-        </div>
-        <div id="option-videos" class="menu-option" onClick="showPage('videos'); selectCurrentMenuItem(this);">
-            <p>Videos</p>
-            <i class="fa fa-camera"></i>
-        </div>
-    </nav>
+    <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+        <nav id="menu">
+            <div id="option-home" class="menu-option selected-menu-option" onClick="showPage('home'); selectCurrentMenuItem(this);">
+                <p>Home</p>
+                <i class="fa fa-home"></i>
+            </div>
+            <div id="option-books" class="menu-option" onClick="showPage('books'); selectCurrentMenuItem(this);">
+                <p>Books</p>
+                <i class="fa fa-book"></i>
+            </div>
+            <div id="option-articles" class="menu-option" onClick="showPage('articles'); selectCurrentMenuItem(this); fixArticleHeight();">
+                <p>Articles</p>
+                <i class="fa fa-newspaper-o"></i>
+            </div>
+            <div id="option-videos" class="menu-option" onClick="showPage('videos'); selectCurrentMenuItem(this);">
+                <p>Videos</p>
+                <i class="fa fa-camera"></i>
+            </div>
+        </nav>
+    <?php endif; ?>
     <!-- end Ioana Birsan -->
 
     <!-- start Octavian Gensthaler -->
