@@ -99,7 +99,7 @@
 
 #main-footer #footer-list ul li:not(:first-child):hover,
 #main-footer a:hover  {
-  color: rgb(50, 50, 50);
+  color: white;
 }
 
 #main-footer #footer-copy {
