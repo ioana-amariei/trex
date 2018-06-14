@@ -5,7 +5,7 @@
 
     if(isset($_REQUEST['termen'])){
 
-        $videos = $v -> searchMore($_REQUEST['termen'], $_REQUEST['per_page']);
+        $videos = $v -> search($_REQUEST['termen']);
     }
 
     $result = ["videos" => $videos];

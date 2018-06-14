@@ -1,10 +1,6 @@
 itemsPerPage = 12;
 defaultItemsPerPage = 12;
 
-function displayDefaultVideoGrid(){
-    executeGetRequest("api/videos", displayVideos);
-}
-
 function displayVideos(){
     var videoListDiv = document.getElementById('video-list');
 
@@ -16,7 +12,8 @@ function displayVideos(){
     }
 
     var videos = this.response.videos;
-    if(videos.data.length>0)
+    
+    if(videos.length>0)
     {
         var deleteInitialImage = document.getElementById('initialImage');
         deleteInitialImage.parentNode.removeChild(deleteInitialImage);
@@ -42,13 +39,12 @@ function displayVideos(){
             var deleteGetMoreButton = document.getElementById('more-videos');
             deleteGetMoreButton.parentNode.removeChild(deleteGetMoreButton);
         }
-        for(let i = 0; i < videos.data.length; i++)
+        for(let i = 0; i < videos.length; i++)
         {
-            var title = videos.data[i].name;
-            var thumbnail = videos.data[i].pictures.sizes[3].link;
-            var videoLink = videos.data[i].link;
-            var description = videos.data[i].description;
-            var timeInSeconds = videos.data[i].duration;
+            var title = videos[i].title;
+            var thumbnail = videos[i].image;
+            var videoLink = videos[i].url;
+            var description = videos[i].description;
 
             var videoDiv = document.createElement("div");
             videoDiv.classList.add('video');
@@ -63,14 +59,9 @@ function displayVideos(){
             var img = document.createElement("img");
             img.src = thumbnail;
 
-            var h5Time = document.createElement("h5");
-            h5Time.classList.add("timercolor");
-
             a.appendChild(img);
-            h5Time.appendChild(document.createTextNode(timeInSeconds));
 
             gifDiv.appendChild(a);
-            gifDiv.appendChild(h5Time);
 
             videoDiv.appendChild(gifDiv);
 
@@ -110,7 +101,7 @@ function searchVideos(){
 }
 
 function constructVideoRequest(){
-    return "http://localhost/trex/api/videos?per_page="+ itemsPerPage +"&termen=" + constructQueryParamVideos();
+    return "http://localhost/trex/api/videos?&termen=" + constructQueryParamVideos();
 }
 
 function constructQueryParamVideos(){

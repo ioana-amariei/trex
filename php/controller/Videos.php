@@ -3,37 +3,93 @@
     require_once ('../model/Resource.php');
     require_once ('../util/Utils.php');
 
-    const TOKEN = "099f5c351f4d66f68ba5b8a5e5524306";
-    const URL = "https://api.vimeo.com/";
+    const URL = "https://www.googleapis.com/youtube/v3";
+    const API_KEY = "AIzaSyBEE0ipyjSsbnxEsLcqSM0iBUwEQcC0N-A";
 
     class Videos implements GenericResource {
-        private $authToken = "Authorization: Bearer ".TOKEN;
-        private $defaultNumberOfItems = 12;
+        private $videos;
 
-        public function getInitialVideos(){
-            $videoUrl = URL."tags/programing/videos";
-            $authorizationToken = $this->authToken;
-
-            $headers = ['Content-Type: application/json', $authorizationToken];
-            $result = Utils::fetchData($videoUrl, $headers);
-            return $result;
-
+        public function search($term) {
+            $uri = URL . "/search?part=snippet&q=".$term."&type=video&maxResults=10&key=".API_KEY;
+            $data = json_decode(Utils::fetchData($uri), true);
+            $videos = $this->constructVideos($data);
+    
+            return $videos;
         }
 
-        public function searchMore($term, $itemsPerPage) {
-            $videoSearchUrl = URL . 'tags/' . $term . '/videos?per_page='.$itemsPerPage;
-            $authorizationToken = $this->authToken;
+        private function constructVideos($data) {
+            $videos = [];
 
-            $headers=['Content-Type: application/json', $authorizationToken];
-            $data = Utils::fetchData($videoSearchUrl,$headers);
-
-            $videos = json_decode($data, true);
+            if(is_array($data) || is_object($data)) {
+                foreach ($data['items'] as $video) {
+                    $video = $this->constructVideo($video);
+                    array_push($videos, $video);
+                }
+            }
 
             return $videos;
         }
 
-        public function search($term) {
-            $this->searchMore($term, $this->defaultNumberOfItems);
+        private function constructVideo($item) {
+            $video = new Resource();
+            $video->setType('video');
+            $video->setTitle($this->getTitle($item));
+            $video->setDescription($this->getDescription($item));
+            $video->setAuthors($this->getAuthors($item));
+            $video->setDate($this->getDate($item));
+            $video->setUrl($this->getUrl($item));
+            $video->setImage($this->getImage($item));
+
+            return $video;
+        }
+
+        private function getImage($item){
+            if(isset($item['snippet']['title'])){
+                return $item['snippet']['title'];
+            } else {
+                return 'The title is not available.';
+            }
+        }
+
+        private function getTitle($item){
+            if(isset($item['snippet']['title'])){
+                return $item['snippet']['title'];
+            } else {
+                return 'The title is not available.';
+            }
+        }
+    
+        private function getDescription($item){
+            if(isset($item['snippet']['description'])){
+                $description = $item['snippet']['description'];
+                return Utils::truncateDescription($description, 450);
+            } else {
+                return 'The description is not available.';
+            }
+        }
+    
+        private function getUrl($item){
+            if(isset($item['snippet']['url'])){
+                return "https://www.youtube.com/watch?v=".$item['url'];
+            } else {
+                return '';
+            }
+        }
+    
+        private function getDate($item){
+            if(isset($item['snippet']['date'])){
+                return $item['snippet']['date'];
+            } else {
+                return 'The publication date is not available.';
+            }
+        }
+    
+        private function getAuthors($item){
+            if(isset($item['snippet']['author'])){
+                return $item['snippet']['author'];
+            } else {
+                return ['No authors available.'];
+            }
         }
     }
 ?>

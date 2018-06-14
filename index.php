@@ -44,11 +44,9 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/article.css">
     <link rel="stylesheet" href="css/books.css">
-    <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/slider.css">
     <link rel="stylesheet" href="css/videos.css">
-    <link rel="stylesheet" href="css/presentations.css">
     <link rel="stylesheet" href="css/notification.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -552,7 +550,6 @@ endif; ?>
     	registerArticlesEventHandlers();
         registerVideoEventHandlers();
         getDefaultRSS();
-        displayDefaultVideoGrid();
         displayDefaultRandomVideos();
     </script>
 
