@@ -495,9 +495,10 @@
                 </div> -->
 
             </div>
-            <h1>DOn't FORGET TO DREAM</h1>
-            <img src="images/pages/defaultSearch.png" id="initialImage">
-            <button id="more-videos" class="feed-button" type="button">Get me more</button>
+            <h1 id="initialMessage">Don't forget to dream, but first, watch something you'd like.</h1>
+            <img src="images/pages/videos/welcome_videos.png" id="initialImage">
+            <button id="more-videos" type="button">Get me more</button>
+            
         </section>
     </div>
 
