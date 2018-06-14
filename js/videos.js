@@ -16,13 +16,7 @@ function displayVideos(){
     }
 
     var videos = this.response.videos;
-    if(videos.data.length>0)
-    {
-        var deleteInitialImage = document.getElementById('initialImage');
-        deleteInitialImage.parentNode.removeChild(deleteInitialImage);
-        var deleteInitialMessage = document.getElementById('initialMessage');
-        deleteInitialMessage.parentNode.removeChild(deleteInitialMessage);
-    }
+
     if( videos.error !== undefined )
     {
         var eroare = document.createElement("h5");
@@ -107,6 +101,11 @@ function SearchBarVideos(event){
 function searchVideos(){
     var uriv = constructVideoRequest();
     executeGetRequest(uriv, displayVideos);
+
+        var deleteInitialImage = document.getElementById('initialImage');
+        deleteInitialImage.parentNode.removeChild(deleteInitialImage);
+        var deleteInitialMessage = document.getElementById('initialMessage');
+        deleteInitialMessage.parentNode.removeChild(deleteInitialMessage);
 }
 
 function constructVideoRequest(){
