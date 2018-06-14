@@ -25,8 +25,11 @@
             $authorizationToken = $this->authToken;
 
             $headers=['Content-Type: application/json', $authorizationToken];
-            $result = Utils::fetchData($videoSearchUrl,$headers);
-            return $result;
+            $data = Utils::fetchData($videoSearchUrl,$headers);
+
+            $videos = json_decode($data, true);
+
+            return $videos['data'];
         }
 
         public function search($term) {

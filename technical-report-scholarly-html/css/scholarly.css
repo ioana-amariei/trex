@@ -40,6 +40,7 @@ div.banner > div.status {
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.0375em;
 }
+
 h1, h2 {
   color: #4b0061;
 }
@@ -58,7 +59,8 @@ h4 {
 
 /* contentinfo */
 [role="contentinfo"] a {
-  text-decoration: none;
+  /* text-decoration: none; */
+  font-size: large;
 }
 ol[role="directory"], [role="directory"] ol {
   list-style-type: none;
