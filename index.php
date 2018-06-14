@@ -384,6 +384,20 @@
     <!-- start Loghin Alexandru  -->
     <div id="articles" class="page">
         <div id="aSearchForm">
+            <fieldset>
+                <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article..." onclick="this.select()">
+                <div class="fix-search-area" onclick="getDefaultRSS('newFeed');">
+                    <img class="search_btn" src="images/article/search_btn.svg" alt="Search button">
+                </div>
+            </fieldset>
+            <div class="article-display-type">
+              <div class="fix-search-area absolute-left" onclick="selectArticleDisplayType('list-view')">
+                <img class="view_btn" src="images/article/listview_inactive.svg" alt="Listview Button">
+              </div>
+              <div class="fix-search-area absolute-right" onclick="selectArticleDisplayType('grid-view')">
+                <img class="view_btn" src="images/article/gridview_active.svg" alt="Gridview Button">
+              </div>
+            </div>
             <div>
                 <label>Sort By:</label>
                 <select id="article-sortBy-select" name="article-sortBy-select">
@@ -398,20 +412,6 @@
                     <option value="ascending" selected>Ascending</option>
                     <option value="descending">Descending</option>
                 </select>
-            </div>
-            <fieldset>
-                <input id="search-bar-articles" type="search" name="search-bar" placeholder="Search an article..." onclick="this.select()">
-                <div class="fix-search-area" onclick="getDefaultRSS('newFeed');">
-                    <img class="search_btn" src="images/article/search_btn.svg" alt="Search button">
-                </div>
-            </fieldset>
-            <div class="article-display-type">
-              <div class="fix-search-area absolute-left" onclick="selectArticleDisplayType('list-view')">
-                <img class="view_btn" src="images/article/listview_inactive.svg" alt="Listview Button">
-              </div>
-              <div class="fix-search-area absolute-right" onclick="selectArticleDisplayType('grid-view')">
-                <img class="view_btn" src="images/article/gridview_active.svg" alt="Gridview Button">
-              </div>
             </div>
         </div>
         <section>
