@@ -5,9 +5,6 @@ function displayDefaultVideoGrid(){
     executeGetRequest("api/videos", displayVideos);
 }
 
-
-
-
 function displayVideos(){
     var videoListDiv = document.getElementById('video-list');
 
@@ -18,7 +15,7 @@ function displayVideos(){
         return;
     }
 
-    var videos = JSON.parse(this.response);
+    var videos = this.response.videos;
     if( videos.error !== undefined )
     {
         var eroare = document.createElement("h5");
@@ -38,7 +35,7 @@ function displayVideos(){
             var deleteGetMoreButton = document.getElementById('more-videos');
             deleteGetMoreButton.parentNode.removeChild(deleteGetMoreButton);
         }
-        for(let i = 0; i < videos.data.length; i++) 
+        for(let i = 0; i < videos.data.length; i++)
         {
             var title = videos.data[i].name;
             var thumbnail = videos.data[i].pictures.sizes[3].link;
@@ -106,7 +103,7 @@ function searchVideos(){
 }
 
 function constructVideoRequest(){
-    return "/trex/api/videos?per_page="+ itemsPerPage +"&termen=" + constructQueryParamVideos();
+    return "http://localhost/trex/api/videos?per_page="+ itemsPerPage +"&termen=" + constructQueryParamVideos();
 }
 
 function constructQueryParamVideos(){
@@ -124,7 +121,7 @@ function registerVideoEventHandlers() {
 
     btnMore.addEventListener('click', function(event) {
         itemsPerPage += defaultItemsPerPage;
-        searchVideos();  
+        searchVideos();
     });
 }
 

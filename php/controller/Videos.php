@@ -3,7 +3,7 @@
     require_once ('../model/Resource.php');
     require_once ('../util/Utils.php');
 
-    const TOKEN = "72936020ebb9949ae0e1d253cb7f87df";
+    const TOKEN = "485edb4ec0295ef154c42b504c9a2862";
     const URL = "https://api.vimeo.com/";
 
     class Videos implements GenericResource {
@@ -25,8 +25,11 @@
             $authorizationToken = $this->authToken;
 
             $headers=['Content-Type: application/json', $authorizationToken];
-            $result = Utils::fetchData($videoSearchUrl,$headers);
-            return $result;
+            $data = Utils::fetchData($videoSearchUrl,$headers);
+
+            $videos = json_decode($data, true);
+
+            return $videos;
         }
 
         public function search($term) {
