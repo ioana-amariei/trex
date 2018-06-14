@@ -477,7 +477,7 @@
                 <option>XML</option>
             </select> -->
             <fieldset>
-                <input type="text" id="search-videos">
+                <input type="text" id="search-videos" place_holder="Search for a video..." onclick="clear()">
                 <div class="VideoSearch" onclick="searchVideos()"></div>
             </fieldset>
         </div>
