@@ -29,7 +29,11 @@
 
             $videos = json_decode($data, true);
 
+<<<<<<< HEAD
             return $videos;
+=======
+            return $videos['data'];
+>>>>>>> 6f250d552127746d47c41c0dc05cfa847bb15d8e
         }
 
         public function search($term) {
