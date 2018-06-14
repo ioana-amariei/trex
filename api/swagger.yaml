@@ -57,6 +57,48 @@ paths:
           description: "Invalid status value"
         405:
           description: "Invalid input"
+  /articles:
+    get:
+      tags:
+      - "articles"
+      summary: "Search for articles"
+      description: "Search for articles"
+      operationId: "getArticles"
+      consumes:
+      - "*/*"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "query"
+          name: "ti"
+          type: string
+          required: true
+          description: "The keyword(s) to search for"
+        - in: "query"
+          name: "sortBy"
+          type: string
+          description: "The field to sort articles by"
+        - in: "query"
+          name: "sortOrder"
+          type: number
+          description: "The direction to sort articles"
+        - in: "query"
+          name: "start"
+          type: number
+          description: "The starting page of the article query"
+        - in: "query"
+          name: "max_results"
+          type: number
+          description: "The number of results to return"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+             $ref: "#/definitions/ArticlesResponse"
+        400:
+          description: "Invalid status value"
+        405:
+          description: "Invalid input"
   /videos:
       get:
         tags:
