@@ -3,7 +3,7 @@
     require_once ('../model/Resource.php');
     require_once ('../util/Utils.php');
 
-    const TOKEN = "485edb4ec0295ef154c42b504c9a2862";
+    const TOKEN = "099f5c351f4d66f68ba5b8a5e5524306";
     const URL = "https://api.vimeo.com/";
 
     class Videos implements GenericResource {
