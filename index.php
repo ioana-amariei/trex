@@ -186,8 +186,9 @@ endif; ?>
                     <button type="button" onclick="showPage('videos')">View all</button>
                 </div>
                 <div id="topics-grid-container" id="randomVideos">
+                    
                     <div class="col" id="col1">
-                        <img>
+                        <img src="images/videos/css.gif">
                         <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
@@ -197,6 +198,60 @@ endif; ?>
                             <li>
                                 <div class="profile icon"></div>
                                 <p>loading...</p>
+                            </li>
+                            <li>
+                                <div class="tag icon"></div>
+                                <p>CSS</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col" id="col2">
+                        <img src="images/videos/html.gif">   
+                        <p class="randomVideoTitle">Loading...</p>
+                        <ul>
+                            <li>
+                                <div class="clock-h9m0 icon"></div>
+                                <p>loading...</p>
+                            </li>
+                            <li>
+                                <div class="profile icon"></div>
+                                <p>loading...</p>
+                            </li>
+                            <li>
+                                <div class="tag icon"></div>
+                                <p>HTML</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col" id="col3">
+                        <img src="images/videos/js.gif"> 
+                        <p class="randomVideoTitle">Loading...</p>
+                        <ul>
+                            <li>
+                                <div class="clock-h9m0 icon"></div>
+                                <p>loading...</p>
+                            </li>
+                            <li>
+                                <div class="profile icon"></div>
+                                <p>loading</p>
+                            </li>
+                            <li>
+                                <div class="tag icon"></div>
+                                <p>js</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col" id="col4">
+                        <img src="images/videos/java.gif"> 
+                        <p class="randomVideoTitle">Loading...</p>
+                        <ul>
+                            <li>
+                                <div class="clock-h9m0 icon"></div>
+                                <p>loading...</p>
+                            </li>
+                            <li>
+                                <div class="profile icon"></div>
+                                <p>loading</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
@@ -204,62 +259,8 @@ endif; ?>
                             </li>
                         </ul>
                     </div>
-                    <div class="col" id="col2">
-                        <img>
-                        <p class="randomVideoTitle">Loading...</p>
-                        <ul>
-                            <li>
-                                <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
-                            </li>
-                            <li>
-                                <div class="profile icon"></div>
-                                <p>loading...</p>
-                            </li>
-                            <li>
-                                <div class="tag icon"></div>
-                                <p>Scrum</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col" id="col3">
-                        <img>
-                        <p class="randomVideoTitle">Loading...</p>
-                        <ul>
-                            <li>
-                                <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
-                            </li>
-                            <li>
-                                <div class="profile icon"></div>
-                                <p>loading</p>
-                            </li>
-                            <li>
-                                <div class="tag icon"></div>
-                                <p>C++</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col" id="col4">
-                        <img>
-                        <p class="randomVideoTitle">Loading...</p>
-                        <ul>
-                            <li>
-                                <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
-                            </li>
-                            <li>
-                                <div class="profile icon"></div>
-                                <p>loading</p>
-                            </li>
-                            <li>
-                                <div class="tag icon"></div>
-                                <p>Typescript</p>
-                            </li>
-                        </ul>
-                    </div>
                     <div class="col" id="col5">
-                        <img>
+                        <img src="images/videos/frontend.gif"> 
                         <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
@@ -272,12 +273,12 @@ endif; ?>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>Angular</p>
+                                <p>FRONEND</p>
                             </li>
                         </ul>
                     </div>
                     <div class="col" id="col6">
-                        <img>
+                        <img src="images/videos/backend.gif"> 
                         <p class="randomVideoTitle">Loading...</p>
                         <ul>
                             <li>
@@ -290,7 +291,7 @@ endif; ?>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>.NET</p>
+                                <p>BackEnd</p>
                             </li>
                         </ul>
                     </div>
@@ -482,6 +483,7 @@ endif; ?>
                 <option>Ruby</option>
                 <option>XML</option>
             </select> -->
+            <img id="img_search" src="images/videos/Search.jpg">
             <fieldset>
                 <input type="text" id="search-videos" place_holder="Search for a video..." onclick="clear()">
                 <div class="VideoSearch" onclick="searchVideos()"></div>
@@ -503,7 +505,7 @@ endif; ?>
             </div>
             <h1 id="initialMessage">Don't forget to dream, but first, watch something you'd like.</h1>
             <img src="images/pages/videos/welcome_videos.png" id="initialImage">
-            <button id="more-videos" type="button">Get me more</button>
+            <button id="more-videos" type="button">See more</button>
             
         </section>
     </div>
@@ -553,7 +555,7 @@ endif; ?>
         registerVideoEventHandlers();
         getDefaultRSS();
         displayDefaultVideoGrid();
-        displayDefaultRandomVideos();
+        //displayDefaultRandomVideos();
     </script>
 
 </body>
