@@ -493,7 +493,7 @@
                         <p class="pvideo">Java is a programming language. There are ...</p>
                     </div>
                 </div> -->
-                
+
             </div>
             <h1>DOn't FORGET TO DREAM</h1>
             <img src="images/pages/defaultSearch.png" id="initialImage">

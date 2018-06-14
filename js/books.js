@@ -105,13 +105,15 @@ function displayBooks(){
     }
 
     clearCurrentlyDisplayedBooks();
-    bookDisplayInfo.numberOfDisplayedElements = 0;
+
     var books = this.response.books;
+    bookDisplayInfo.numberOfDisplayedElements = books.length;
 
     if(books.length === 0){
         var displayResults = document.getElementById('display-results');
         var noInfoAvailable = document.createElement('div');
         var text = document.createTextNode('There are no books that satisfy the search criteria.');
+        noInfoAvailable.id = "no-books";
         noInfoAvailable.appendChild(text);
         displayResults.appendChild(noInfoAvailable);
     }
@@ -121,7 +123,11 @@ function displayBooks(){
     }
 
     bookDisplayInfo.totalItems = this.response.totalItems;
-    //TODO CAND NR TOTAL DE CARTI A FOST ATINS BUTONUL SEE MORE TB SA DISPARA
+
+    if(bookDisplayInfo.numberOfDisplayedElements > 0){
+        var seeMoreBooks = document.getElementById('more-books-button');
+        seeMoreBooks.style.display = "inline-block";
+    }
 }
 
 function appendToDisplayedBooks(){
@@ -139,7 +145,11 @@ function appendToDisplayedBooks(){
     }
 
     bookDisplayInfo.totalItems = this.response.totalItems;
-    //TODO CAND NR TOTAL DE CARTI A FOST ATINS BUTONUL SEE MORE TB SA DISPARA
+
+    if(bookDisplayInfo.numberOfDisplayedElements >= bookDisplayInfo.totalItems){
+        var seeMoreBooks = document.getElementById('more-books-button');
+        seeMoreBooks.style.display = "none";
+    }
 }
 
 function appendBookInfoToResultsArea(book){
