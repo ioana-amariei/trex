@@ -28,7 +28,7 @@ $articles = $articleFeed->search($filter);
 $result = ["articles" => $articles];
 
 header('Content-Type: application/json');
-http_response_code(400);
+http_response_code(200);
 echo json_encode($result);
 
 ?>
