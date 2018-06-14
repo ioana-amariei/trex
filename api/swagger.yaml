@@ -8,12 +8,10 @@ basePath: /trex/api
 tags:
 - name: "books"
   description: "Search for books"
-- name: "videos"
-  description: "Search for videos"
-- name: "presentations"
-  description: "Search for presentations"
 - name: "articles"
   description: "Search for articles"
+- name: "videos"
+  description: "Search for videos"
 schemes:
 - "http"
 paths:
