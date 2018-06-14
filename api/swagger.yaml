@@ -175,9 +175,9 @@ definitions:
         type: "object"
         properties:
             articles:
-                type: "object"
+                type: "array"
                 items:
-                    $red: "#/definitions/Resource"
+                    $ref: "#/definitions/Resource"
     VideosResponse:
         type: "object"
         properties:
