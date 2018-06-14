@@ -1,12 +1,14 @@
 /*  Resources:
     1. https://www.rss2json.com/
     2. https://www.developer.mozilla.org/en-US/docs/Web/Guide/Parsing_and_serializing_XML
+    3. https://css-tricks.com/snippets/css/complete-guide-grid/
+    4. https://css-tricks.com/snippets/javascript/get-url-and-url-parts-in-javascript/
 */
 
 // Test limited view api words: aaaaa || aaaa || aaa
-// TODO: Fix the responsive view
 
-var getCurrentURL = window.location.href;
+var pathArray = window.location.pathname.split('/');
+var getCurrentURL = window.location.protocol + "//" + window.location.host + "/" + pathArray[1];
 var displayType = 'grid-view';
 var feedStart = 0;
 var feedNext = 0;
@@ -53,7 +55,8 @@ function getDefaultRSS(requestedFeed) {
 }
 
 function getSearchUri() {
-    return getCurrentURL + "api/articles?" + getAllParams();
+    return getCurrentURL + "/api/articles?" + getAllParams();
+    // return "http://localhost:81/trex/api/articles?" + getAllParams();
 }
 
 function getAllParams() {
@@ -105,7 +108,6 @@ function displayArticles(reqRes, newReq) {
         FeedButtonDisplay("initial");
     }
 
-    console.log(articles.articles.length + " | " + feedNext + " | " + feedStart + " | " + newReq);
     for (index = 0; index < articles.articles.length; index++) {
         var article = articles.articles[index];
         appendArticleInfoToResultsArea(article);
@@ -194,38 +196,20 @@ function createArticlePostInfo(article) {
 
 function selectArticleDisplayType(displayTemp) {
     displayType = displayTemp;
-    var article = document.getElementsByClassName("articleNo");
-    var articleInfo = document.getElementsByClassName("articlePostInfo");
     var listView = document.getElementsByClassName("article-display-type")[0].children[0];
     var gridView = document.getElementsByClassName("article-display-type")[0].children[1];
     if (displayType == 'list-view') {
-        document.getElementById("display-art-results").style.gridTemplateColumns = "1fr";
+        document.getElementById("display-art-results").classList.remove("generatedElementsNoGrid");
+        document.getElementById("display-art-results").classList.remove("generatedElementsAGrid");
+        document.getElementById("display-art-results").classList.add("generatedElementsAList");
         listView.querySelector("img").src = "images/article/listview_active.svg";
         gridView.querySelector("img").src = "images/article/gridview_inactive.svg";
-        for (var index = 0; index < article.length; index++) {
-            var itemArticleInfoHeight = article[index].querySelector("div").offsetHeight;
-            article[index].querySelector("img").style.width = "370px";
-            article[index].querySelector("img").style.float = "left";
-            article[index].querySelector("p").style.display = "block";
-            article[index].querySelector("p").style.textAlign = "inherit";
-            article[index].querySelector("h3").style.paddingRight = "100px";
-            article[index].querySelector("h3").style.paddingLeft = "460px";
-            article[index].style.maxHeight = 298.11 + "px";
-        }
     } else {
-        document.getElementById("display-art-results").style.gridTemplateColumns = "repeat(3, 1fr)";
+        document.getElementById("display-art-results").classList.remove("generatedElementsNoGrid");
+        document.getElementById("display-art-results").classList.remove("generatedElementsAList");
+        document.getElementById("display-art-results").classList.add("generatedElementsAGrid");
         listView.querySelector("img").src = "images/article/listview_inactive.svg";
         gridView.querySelector("img").src = "images/article/gridview_active.svg";
-        for (var index = 0; index < article.length; index++) {
-            var itemArticleInfoHeight = article[index].querySelector("div").offsetHeight;
-            article[index].querySelector("img").style.width = "100%";
-            article[index].querySelector("img").style.float = "none";
-            article[index].querySelector("p").style.display = "none";
-            article[index].querySelector("p").style.textAlign = "justify";
-            article[index].querySelector("h3").style.paddingRight = "inherit";
-            article[index].querySelector("h3").style.paddingLeft = "inherit";
-            article[index].style.maxHeight = 384 + "px";
-        }
     }
 }
 
@@ -265,8 +249,9 @@ function helpMe(withThis) {
     }
     var articlePage = document.getElementById("articles").querySelector("section");
     articlePage.style.backgroundColor = "white";
-    articlePage.querySelector("div").style.backgroundColor = "white";
-    articlePage.querySelector("div").style.gridTemplateColumns = "1fr";
+    document.getElementById("display-art-results").classList.remove("generatedElementsAGrid");
+    document.getElementById("display-art-results").classList.remove("generatedElementsAList");
+    document.getElementById("display-art-results").classList.add("generatedElementsNoGrid");
 }
 
 function addGhost(mainContainer) {

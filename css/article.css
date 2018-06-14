@@ -25,11 +25,15 @@
   padding: 40px 0 10px 0;
 }
 
-#aSearchForm>div:nth-child(1) {
-  grid-area: 2/1/2/3;
+#aSearchForm div:nth-child(2) {
+  grid-area: 1/4/2/5;
 }
 
-#aSearchForm>div:nth-child(2) {
+#aSearchForm div:nth-child(3) {
+  grid-area: 2/1/2/5;
+}
+
+#aSearchForm div:nth-child(4) {
   grid-area: 2/3/2/5;
 }
 
@@ -589,6 +593,59 @@ keyframes active {
   float: right;
 }
 
+.generatedElementsNoGrid {
+    background-color: white !important;
+    grid-template-columns: 1fr !important;
+}
+
+.generatedElementsAList {
+  background-color: white !important;
+  grid-template-columns: 1fr !important;
+}
+
+.generatedElementsAList .articleNo {
+  max-height: 298.11px;
+}
+
+.generatedElementsAList .articleNo p {
+  display: block;
+  text-align: inherit;
+}
+
+.generatedElementsAList .articleNo h3 {
+  padding-right: 100px;
+  padding-left: 460px;
+}
+
+.generatedElementsAList .articleNo img {
+  float: left;
+  width: 370px;
+}
+
+.generatedElementsAGrid {
+  background-color: white !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.generatedElementsAGrid .articleNo {
+  max-height: 384px;
+}
+
+.generatedElementsAGrid .articleNo p {
+  display: none;
+  text-align: justify;
+}
+
+.generatedElementsAGrid .articleNo h3 {
+  padding-right: inherit;
+  padding-left: inherit;
+}
+
+.generatedElementsAGrid .articleNo img {
+  float: none;
+  width: 100%;
+}
+
 /*--------------------------------------------------------------
 If no grid support, limit width to 50em and center align
 --------------------------------------------------------------*/
@@ -606,7 +663,31 @@ Media Queries
 
 @supports (display: grid) {
   /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-  @media only screen and (min-width: 480px) and (max-width: 960px) {
+  @media only screen and (max-width: 1025px) {
+    .generatedElementsAList {
+      grid-gap: 30px;
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .generatedElementsAList .articleNo {
+      max-height: none;
+    }
+
+    .generatedElementsAList .articleNo p {
+      display: none;
+      text-align: justify;
+    }
+
+    .generatedElementsAList .articleNo h3 {
+      padding-right: inherit;
+      padding-left: inherit;
+    }
+
+    .generatedElementsAList .articleNo img {
+      float: none;
+      width: 100%;
+    }
+  }
+  @media only screen and (min-width: 650px) and (max-width: 960px) {
     #articles {
       grid-template-columns: auto;
     }
@@ -616,18 +697,23 @@ Media Queries
     #articles fieldset {
       padding-right: 20px;
     }
-    #articles section>div {
+    .generatedElementsAGrid {
       grid-gap: 30px;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .generatedElementsAGrid .articleNo {
+      max-height: none;
     }
     .articlePostInfo {
       width: 100%;
+      background-color: white;
+      text-align: center;
     }
     .articlePostInfo h3 {
-      font-size: 1.5em;
+      font-size: 1.3em;
     }
     .articlePostInfo h4 {
-      font-size: 1em;
+      font-size: .9em;
     }
     .articlePostMeta div:first-child {
       margin-left: 25px;
@@ -637,19 +723,33 @@ Media Queries
     }
   }
   /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-  @media only screen and (max-width: 479px) {
+  @media only screen and (max-width: 650px) {
     #articles section {
       border-top: 4px solid #ebebeb;
     }
+    .article-display-type {
+      display: none;
+    }
     #articles #aSearchForm {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
-      grid-template-areas: "afs" "ddl";
       padding-left: 20px;
       padding-right: 20px;
     }
     #articles fieldset {
+      grid-area: 1/1/2/5;
       height: 50px;
+    }
+    #articles #aSearchForm div:nth-child(2) {
+      grid-area: none;
+    }
+
+    #articles #aSearchForm div:nth-child(3) {
+      grid-area: 2/1/2/5;
+    }
+
+    #articles #aSearchForm div:nth-child(4) {
+      grid-area: 2/3/2/5;
     }
     #articles fieldset>input {
       padding-left: 50px;
@@ -680,7 +780,10 @@ Media Queries
       width: 100%;
     }
     #articles section>div {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+    .generatedElementsAGrid .articleNo {
+      max-height: none;
     }
     .articlePostInfo {
       width: 100%;

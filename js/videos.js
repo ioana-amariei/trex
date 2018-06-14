@@ -28,6 +28,8 @@ function displayVideos(){
         deleteGetMoreButton.parentNode.removeChild(deleteGetMoreButton);
         var deleteInitialImage = document.getElementById('initialImage');
         deleteInitialImage.parentNode.removeChild(deleteInitialImage);
+        var deleteInitialMessage = document.getElementById('initialMessage');
+        deleteInitialMessage.parentNode.removeChild(deleteInitialMessage);
     }
     else
     {
