@@ -63,7 +63,13 @@
 
 </head>
 
+<?php if(!isset($_SESSION['showPage'])): ?>
 <body>
+<?php else: ?>
+<body onload="showPage('<?php echo $_SESSION['showPage']?>')">
+<?php 
+unset($_SESSION['showPage']);
+endif; ?>
     <?php
         if(isset($_SESSION['notification']) && isset($_SESSION['notification_type'])) {
             echo "<div onClick='this.remove()' class='notification notification-".$_SESSION['notification_type']."'>".$_SESSION['notification']."</div>";
