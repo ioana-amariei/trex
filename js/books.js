@@ -84,7 +84,7 @@ function constructQueryParamsSection(){
     queryParams += "&from=" + fromYear;
     queryParams += "&to=" + toYear;
     queryParams += "&startIndex=" + bookDisplayInfo.numberOfDisplayedElements;
-    queryParams += "&maxResults=" + 10;
+    queryParams += "&maxResults=" + 40;
 
     return queryParams;
 }
