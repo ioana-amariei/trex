@@ -2,6 +2,13 @@
 
 require_once ('../controller/Articles.php');
 
+if(!isset($_GET['ti']) || !isset($_GET['sortBy']) || !isset($_GET['sortOrder']) ||
+    !isset($_GET['start']) || !isset($_GET['max_results'])) {
+        header('Content-Type: application/json');
+        http_response_code(400);
+        die();
+    }
+
 $terms = $_GET['ti'];
 $sortBy = $_GET['sortBy'];
 $sortOrder = $_GET['sortOrder'];
@@ -21,7 +28,7 @@ $articles = $articleFeed->search($filter);
 $result = ["articles" => $articles];
 
 header('Content-Type: application/json');
-http_response_code(200);
+http_response_code(400);
 echo json_encode($result);
 
 ?>
