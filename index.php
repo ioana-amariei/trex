@@ -189,33 +189,33 @@ endif; ?>
                     
                     <div class="col" id="col1">
                         <img src="images/videos/css.gif">
-                        <p class="randomVideoTitle">Loading...</p>
+                        <p class="randomVideoTitle">Advanced CSS and Sass: Flexbox, Grid</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
+                                <p>7 Sep</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>loading...</p>
+                                <p>James</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>CSS</p>
+                                <p>CSS/SASS</p>
                             </li>
                         </ul>
                     </div>
                     <div class="col" id="col2">
                         <img src="images/videos/html.gif">   
-                        <p class="randomVideoTitle">Loading...</p>
+                        <p class="randomVideoTitle">HTML and CSS for Beginners </p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
+                                <p>21 Feb</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>loading...</p>
+                                <p>Hank</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
@@ -225,73 +225,73 @@ endif; ?>
                     </div>
                     <div class="col" id="col3">
                         <img src="images/videos/js.gif"> 
-                        <p class="randomVideoTitle">Loading...</p>
+                        <p class="randomVideoTitle">Angular 6 (formerly Angular 2) - The Guide</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
+                                <p>1 Jan</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>loading</p>
+                                <p>Lucian</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>js</p>
+                                <p>JS/Angular</p>
                             </li>
                         </ul>
                     </div>
                     <div class="col" id="col4">
                         <img src="images/videos/java.gif"> 
-                        <p class="randomVideoTitle">Loading...</p>
+                        <p class="randomVideoTitle">Angular: Why TypeScript?</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
+                                <p>29 Jun</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>loading</p>
+                                <p>Maximilien</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>Java</p>
+                                <p>Typescript</p>
                             </li>
                         </ul>
                     </div>
                     <div class="col" id="col5">
                         <img src="images/videos/frontend.gif"> 
-                        <p class="randomVideoTitle">Loading...</p>
+                        <p class="randomVideoTitle">Learning Objective-C Programming</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
+                                <p>20 Sep</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>loading...</p>
+                                <p>Robert</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>FRONEND</p>
+                                <p>Objective-C</p>
                             </li>
                         </ul>
                     </div>
                     <div class="col" id="col6">
                         <img src="images/videos/backend.gif"> 
-                        <p class="randomVideoTitle">Loading...</p>
+                        <p class="randomVideoTitle">The Complete Machine Learning Course</p>
                         <ul>
                             <li>
                                 <div class="clock-h9m0 icon"></div>
-                                <p>loading...</p>
+                                <p>25 Oct</p>
                             </li>
                             <li>
                                 <div class="profile icon"></div>
-                                <p>loading...</p>
+                                <p>Alex</p>
                             </li>
                             <li>
                                 <div class="tag icon"></div>
-                                <p>BackEnd</p>
+                                <p>ML</p>
                             </li>
                         </ul>
                     </div>
@@ -554,8 +554,6 @@ endif; ?>
     	registerArticlesEventHandlers();
         registerVideoEventHandlers();
         getDefaultRSS();
-        displayDefaultVideoGrid();
-        //displayDefaultRandomVideos();
     </script>
 
 </body>
