@@ -91,10 +91,12 @@ definitions:
     BooksResponse:
         type: "object"
         properties:
-          books:
-            type: "array"
-            items:
-                $ref: "#/definitions/Resource"
+            totalItems:
+                type: "number"
+            books:
+                type: "array"
+                items:
+                    $ref: "#/definitions/Resource"
 externalDocs:
   description: "Find out more about Swagger"
   url: "http://swagger.io"
