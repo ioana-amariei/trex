@@ -18,7 +18,6 @@ class Books implements GenericResource {
 
         $books = isset($data['items']) ? $data['items'] : [];
         $bookResponse['books'] = $this->constructBooks($books, $filter);
-        // $bookResponse['totalItems'] = count($bookResponse['books']);
 
         return $bookResponse;
     }
