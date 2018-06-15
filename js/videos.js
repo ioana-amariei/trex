@@ -23,10 +23,7 @@ function displayVideos(){
         var eroare = document.createElement("h5");
         eroare.innerText = "Wrong parameters! Try Again";
         videoListDiv.appendChild(eroare);
-        var deleteInitialImage = document.getElementById('initialImage');
-        deleteInitialImage.parentNode.removeChild(deleteInitialImage);
-        var deleteInitialMessage = document.getElementById('initialMessage');
-        deleteInitialMessage.parentNode.removeChild(deleteInitialMessage);
+
     }
     else
     {
