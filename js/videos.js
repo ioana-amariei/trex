@@ -1,5 +1,6 @@
 itemsPerPage = 12;
 defaultItemsPerPage = 12;
+firstSearch = 0;
 
 function displayDefaultVideoGrid(){
     executeGetRequest("api/videos", displayVideos);
@@ -107,13 +108,17 @@ function SearchBarVideos(event){
 }
 
 function searchVideos(){
+
     var uriv = constructVideoRequest();
     executeGetRequest(uriv, displayVideos);
-
+    if(firstSearch == 0)
+    {
         var deleteInitialImage = document.getElementById('initialImage');
         deleteInitialImage.parentNode.removeChild(deleteInitialImage);
         var deleteInitialMessage = document.getElementById('initialMessage');
         deleteInitialMessage.parentNode.removeChild(deleteInitialMessage);
+        firstSearch =1;
+    }
 }
 
 function constructVideoRequest(){
