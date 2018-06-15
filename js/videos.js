@@ -20,7 +20,7 @@ function displayVideos(){
     if( videos.error !== undefined )
     {
         var eroare = document.createElement("h5");
-        eroare.innerText = "Eroare la search";
+        eroare.innerText = "Wrong parameters! Try Again";
         videoListDiv.appendChild(eroare);
         var deleteGetMoreButton = document.getElementById('more-videos');
         deleteGetMoreButton.parentNode.removeChild(deleteGetMoreButton);
@@ -43,6 +43,14 @@ function displayVideos(){
             var videoLink = videos.data[i].link;
             var description = videos.data[i].description;
             var timeInSeconds = videos.data[i].duration;
+            var minutes = Math.floor(timeInSeconds / 60);
+            var seconds = timeInSeconds - minutes * 60;
+            if(seconds>9){
+                var timeFinal = minutes + ":" + seconds;
+            }
+            else{
+                var timeFinal = minutes + ":0"+ seconds;
+            }
 
             var videoDiv = document.createElement("div");
             videoDiv.classList.add('video');
@@ -61,7 +69,7 @@ function displayVideos(){
             h5Time.classList.add("timercolor");
 
             a.appendChild(img);
-            h5Time.appendChild(document.createTextNode(timeInSeconds));
+            h5Time.appendChild(document.createTextNode(timeFinal));
 
             gifDiv.appendChild(a);
             gifDiv.appendChild(h5Time);
@@ -123,6 +131,7 @@ function registerVideoEventHandlers() {
 
     input.addEventListener('keydown', function (event) {
         handleEnterKeyForVideosSearchBar(event);
+        itemsPerPage = 12;
     });
 
     btnMore.addEventListener('click', function(event) {
