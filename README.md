@@ -1,4 +1,4 @@
-# Topic-based resource explorer
+# trex (Topic-based resource explorer)
 
 **`project, infoiasi, web`**
 
