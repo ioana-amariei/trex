@@ -2,7 +2,7 @@
 
 **`project, infoiasi, web`**
 
-The Web application is a tool for searching, aggregating, and viewing information regarding
+The TReX (Topic-based resource explorer) Web application is a tool for searching, aggregating, and viewing information regarding
 various media resources: articles, books, videos, and presentations. The user is able to retrieve
 information of interest using various filters. The application also exposes the information
 through an HTTP API for programmatic access. The application was developed by a team of
