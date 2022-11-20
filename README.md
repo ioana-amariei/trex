@@ -13,7 +13,7 @@ four. Technologies: PHP 5, JavaScript, HTML, CSS.
 
 ### User Guide 
 
-[Here](https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html)
+https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html
 
 ### Architecture
 
