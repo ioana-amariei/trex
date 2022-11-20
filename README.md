@@ -14,6 +14,8 @@ https://raw.githubusercontent.com/ioanabirsan/trex/c600758f652c348bd45ba1964d464
 
 <video src="https://raw.githubusercontent.com/ioanabirsan/trex/c600758f652c348bd45ba1964d464f89f921a1d2/docs/TReX%20-%20Topic-based%20Resource%20eXplorer.mp4">Test</video>
 
+[![TREX Video Demo](http://img.youtube.com/vi/ATb1b8zycVE/0.jpg)](http://www.youtube.com/watch?v=ATb1b8zycVE "Trex Video Demo")
+
 ### User Guide [Here](https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html)
 
 ### Architecture
