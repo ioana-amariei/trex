@@ -9,10 +9,10 @@ through an HTTP API for programmatic access. The application was developed by a 
 four. Technologies: PHP 5, JavaScript, HTML, CSS.
 
 ### Demo 
-Play the Demo:
-[![TREX Video Demo](https://user-images.githubusercontent.com/22713689/202920140-64c060b1-98c8-4464-9de5-8c685c1c2687.png =x500)](http://www.youtube.com/watch?v=ATb1b8zycVE "Trex Video Demo")
+[![TREX Video Demo](https://user-images.githubusercontent.com/22713689/202920140-64c060b1-98c8-4464-9de5-8c685c1c2687.png)](http://www.youtube.com/watch?v=ATb1b8zycVE "Trex Video Demo")
 
 ### User Guide 
+
 [Here](https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html)
 
 ### Architecture
