@@ -11,7 +11,7 @@ four. Technologies: PHP 5, JavaScript, HTML, CSS.
 ### Demo [Download](https://github.com/ioanabirsan/trex/blob/master/demo/TReX%20-%20Topic-based%20Resource%20eXplorer.mp4)
 Play the Demo:
 
-[![TREX Video Demo](![image](https://user-images.githubusercontent.com/22713689/202920140-64c060b1-98c8-4464-9de5-8c685c1c2687.png))](http://www.youtube.com/watch?v=ATb1b8zycVE "Trex Video Demo")
+[![TREX Video Demo](https://user-images.githubusercontent.com/22713689/202920140-64c060b1-98c8-4464-9de5-8c685c1c2687.png)](http://www.youtube.com/watch?v=ATb1b8zycVE "Trex Video Demo")
 
 ### User Guide [Here](https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html)
 
