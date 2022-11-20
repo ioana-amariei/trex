@@ -10,9 +10,12 @@ four. Technologies: PHP 5, JavaScript, HTML, CSS.
 
 ### Demo [Download](https://github.com/ioanabirsan/trex/blob/master/demo/TReX%20-%20Topic-based%20Resource%20eXplorer.mp4)
 Play the Demo:
-
+<video src="https://github.com/ioanabirsan/trex/blob/master/demo/TReX%20-%20Topic-based%20Resource%20eXplorer.mp4">Play the demo</video>
 
 ### User Guide [Here](https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html)
+
+### Architecture
+https://github.com/ioanabirsan/trex/blob/master/docs/TReX%20(Topic-based%20Resource%20eXplorer)%20%20Architecture.pdf
 
 ### Swagger Documentation
 https://generator.swagger.io/?url=https://raw.githubusercontent.com/ioanabirsan/trex/master/api/swagger.yaml
