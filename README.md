@@ -9,6 +9,8 @@ through an HTTP API for programmatic access. The application was developed by a 
 four. Technologies: PHP 5, JavaScript, HTML, CSS.
 
 ### Demo [Download](https://github.com/ioanabirsan/trex/blob/master/demo/TReX%20-%20Topic-based%20Resource%20eXplorer.mp4)
+Play the Demo:
+
 
 ### User Guide [Here](https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html)
 
