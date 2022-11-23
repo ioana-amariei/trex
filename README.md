@@ -1,7 +1,5 @@
 ### Introduction
 
-**`project, infoiasi, web`**
-
 The TReX (Topic-based resource explorer) Web application is a tool for searching, aggregating, and viewing information regarding
 various media resources: articles, books, videos, and presentations. The user is able to retrieve
 information of interest using various filters. The application also exposes the information
@@ -14,3 +12,5 @@ four. Technologies: PHP 5, JavaScript, HTML, CSS.
 
 ### Demo 
 [![TREX Video Demo](https://user-images.githubusercontent.com/22713689/202920140-64c060b1-98c8-4464-9de5-8c685c1c2687.png)](http://www.youtube.com/watch?v=ATb1b8zycVE "Trex Video Demo")
+
+**`project, infoiasi, web`**
