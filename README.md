@@ -1,10 +1,8 @@
 ### Introduction
 
-The TReX (Topic-based resource explorer) Web application is a tool for searching, aggregating, and viewing information regarding
-various media resources: articles, books, videos, and presentations. The user is able to retrieve
-information of interest using various filters. The application also exposes the information
-through an HTTP API for programmatic access. The application was developed by a team of
-four. Technologies: PHP 5, JavaScript, HTML, CSS.
+The Web application is a tool for searching, aggregating, and viewing information regarding various media resources: articles, books, videos, and presentations. The user is able to retrieve information of interest using various filters. The application also exposes the information through an HTTP API for programmatic access. The application was developed by a team of four.
+
+**Tech: PHP 5, JavaScript, HTML, CSS**
 
 - [Architecture](https://github.com/ioanabirsan/trex/blob/master/docs/TReX%20(Topic-based%20Resource%20eXplorer)%20%20Architecture.pdf)
 - [User Guide](https://github.com/ioanabirsan/trex/blob/master/user-guide-scholarly-html/index.html)
